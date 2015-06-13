@@ -14,15 +14,7 @@ footer(id: 'footer') {
                     }
                 }
             }
-            div(class: 'col-right') {
-                p {
-                    yield "The Groovy programming language"; br()
-                    yield "is supported by "; a(href: 'http://incubator.apache.org/projects/groovy.html', 'Apache Incubator'); br()
-                    yield "and the Groovy community"; br()
-                }
-                img(src: 'img/egg-logo.png', title: 'Apache Incubator', alt: 'Apache Incubator')
-            }
         }
-        div(class: 'clearfix', "&copy; 2003-${Calendar.instance[Calendar.YEAR]} the Groovy project &mdash; Groovy is Open Source, ${$a(href: 'http://www.apache.org/licenses/LICENSE-2.0.html', 'Apache 2 License')}")
+        div(class: 'clearfix', "&copy; 2012-${Calendar.instance[Calendar.YEAR]} SDKman/GVM is Open Source Software licensed under ${$a(href: 'http://www.apache.org/licenses/LICENSE-2.0.html', 'Apache 2')}")
     }
 }
