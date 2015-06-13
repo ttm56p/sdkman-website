@@ -31,5 +31,4 @@ layout 'layouts/main.groovy', true,
                     }
                 }
             }
-            include unescaped: 'html/they-use-groovy.html'
         }

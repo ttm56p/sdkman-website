@@ -122,19 +122,6 @@ a.navbar-brand {
     }
 }
 
-#they-use-groovy {
-    width: 100%;
-    height: 450px;
-    background-color: #db4800;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-#they-use-groovy .item {
-    text-align: center;
-    color: white;
-}
-
 #logos-holder {
     display: inline-block;
     padding: 0px;
@@ -157,19 +144,11 @@ a.navbar-brand {
     #logos-holder {
         width: 320px;
     }
-
-    #they-use-groovy {
-        height: 1130px;
-    }
 }
 
 @media (min-width: 475px) {
     #logos-holder {
         width: 420px;
-    }
-
-    #they-use-groovy {
-        height: 900px;
     }
 }
 
@@ -177,19 +156,11 @@ a.navbar-brand {
     #logos-holder {
         width: 630px;
     }
-
-    #they-use-groovy {
-        height: 600px;
-    }
 }
 
 @media (min-width: 1010px) {
     #logos-holder {
         width: 940px;
-    }
-
-    #they-use-groovy {
-        height: 450px;
     }
 }
 
