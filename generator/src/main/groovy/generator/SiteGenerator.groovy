@@ -99,13 +99,12 @@ class SiteGenerator {
         def cacheDir = new File(new File('build'), 'cache')
         cacheDir.mkdirs()
         println "Cache directory: $cacheDir"
-        def changelogs = ChangelogParser.fetchReleaseNotes(cacheDir);
 
         renderDocumentation()
 
-        renderPages(changelogs)
+        renderPages()
 
-        renderChangelogs(changelogs)
+        renderChangelogs()
 
         renderReleaseNotes()
 
@@ -130,7 +129,7 @@ class SiteGenerator {
         }
     }
 
-    private List<Page> renderPages(List<Changelog> changelogs) {
+    private List<Page> renderPages(List<Changelog> changelogs = []) {
         siteMap.pages.each { Page page ->
             println "Rendering individual page [$page.source]"
             if ('changelogs' == page.source) {
@@ -140,7 +139,7 @@ class SiteGenerator {
         }
     }
 
-    private List<Changelog> renderChangelogs(List<Changelog> changelogs) {
+    private List<Changelog> renderChangelogs(List<Changelog> changelogs = []) {
         changelogs.each {
             println "Rendering changelog for Groovy $it.groovyVersion"
             render 'changelog', "changelog-$it.groovyVersion", [groovyVersion: it.groovyVersion, issues: it.issues], 'changelogs'
