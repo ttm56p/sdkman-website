@@ -14,7 +14,7 @@ div(class: 'navbar navbar-default navbar-static-top', role: 'navigation') {
         }
         div(class: 'navbar-collapse collapse') {
             ul(class: 'nav navbar-nav navbar-right') {
-                menu['Groovy'].each { menuItem ->
+                menu['SDKman'].each { menuItem ->
                     li(class: category == menuItem.name ? 'active' : '') { a(href: relative(menuItem.link), menuItem.name) }
                 }
                 li {

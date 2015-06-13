@@ -1,32 +1,17 @@
 menu {
-    group('Groovy') {
-        item 'Learn',                       'learn.html'
-        item 'Documentation',               'documentation.html'
-        item 'Download',                    'download.html'
-        item 'Community',                   'community.html'
-        item 'Ecosystem',                   'ecosystem.html'
-    }
-
-    group('About') {
-        item 'Contributing',                'contribute.html'
-        item 'Source code',                 'https://github.com/apache/incubator-groovy'
-        item 'Build status',                'buildstatus.html'
-        item 'Books',                       'learn.html#books'
-        item 'Sponsors',                    'sponsors.html'
-        item 'FAQ',                         'faq.html'
-        item 'Search',                      'search.html'
+    group('SDKman') {
+        item 'Install',                     'install.html'
+        item 'Usage',                       'usage.html'
+        item 'Vendors',                     'vendors.html'
     }
 
     group('Socialize') {
-        item 'Discuss on the mailing-list', 'mailing-lists.html',                               'fa-envelope'
-        item 'Groovy Weekly newsletter',    'groovy-weekly.html',                               'fa-envelope-o'
-        item 'Groovy on Twitter',           'https://twitter.com/hashtag/groovylang',           'fa-twitter'
-        item 'Events and conferences',      'events.html',                                      'fa-calendar'
-        item 'Source code on GitHub',       'https://github.com/apache/incubator-groovy',            'fa-github'
-        item 'Report issues in Jira',       'contribute.html#reporting-issues',                 'fa-bug'
-        item 'Google+ Groovy Page',         'https://google.com/+groovy',                       'fa-google-plus'
-        item 'Google+ Groovy Community',    'http://bit.ly/g-community',                        'fa-google-plus'
-        item 'Stack Overflow questions',    'http://stackoverflow.com/questions/tagged/groovy', 'fa-stack-overflow'
+        item 'Discuss on the Nable forum',  'http://forum.gvmtool.net',                         'fa-envelope'
+        item 'SDKman on Twitter',           'https://twitter.com/sdkmanager',                   'fa-twitter'
+        item 'Source code on GitHub',       'https://github.com/sdkman',                        'fa-github'
+        item 'Report issues on GitHub',     'https://github.com/sdkman/sdkman-cli/issues',      'fa-bug'
+        item 'Google+ Groovy Page',         'plus.google.com/110870000286657737858',            'fa-google-plus'
+        item 'Stack Overflow questions',    'http://stackoverflow.com/questions/tagged/gvm',    'fa-stack-overflow'
     }
 }
 
