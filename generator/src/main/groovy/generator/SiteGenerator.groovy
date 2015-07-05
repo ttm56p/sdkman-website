@@ -5,16 +5,12 @@ import groovy.text.markup.TemplateConfiguration
 import groovy.transform.CompileStatic
 import model.Changelog
 import model.Page
-import model.Section
-import model.SectionItem
 import model.SiteMap
 
 import java.nio.file.FileSystems
 import java.nio.file.Path
 import java.nio.file.WatchEvent
 
-import static generator.DocumentationHTMLCleaner.cleanupPage
-import static generator.DocumentationHTMLCleaner.parsePage
 import static java.nio.file.StandardWatchEventKinds.*
 
 @CompileStatic
@@ -100,34 +96,12 @@ class SiteGenerator {
         cacheDir.mkdirs()
         println "Cache directory: $cacheDir"
 
-        renderDocumentation()
-
         renderPages()
-
-        renderChangelogs()
-
-        renderReleaseNotes()
-
-        renderWiki()
-
 
         long dur = System.currentTimeMillis() - sd
         println "Generated site into $outputDir in ${dur}ms"
     }
 
-    private List<Section> renderDocumentation() {
-        siteMap.documentationSections.each { Section section ->
-            section.items.each { SectionItem item ->
-                if (item.generate) {
-                    println "Generating documentation page [$item.name]"
-                    render 'docpage', item.targetFilename, [
-                            category: 'Learn',
-                            title   : item.name,
-                            page    : parsePage("${DocUtils.DOCS_BASEURL}/html/documentation/${item.sourceFilename}.html")]
-                }
-            }
-        }
-    }
 
     private List<Page> renderPages(List<Changelog> changelogs = []) {
         siteMap.pages.each { Page page ->
@@ -136,53 +110,6 @@ class SiteGenerator {
                 page.model.versions = changelogs.groovyVersion.sort(SEMANTIC_SORT)
             }
             render page.source, page.target, page.model
-        }
-    }
-
-    private List<Changelog> renderChangelogs(List<Changelog> changelogs = []) {
-        changelogs.each {
-            println "Rendering changelog for Groovy $it.groovyVersion"
-            render 'changelog', "changelog-$it.groovyVersion", [groovyVersion: it.groovyVersion, issues: it.issues], 'changelogs'
-        }
-    }
-
-    private void renderReleaseNotes() {
-        def releaseNotesVersions = new TreeSet<String>(new Comparator<String>() {
-            @Override
-            int compare(final String v1, final String v2) {
-                v2.toDouble() <=> v1.toDouble()
-            }
-        })
-        new File(sourcesDir, 'releasenotes').eachFile { File file ->
-            def name = file.name.substring(0, file.name.lastIndexOf('.adoc'))
-            def version = name - 'groovy-'
-            releaseNotesVersions << version
-            println "Rendering release notes for Groovy $version"
-            render 'release-notes', name, [notes: file.getText('utf-8'), groovyVersion: version], 'releasenotes'
-        }
-        render 'releases', 'releases', [versions: releaseNotesVersions]
-    }
-
-    private void renderWiki() {
-        def asciidoctor = AsciidoctorFactory.instance
-        println "Rendering wiki"
-
-        def wikiDir = new File(sourcesDir, "wiki")
-        wikiDir.eachFileRecurse { f->
-            if (f.name.endsWith('.adoc')) {
-                def header = asciidoctor.readDocumentHeader(f)
-                def bn = f.name.substring(0,f.name.lastIndexOf('.adoc'))
-                println "Rendering $header.documentTitle.main by ${header.author?.fullName}"
-                def relativePath = []
-                def p = f.parentFile
-                while (p!=wikiDir) {
-                    relativePath << p.name
-                    p = p.parentFile
-                }
-                String baseDir = relativePath?"wiki${File.separator}${relativePath.join(File.separator)}":'wiki'
-                render 'wiki', bn, [notes:f.getText('utf-8'), header: header], baseDir
-                println baseDir
-            }
         }
     }
 
