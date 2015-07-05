@@ -3,7 +3,6 @@ package generator
 import groovy.text.markup.MarkupTemplateEngine
 import groovy.text.markup.TemplateConfiguration
 import groovy.transform.CompileStatic
-import model.Changelog
 import model.Page
 import model.SiteMap
 
@@ -103,12 +102,9 @@ class SiteGenerator {
     }
 
 
-    private List<Page> renderPages(List<Changelog> changelogs = []) {
+    private List<Page> renderPages() {
         siteMap.pages.each { Page page ->
             println "Rendering individual page [$page.source]"
-            if ('changelogs' == page.source) {
-                page.model.versions = changelogs.groovyVersion.sort(SEMANTIC_SORT)
-            }
             render page.source, page.target, page.model
         }
     }
