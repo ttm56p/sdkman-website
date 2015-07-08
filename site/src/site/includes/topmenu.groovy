@@ -20,11 +20,6 @@ div(class: 'navbar navbar-default navbar-static-top', role: 'navigation') {
                 li {
                     a('data-effect': 'st-effect-9', class: 'st-trigger', href: '#', 'Socialize')
                 }
-                li(class: (category == 'Search') ? 'active' : '') {
-                    a(href: relative('search.html')) {
-                        i(class: 'fa fa-search') {}
-                    }
-                }
             }
         }
     }
