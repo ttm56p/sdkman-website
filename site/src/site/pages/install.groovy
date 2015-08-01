@@ -21,13 +21,40 @@ layout 'layouts/main.groovy', true,
                                     br()
                                     yield 'Simply open a new terminal and enter: '
                                 }
-                                pre { code '$ curl -s get.gvmtool.net | bash' }
+                                pre { code '$ curl -s get.sdkman.io | bash' }
                                 p {
                                     yield 'Follow the instructions on-screen to complete installation.'
                                     br()
                                     yield 'Next, open a new terminal or type the command:'
                                 }
-                                pre { code '$ source "$HOME/.gvm/bin/gvm-init.sh"' }
+                                pre { code '$ source "$HOME/.sdkman/bin/sdkman-init.sh"' }
+                                p 'Lastly, run the following code snippet to ensure that installation succeeded:'
+                                pre { code '$ sdk help' }
+                                p 'If all went well, you should see the something resembling:'
+                                pre { code '''
+Usage: sdk <command> <candidate> [version]
+       sdk offline <enable|disable>
+
+   commands:
+       install   or i    <candidate> [version]
+       uninstall or rm   <candidate> <version>
+       list      or ls   <candidate>
+       use       or u    <candidate> [version]
+       default   or d    <candidate> [version]
+       current   or c    [candidate]
+       outdated  or o    [candidate]
+       version   or v
+       broadcast or b
+       help      or h
+       offline           <enable|disable>
+       selfupdate        [force]
+       flush             <candidates|broadcast|archives|temp>
+
+   candidate  :  ....
+   version    :  where optional, defaults to latest stable if not provided
+
+eg: sdk install groovy''' }
+
                                 p 'That\'s all there is to it!'
                             }
                             hr(class: 'divider')
