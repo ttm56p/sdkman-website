@@ -9,6 +9,7 @@ import org.gradle.util.GFileUtils
 ext.watchmode = project.hasProperty('watchmode')?project.getProperty('watchmode'):'false'
 
 apply plugin: 'base'
+apply plugin: 'org.kordamp.gradle.livereload'
 
 task copyAssets(type:Copy) {
     from file('src/site/assets')
@@ -97,4 +98,8 @@ class CssFilter extends BaseFilterReader {
         super.close()
     }
 
+}
+
+liveReload {
+    docRoot 'build/site'
 }

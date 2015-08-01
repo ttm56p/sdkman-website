@@ -8,7 +8,6 @@ buildscript {
     }
 }
 
-allprojects {
-    apply plugin: 'idea'
+plugins {
+    id "org.kordamp.gradle.livereload" version "0.2.1"
 }
-
