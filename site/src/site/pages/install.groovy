@@ -15,9 +15,9 @@ layout 'layouts/main.groovy', true,
                             }
                             article {
                                 p {
-                                    yield '''Installing Software Development Kits (SDKs) on any UNIX-like platform
-                                             has never been easier. SDKman installs smoothly on Mac OSX, Linux, Cygwin,
-                                             Solaris and FreeBSD. We also support both Bash and ZSH.'''
+                                    yield '''Installing SDKman on UNIX-like platforms is as easy as ever.
+                                             SDKman installs smoothly on Mac OSX, Linux, Cygwin, 
+                                             Solaris and FreeBSD. We also support Bash and ZSH shells.'''
                                     br()
                                     yield 'Simply open a new terminal and enter: '
                                 }
