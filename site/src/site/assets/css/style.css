@@ -57,7 +57,7 @@ a.navbar-brand {
     color: white !important;
 }
 .navbar-nav>li>a:hover {
-    background-color: #db4800 !important;
+    background-color: #A80000 !important;
     color: white !important;
 }
 .navbar-nav>li>a {
@@ -67,7 +67,7 @@ a.navbar-brand {
     background-color: white;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #db4800;
+    background-color: #A80000;
 }
 
 @media (min-width: 768px) {
@@ -275,15 +275,15 @@ code, kbd, pre, samp {
     font-size: 30px;
     padding: 15px;
     margin: 10px 0px 10px 20px;
-    border: 2px solid #db4800;
+    border: 2px solid #A80000;
     border-radius: 6px;
-    background-color: #db4800;
+    background-color: #A80000;
     color: white;
 }
 
 #big-download-button:hover {
     background-color: #e6e6e6;
-    color: #db4800;
+    color: #A80000;
 }
 
 .colset-3-footer .col-1, .colset-3-footer .col-2, .colset-3-footer .col-3 {
@@ -328,12 +328,12 @@ body, html {
 }
 
 a {
-    color: #db4800;
+    color: #A80000;
     text-decoration: underline;
 }
 
 a:hover {
-    color: #db4800;
+    color: #A80000;
     text-decoration: none
 }
 
@@ -360,13 +360,13 @@ h4 {
 h5 {
     font-size: 1.125em;
     font-weight: bold;
-    color: #db4800;
+    color: #A80000;
 }
 
 h6 {
     font-size: 1.08em;
     font-weight: normal;
-    color: #db4800;
+    color: #A80000;
 }
 
 h7 {
@@ -448,7 +448,7 @@ h8 {
 }
 
 #footer .second a {
-    color: #db4800
+    color: #A80000
 }
 
 .row {
@@ -666,7 +666,7 @@ h8 {
 }
 
 #content .colset-3-article article .author a {
-    color: #db4800
+    color: #A80000
 }
 
 #content .colset-3-article article:first-child {
@@ -736,7 +736,7 @@ ul.nav-sidebar li a {
 
 ul.nav-sidebar li.active a:hover, ul.nav-sidebar li a:hover {
     color: white;
-    background-color: #db4800;
+    background-color: #A80000;
 }
 
 ul.nav-sidebar li.active a {
