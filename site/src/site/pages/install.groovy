@@ -7,7 +7,6 @@ layout 'layouts/main.groovy', true,
                         div(class: 'col-lg-3') {
                             include unescaped: 'html/twittersearch.html'
                         }
-
                         div(class: 'col-lg-8 col-lg-pull-0') {
                             h1 {
                                 i(class: 'fa fa-cloud-download') {}
@@ -25,39 +24,21 @@ layout 'layouts/main.groovy', true,
                                 p {
                                     yield 'Follow the instructions on-screen to complete installation.'
                                     br()
-                                    yield 'Next, open a new terminal or type the command:'
+                                    yield 'Next, open a new terminal '
+                                    b 'or'
+                                    yield ' enter:'
                                 }
                                 pre { code '$ source "$HOME/.sdkman/bin/sdkman-init.sh"' }
                                 p 'Lastly, run the following code snippet to ensure that installation succeeded:'
-                                pre { code '$ sdk help' }
-                                p 'If all went well, you should see the something resembling:'
-                                pre { code '''
-Usage: sdk <command> <candidate> [version]
-       sdk offline <enable|disable>
-
-   commands:
-       install   or i    <candidate> [version]
-       uninstall or rm   <candidate> <version>
-       list      or ls   <candidate>
-       use       or u    <candidate> [version]
-       default   or d    <candidate> [version]
-       current   or c    [candidate]
-       outdated  or o    [candidate]
-       version   or v
-       broadcast or b
-       help      or h
-       offline           <enable|disable>
-       selfupdate        [force]
-       flush             <candidates|broadcast|archives|temp>
-
-   candidate  :  ....
-   version    :  where optional, defaults to latest stable if not provided
-
-eg: sdk install groovy''' }
-
-                                p 'That\'s all there is to it!'
+                                pre { code '$ sdk version' }
+                                p 'If all went well, you should see the version information:'
+                                pre { code 'SDKman 2.4.2' }
+                                p {
+                                    yield 'That\'s all there is to it! Next we will look at '
+                                    a(href: "/usage.html", 'Usage')
+                                    yield '.'
+                                }
                             }
-                            hr(class: 'divider')
                         }
                     }
                 }
