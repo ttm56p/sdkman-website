@@ -1,5 +1,5 @@
 layout 'layouts/main.groovy', true,
-        pageTitle: 'Installation - SDKman',
+        pageTitle: 'Installation - sdkman',
         mainContent: contents {
             div(id: 'content', class: 'page-1') {
                 div(class: 'row') {
@@ -14,8 +14,8 @@ layout 'layouts/main.groovy', true,
                             }
                             article {
                                 p {
-                                    yield '''Installing SDKman on UNIX-like platforms is as easy as ever.
-                                             SDKman installs smoothly on Mac OSX, Linux, Cygwin, 
+                                    yield '''Installing sdkman on UNIX-like platforms is as easy as ever.
+                                             sdkman installs smoothly on Mac OSX, Linux, Cygwin,
                                              Solaris and FreeBSD. We also support Bash and ZSH shells.'''
                                     br()
                                     yield 'Simply open a new terminal and enter: '
@@ -32,7 +32,7 @@ layout 'layouts/main.groovy', true,
                                 p 'Lastly, run the following code snippet to ensure that installation succeeded:'
                                 pre { code '$ sdk version' }
                                 p 'If all went well, you should see the version information:'
-                                pre { code 'SDKman 2.4.2' }
+                                pre { code 'sdkman 2.4.2' }
                                 p {
                                     yield 'That\'s all there is to it! Next we will look at '
                                     a(href: "/usage.html", 'Usage')

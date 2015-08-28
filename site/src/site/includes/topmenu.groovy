@@ -9,12 +9,12 @@ div(class: 'navbar navbar-default navbar-static-top', role: 'navigation') {
             }
             a(class: 'navbar-brand', href: relative('index.html')) {
                 i(class: 'fa fa-star') {}
-                yield ' SDKman'
+                yield ' sdkman'
             }
         }
         div(class: 'navbar-collapse collapse') {
             ul(class: 'nav navbar-nav navbar-right') {
-                menu['SDKman'].each { menuItem ->
+                menu['sdkman'].each { menuItem ->
                     li(class: category == menuItem.name ? 'active' : '') { a(href: relative(menuItem.link), menuItem.name) }
                 }
                 li {

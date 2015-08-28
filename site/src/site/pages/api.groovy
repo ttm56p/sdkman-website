@@ -1,5 +1,5 @@
 layout 'layouts/main.groovy', true,
-        pageTitle: 'API - SDKman',
+        pageTitle: 'API - sdkman',
         mainContent: contents {
                 div(id: 'band', class: 'band') {
 

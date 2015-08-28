@@ -1,5 +1,5 @@
 layout 'layouts/main.groovy', true,
-        pageTitle: 'SDKman the Software Development Kit Manager',
+        pageTitle: 'sdkman the Software Development Kit Manager',
         mainContent: contents {
             div(id: 'band', class: 'band') {
 

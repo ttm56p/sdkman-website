@@ -1,8 +1,8 @@
-= SDKman website
+= sdkman website
 
-== Sources for the SDKman website
+== Sources for the sdkman website
 
-This project builds the SDKman website. It is using {gradle}[Gradle] and is fully statically generated.
+This project builds the sdkman website. It is using {gradle}[Gradle] and is fully statically generated.
 
 == Generating the site
 
@@ -44,4 +44,4 @@ build.gradle                    : website weaving logic
 
 == License
 
-SDKman is licensed under the terms of the http://www.apache.org/licenses/LICENSE-2.0.html[Apache License, Version 2.0]
+sdkman is licensed under the terms of the http://www.apache.org/licenses/LICENSE-2.0.html[Apache License, Version 2.0]
