@@ -101,5 +101,5 @@ class CssFilter extends BaseFilterReader {
 }
 
 liveReload {
-    docRoot 'build/site'
+    docRoot "$buildDir/site"
 }
