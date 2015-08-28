@@ -32,11 +32,29 @@ layout 'layouts/main.groovy', true,
                                 p 'Lastly, run the following code snippet to ensure that installation succeeded:'
                                 pre { code '$ sdk version' }
                                 p 'If all went well, you should see the version information:'
-                                pre { code 'sdkman 2.4.2' }
+                                pre { code '  sdkman 2.4.3' }
                                 p {
                                     yield 'That\'s all there is to it! Next we will look at '
                                     a(href: "/usage.html", 'Usage')
                                     yield '.'
+                                }
+                            }
+
+                            article {
+                                h3 {
+                                    yield 'Installing to a Custom Location'
+                                }
+                                p {
+                                    yield 'It is possible to install sdkman to a custom location other than '
+                                    code '$HOME/.gvm'
+                                    yield '. This can be achieved by exporting your custom location as '
+                                    code 'GVM_DIR'
+                                    yield ' prior to installing.'
+                                    br()
+                                    yield 'Simply open a new terminal and enter:'
+                                    pre { code '$ export GVM_DIR="/usr/local/sdkman" && curl -s get.sdkman.io | bash' }
+                                    yield 'For this to work it is vital that your user has full access rights to this folder.'
+                                    yield 'It is also important that the folder does not exist as sdkman will attempt to create it.'
                                 }
                             }
                         }
