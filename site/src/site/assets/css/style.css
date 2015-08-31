@@ -90,11 +90,11 @@ a.navbar-brand {
 
 #band {
     background: #ffffff no-repeat 50% 30%;
-    height: 400px;
+    height: 340px;
 }
 
 .svg #band {
-    background-image: url(../img/sdkman.svg);
+    background-image: url(../img/sdkman.png);
 }
 
 .no-svg #band {
