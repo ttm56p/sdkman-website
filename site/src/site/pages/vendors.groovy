@@ -169,28 +169,3 @@ curl -X POST \\
                 }
             }
         }
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Final Thoughts
-
-Please feel free to leave any comment below. We would love to hear how the release process can be made easier for our Vendors. We would also like to know if additional endpoints are required, as well as other mechanisms for publishing.
-*/       

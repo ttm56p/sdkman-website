@@ -46,13 +46,13 @@ layout 'layouts/main.groovy', true,
                                 }
                                 p {
                                     yield 'It is possible to install sdkman to a custom location other than '
-                                    code '$HOME/.gvm'
+                                    code '$HOME/.sdkman'
                                     yield '. This can be achieved by exporting your custom location as '
-                                    code 'GVM_DIR'
+                                    code 'SDKMAN_DIR'
                                     yield ' prior to installing.'
                                     br()
                                     yield 'Simply open a new terminal and enter:'
-                                    pre { code '$ export GVM_DIR="/usr/local/sdkman" && curl -s get.sdkman.io | bash' }
+                                    pre { code '$ export SDKMAN_DIR="/usr/local/sdkman" && curl -s get.sdkman.io | bash' }
                                     yield 'For this to work it is vital that your user has full access rights to this folder.'
                                     yield 'It is also important that the folder does not exist as sdkman will attempt to create it.'
                                 }
