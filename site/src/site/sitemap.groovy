@@ -2,7 +2,7 @@ menu {
     group('sdkman') {
         item 'Install',                     'install.html'
         item 'Usage',                       'usage.html'
-        item 'API',                         'api.html'
+//        item 'API',                         'api.html'
         item 'Vendors',                     'vendors.html'
     }
 
@@ -20,7 +20,7 @@ pages {
     page 'index', 'index'
     page 'install', 'install'
     page 'usage', 'usage'
-    page 'api', 'api'
+//    page 'api', 'api'
     page 'vendors', 'vendors'
     page '404','404', [:]
 }
