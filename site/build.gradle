@@ -47,7 +47,7 @@ task webzip(type:Zip, dependsOn: generateSite) {
     description = "Creates a zip with the generated website and the deadlink report"
     destinationDir = file("$buildDir/distributions")
 
-    baseName = 'groovy'
+    baseName = 'sdkman'
     appendix = 'website'
     from(generateSite.outputDir) {
         into 'site'
