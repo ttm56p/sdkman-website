@@ -1,5 +1,5 @@
 article {
-    h3 { yield 'Installing an SDK'}
+    h2 { yield 'Installing an SDK'}
     a(name: 'installdefault'){}
     h4 { yield 'Latest Stable' }
     p {
@@ -41,3 +41,4 @@ Done installing!
         yield 'All subsequent steps same as above.'
     }
 }
+br()

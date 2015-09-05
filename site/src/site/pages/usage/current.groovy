@@ -1,6 +1,6 @@
 article {
     a(name: 'current'){}
-    h3 { yield 'Current Version(s)' }
+    h2 { yield 'Current Version(s)' }
     p {
         yield 'To see what is currently in use for a Candidate:'
         pre { code '''
@@ -19,3 +19,4 @@ $ sdk current
 
     }
 }
+br()

@@ -1,6 +1,6 @@
 article {
     a(name: 'list'){}
-    h3 { yield 'List Version' }
+    h2 { yield 'List Version' }
     p {
         yield 'To get a listing of what is available, installed and selected:'
         pre { code '$ sdk list groovy' }
@@ -34,3 +34,4 @@ Available Groovy Versions
         }
     }
 }
+br()

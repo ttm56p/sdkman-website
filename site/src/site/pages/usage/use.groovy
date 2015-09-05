@@ -1,6 +1,6 @@
 article {
     a(name: 'use'){}
-    h3 { yield 'Use Version' }
+    h2 { yield 'Use Version' }
     p {
         yield 'Choose to use a given version in the current terminal:'
         pre { code '$ sdk use scala 2.11.6' }
@@ -11,3 +11,4 @@ article {
         yield ' command instead.'
     }
 }
+br()

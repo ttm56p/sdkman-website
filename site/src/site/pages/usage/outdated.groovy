@@ -1,6 +1,6 @@
 article {
     a(name: 'outdated'){}
-    h3 { yield 'Outdated Version(s)' }
+    h2 { yield 'Outdated Version(s)' }
     p {
         yield 'To see what is currently out of date for a Candidate on your system:'
         pre { code '''
@@ -20,3 +20,4 @@ $ sdk outdated
 '''     }
     }
 }
+br()

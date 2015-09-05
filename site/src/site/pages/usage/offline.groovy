@@ -1,6 +1,6 @@
 article {
     a(name: 'offline'){}
-    h3 { yield 'Offline Mode' }
+    h2 { yield 'Offline Mode' }
     p {
         yield 'Initially called '
         em 'Aeroplane Mode'
@@ -39,3 +39,4 @@ $ sdk offline enable
         yield 'will not function but give a warning.'
     }
 }
+br()

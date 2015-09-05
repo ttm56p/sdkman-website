@@ -1,6 +1,6 @@
 article {
     a(name: 'flush'){}
-    h3 { yield 'Flush' }
+    h2 { yield 'Flush' }
     p {
         yield "From time to time it may be necessary to flush sdkman's local state."
         yield "The flush command helps with this and allows for the following to be performed:"
@@ -28,3 +28,4 @@ article {
 
     }
 }
+br()

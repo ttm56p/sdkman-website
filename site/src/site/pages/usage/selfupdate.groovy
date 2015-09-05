@@ -1,6 +1,6 @@
 article {
     a(name: 'selfupdate'){}
-    h3 { yield 'Self-Update' }
+    h2 { yield 'Self-Update' }
     p {
         yield 'Installs a new version of sdkman if available.'
         pre { code '$ sdk selfupdate' }
@@ -10,3 +10,4 @@ article {
         yield 'Automatic daily checks for new versions of sdkman will also be performed on the behalf of the user.'
     }
 }
+br()

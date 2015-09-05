@@ -1,6 +1,6 @@
 article {
     a(name: 'broadcast'){}
-    h3 { yield 'Broadcast Messages' }
+    h2 { yield 'Broadcast Messages' }
     p {
         yield 'Get the latest SDK release notifications on the command line:'
         pre { code '''
@@ -16,3 +16,4 @@ $ sdk broadcast
                                              Every new broadcast is also pushed to Twitter.'''
     }
 }
+br()
