@@ -42,7 +42,7 @@ pre {
     text-decoration: none;
 }
 .navbar-default, .navbar-static-top {
-    background-color: #003388;
+    background-color: #0076C6;
     border: 0px;
 }
 a.navbar-brand {
@@ -57,7 +57,7 @@ a.navbar-brand {
     color: white !important;
 }
 .navbar-nav>li>a:hover {
-    background-color: #A80000 !important;
+    background-color: #fb2127 !important;
     color: white !important;
 }
 .navbar-nav>li>a {
@@ -67,7 +67,7 @@ a.navbar-brand {
     background-color: white;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #A80000;
+    background-color: #fb2127;
 }
 
 @media (min-width: 768px) {
@@ -275,15 +275,15 @@ code, kbd, pre, samp {
     font-size: 30px;
     padding: 15px;
     margin: 10px 0px 10px 20px;
-    border: 2px solid #A80000;
+    border: 2px solid #fb2127;
     border-radius: 6px;
-    background-color: #A80000;
+    background-color: #fb2127;
     color: white;
 }
 
 #big-download-button:hover {
     background-color: #e6e6e6;
-    color: #A80000;
+    color: #fb2127;
 }
 
 .colset-3-footer .col-1, .colset-3-footer .col-2, .colset-3-footer .col-3 {
@@ -328,12 +328,12 @@ body, html {
 }
 
 a {
-    color: #A80000;
+    color: #fb2127;
     text-decoration: underline;
 }
 
 a:hover {
-    color: #A80000;
+    color: #fb2127;
     text-decoration: none
 }
 
@@ -360,13 +360,13 @@ h4 {
 h5 {
     font-size: 1.125em;
     font-weight: bold;
-    color: #A80000;
+    color: #fb2127;
 }
 
 h6 {
     font-size: 1.08em;
     font-weight: normal;
-    color: #A80000;
+    color: #fb2127;
 }
 
 h7 {
@@ -448,7 +448,7 @@ h8 {
 }
 
 #footer .second a {
-    color: #A80000
+    color: #fb2127
 }
 
 .row {
@@ -666,7 +666,7 @@ h8 {
 }
 
 #content .colset-3-article article .author a {
-    color: #A80000
+    color: #fb2127
 }
 
 #content .colset-3-article article:first-child {
@@ -736,7 +736,7 @@ ul.nav-sidebar li a {
 
 ul.nav-sidebar li.active a:hover, ul.nav-sidebar li a:hover {
     color: white;
-    background-color: #A80000;
+    background-color: #fb2127;
 }
 
 ul.nav-sidebar li.active a {
