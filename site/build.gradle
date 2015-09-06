@@ -50,7 +50,7 @@ task webzip(type:Zip, dependsOn: generateSite) {
     baseName = 'sdkman'
     appendix = 'website'
     from(generateSite.outputDir) {
-        into 'site'
+        into '.'
     }
 }
 
