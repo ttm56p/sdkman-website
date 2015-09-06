@@ -94,11 +94,11 @@ a.navbar-brand {
 }
 
 .svg #band {
-    background-image: url(../img/logo-sdkman.png);
+    background-image: url(../img/bubble-logo-sdkman-groovy-color.svg);
 }
 
 .no-svg #band {
-    background-image: url(../img/logo-sdkman.png);
+    background-image: url(../img/bubble-logo-sdkman-groovy-color.png);
 }
 
 #main-paragraph {
