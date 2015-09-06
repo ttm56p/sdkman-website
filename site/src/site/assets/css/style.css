@@ -37,13 +37,13 @@ pre {
     margin: 10px;
 }
 .navbar-default a {
-    color: #c0d3db !important;
+    color: #fff !important;
     font-size: 18px !important;
     text-decoration: none;
 }
 .navbar-default, .navbar-static-top {
-    background-color: #0076C6;
-    border: 0px;
+    background-color: #003388;
+    border-bottom: 5px solid #000;
 }
 a.navbar-brand {
     color: white !important;
@@ -61,7 +61,7 @@ a.navbar-brand {
     color: white !important;
 }
 .navbar-nav>li>a {
-    color: #c0d3db;
+    color: #fff;
 }
 .navbar-default .navbar-toggle .icon-bar {
     background-color: white;
@@ -94,31 +94,36 @@ a.navbar-brand {
 }
 
 .svg #band {
-    background-image: url(../img/sdkman.png);
+    background-image: url(../img/logo-sdkman.png);
 }
 
 .no-svg #band {
-    background-image: url(../img/sdkman.png);
+    background-image: url(../img/logo-sdkman.png);
+}
+
+#main-paragraph {
+    max-width: 1000px;
+    margin: 10px auto;
 }
 
 @media (max-width: 1010px) {
     #band {
-        background-size: 90%;
-        height: 300px;
+        background-size: 68%;
+        height: 366px;
     }
 }
 
 @media (max-width: 690px) {
     #band {
         background-size: 80%;
-        height: 200px;
+        height: 255px;
     }
 }
 
 @media (max-width: 475px) {
     #band {
         background-size: 70%;
-        height: 100px;
+        height: 155px;
     }
 }
 
@@ -470,7 +475,7 @@ h8 {
 .band {
     background: #4298b8;
     height: 400px;
-    margin-bottom: 20px;
+    margin: 50px 0 10px 0;
     color: white
 }
 
@@ -574,7 +579,7 @@ h8 {
     display: block;
     width: 80px;
     height: 80px;
-    background-image: url(../img/icons-colset-2-its-navy.png);
+    background-image: url(../img/icons-comic-colset.png);
     float: left;
     margin-top: 12px;
     margin-right: 15px
@@ -740,7 +745,7 @@ ul.nav-sidebar li.active a:hover, ul.nav-sidebar li a:hover {
 }
 
 ul.nav-sidebar li.active a {
-    background-color: #f2f2f2
+    background-color: #fb2127
 }
 
 .table {
