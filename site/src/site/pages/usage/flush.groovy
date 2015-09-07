@@ -18,10 +18,6 @@ article {
         pre { code '$ sdk flush archives' }
         yield 'Cleans the cache containing all downloaded SDK binaries. This can take up a lot of space so is worth clearing out from time to time!'
 
-        h4 { yield 'Archives' }
-        pre { code '$ sdk flush archives' }
-        yield 'Cleans the cache containing all downloaded sdk binaries. This can take up a lot of space so is worth clearing out from time to time!'
-
         h4 { yield 'Temporary Folder' }
         pre { code '$ sdk flush temp' }
         yield 'Clears out the staging work folder used when installing new versions of candidates and sdkman itself.'
