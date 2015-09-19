@@ -2,7 +2,7 @@
 
 == Sources for the static generation of the website
 
-This project builds the SDKMAN! website. It is using {gradle}[Gradle] and is statically generated.
+This project builds the SDKMAN! website. It builds with Gradle and is statically generated.
 
 https://codeship.com/projects/102978[image:https://codeship.com/projects/f086f5e0-3f04-0133-413b-2edfe7d39107/status?branch=master[Codeship Status for sdkman/sdkman-website]]
 
