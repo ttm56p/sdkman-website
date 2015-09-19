@@ -1,5 +1,5 @@
 #!/bin/bash
-./gradlew clean generateSite
+./gradlew clean generateSite --quiet
 cd site/build/site
 git config --global user.email "build@example.org"
 git config --global user.name "Codeship Build"
