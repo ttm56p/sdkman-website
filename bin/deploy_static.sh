@@ -1,8 +1,8 @@
 #!/bin/bash
 ./gradlew clean generateSite
 cd site/build/site
-git config user.email "build@example.org"
-git config user.name "Codeship Build"
+git config --global user.email "build@example.org"
+git config --global user.name "Codeship Build"
 git init
 git add --all
 git commit -m 'Committed on CI.'
