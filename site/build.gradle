@@ -22,10 +22,15 @@ task copyAssets(type:Copy) {
     }
 }
 
+task copyCname(type:Copy) {
+    from file('src/site/CNAME')
+    into file("$buildDir/site")
+}
+
 task generateSite(type:JavaExec) {
 
     description = 'Generates the Groovy Website'
-    dependsOn copyAssets
+    dependsOn copyAssets, copyCname
 
     ext.sources = file('src/site')
     ext.outputDir = file("$buildDir/site")
