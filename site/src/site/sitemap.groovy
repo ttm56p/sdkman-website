@@ -7,12 +7,11 @@ menu {
     }
 
     group('Socialize') {
-        item 'Discuss on the Nable forum',  'http://forum.gvmtool.net',                         'fa-envelope'
+        item 'Discuss on Gitter',           'http://gitter.im/sdkman//user-issues',             'fa-envelope'
         item 'sdkman on Twitter',           'https://twitter.com/sdkmanager',                   'fa-twitter'
         item 'Source code on GitHub',       'https://github.com/sdkman',                        'fa-github'
         item 'Report issues on GitHub',     'https://github.com/sdkman/sdkman-cli/issues',      'fa-bug'
-        item 'Google+ Groovy Page',         'plus.google.com/110870000286657737858',            'fa-google-plus'
-        item 'Stack Overflow questions',    'http://stackoverflow.com/questions/tagged/gvm',    'fa-stack-overflow'
+        item 'Stack Overflow questions',    'http://stackoverflow.com/questions/tagged/sdkman', 'fa-stack-overflow'
     }
 }
 
