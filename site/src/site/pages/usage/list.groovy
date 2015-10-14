@@ -1,8 +1,47 @@
 article {
-    a(name: 'list'){}
-    h2 { yield 'List Version' }
+    a(name: 'listcandidates'){}
+    h2 { yield 'List Candidates' }
     p {
-        yield 'To get a listing of what is available, installed and selected:'
+        yield 'To get a listing of available Candidates:'
+        pre { code '$ sdk list' }
+        yield 'This will render a searchable alphabetic list with name, current stable default version, website URL, description and easy install command for each Candidate. The output is piped to '
+        code 'less'
+        yield ' so standard keyboard shortcuts may be used with '
+        code 'q'
+        yield ' to exit.'
+        pre { code '''
+================================================================================
+Available Candidates
+================================================================================
+q-quit                                  /-search down
+j-down                                  ?-search up
+k-up                                    h-help
+--------------------------------------------------------------------------------
+Groovy (2.4.5)                                       http://www.groovy-lang.org/
+
+Groovy is a powerful, optionally typed and dynamic language, with static-typing
+and static compilation capabilities, for the Java platform aimed at multiplying
+developers’ productivity thanks to a concise, familiar and easy to learn syntax.
+It integrates smoothly with any Java program, and immediately delivers to your
+application powerful features, including scripting capabilities, Domain-Specific
+Language authoring, runtime and compile-time meta-programming and functional
+programming.
+
+                                                            $ sdk install groovy
+--------------------------------------------------------------------------------
+Scala (2.11.7)                                        http://www.scala-lang.org/
+...
+'''
+        }
+    }
+}
+br()
+
+article {
+    a(name: 'listversions'){}
+    h2 { yield 'List Versions' }
+    p {
+        yield 'To get a listing of Candidate Versions:'
         pre { code '$ sdk list groovy' }
         yield 'This will result in a list view showing the available, local, installed and current versions of the SDK.'
         pre { code '''

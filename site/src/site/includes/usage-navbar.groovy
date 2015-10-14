@@ -3,7 +3,8 @@ ul(class: 'nav-sidebar') {
     li { a(href: '#installdefault', class: 'anchor-link', 'Install Latest Stable') }
     li { a(href: '#installspecific', class: 'anchor-link', 'Install Specific Version') }
     li { a(href: '#remove', class: 'anchor-link', 'Remove Version') }
-    li { a(href: '#list', class: 'anchor-link', 'List Versions') }
+    li { a(href: '#listcandidates', class: 'anchor-link', 'List Candidates') }
+    li { a(href: '#listversions', class: 'anchor-link', 'List Versions') }
     li { a(href: '#use', class: 'anchor-link', 'Use Version') }
     li { a(href: '#default', class: 'anchor-link', 'Default Version') }
     li { a(href: '#current', class: 'anchor-link', 'Current Version') }
