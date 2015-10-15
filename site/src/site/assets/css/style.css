@@ -43,7 +43,7 @@ pre {
 }
 .navbar-default, .navbar-static-top {
     background-color: #0076C6;
-    border-bottom: 3px solid #000;
+    border-bottom: 5px solid #000;
 }
 a.navbar-brand {
     color: white !important;
