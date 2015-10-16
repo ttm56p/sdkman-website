@@ -74,7 +74,7 @@ curl -X POST \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "groovy", "version": "2.4.2", "url": "http://dl.bintray.com/groovy/maven/groovy-binary-2.4.2.zip"}' \\
-    https://gvm-vendor.herokuapp.com/release
+    https://vendor.sdkman.io/release
                                         '''
                                     }
                                 }
@@ -91,7 +91,7 @@ curl -X PUT \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "groovy", "default": "2.3.8"}' \\
-    https://gvm-vendor.herokuapp.com/default
+    https://vendor.sdkman.io/default
                                         '''
                                     }
                                 }
@@ -112,7 +112,7 @@ curl -X POST \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "grails", "version": "3.0.0", "hashtag": "grailsfw"}' \\
-    https://gvm-vendor.herokuapp.com/announce/struct
+    https://vendor.sdkman.io/announce/struct
                                         '''
                                     }
                                 }
