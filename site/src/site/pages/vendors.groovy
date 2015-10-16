@@ -99,8 +99,8 @@ curl -X PUT \\
 
                                 p {
                                     h4 { yield 'Broadcast a Structured Message' }
-                                    yield 'This will result in a structured message announcement on social media and GVM CLI. The result will look something like: '
-                                    code 'Grails 3.0.0 has been released on GVM. #grailsfw'
+                                    yield 'This will result in a structured message announcement on social media and sdkman CLI. The result will look something like: '
+                                    code 'Grails 3.0.0 has been released on SDKMAN! #grailsfw'
                                     yield'. This message will be announced to the broadcast channel of sdkman CLI, as well as on the '
                                     a(href: 'https://www.twitter.com/sdkmanager', '@sdkmanager')
                                     yield ' Twitter feed.'
@@ -128,8 +128,8 @@ curl -X POST \\
     -H "consumer_token: CONSUMER_TOKEN" \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
-    -d '{"text": "GVM 2.4.0 rolling out. Broadcast and Offline checks optimised."}' \\
-    https://gvm-vendor.herokuapp.com/announce/freeform
+    -d '{"text": "SDKMAN! 2.4.0 rolling out. Broadcast and Offline checks optimised."}' \\
+    https://vendor.sdkman.io/announce/freeform
                                         '''
                                     }
                                 }
