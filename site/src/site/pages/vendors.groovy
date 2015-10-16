@@ -160,7 +160,7 @@ curl -X POST \\
                                         }
                                     }
                                     yield 'For more details of about this plugin, as well as how to configure it, please refer to the '
-                                    a(href: 'https://github.com/gvmtool/gradle-sdkvendor-plugin', 'Github Page')
+                                    a(href: 'https://github.com/sdkman/gradle-sdkvendor-plugin', 'Github Page')
                                     yield ' for the project.'
                                 }
                             }
