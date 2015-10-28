@@ -67,13 +67,19 @@ body {
     }
 
     def scripts = extraScripts ?: []
-    ['vendor/jquery-1.10.2.min.js', 'vendor/classie.js', 'vendor/bootstrap.js', 'vendor/sidebarEffects.js', 'vendor/modernizr-2.6.2.min.js','plugins.js', *scripts].each {
+    ['vendor/jquery-1.10.2.min.js', 'vendor/classie.js', 'vendor/bootstrap.js', 'vendor/sidebarEffects.js', 'vendor/modernizr-2.6.2.min.js','plugins.js', 'https://sidecar.gitter.im/dist/sidecar.v1.js', *scripts].each {
         yieldUnescaped "<script src='${it.startsWith('http')?it:relative('js/'+it)}' defer></script>"
     }
 
     if (extraFooter) {
         extraFooter()
     }
+
+    script '''
+        ((window.gitter = {}).chat = {}).options = {
+          room: 'sdkman/user-issues'
+        };
+    '''
 
     script '''
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
