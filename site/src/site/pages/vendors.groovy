@@ -74,7 +74,7 @@ curl -X POST \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "groovy", "version": "2.4.2", "url": "http://dl.bintray.com/groovy/maven/groovy-binary-2.4.2.zip"}' \\
-    https://vendor.sdkman.io/release
+    https://sdkman-vendor.herokuapp.com/release
                                         '''
                                     }
                                 }
@@ -91,7 +91,7 @@ curl -X PUT \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "groovy", "default": "2.3.8"}' \\
-    https://vendor.sdkman.io/default
+    https://sdkman-vendor.herokuapp.com/default
                                         '''
                                     }
                                 }
@@ -112,7 +112,7 @@ curl -X POST \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "grails", "version": "3.0.0", "hashtag": "grailsfw"}' \\
-    https://vendor.sdkman.io/announce/struct
+    https://sdkman-vendor.herokuapp.com/announce/struct
                                         '''
                                     }
                                 }
@@ -129,7 +129,7 @@ curl -X POST \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"text": "SDKMAN! 2.4.0 rolling out. Broadcast and Offline checks optimised."}' \\
-    https://vendor.sdkman.io/announce/freeform
+    https://sdkman-vendor.herokuapp.com/announce/freeform
                                         '''
                                     }
                                 }
