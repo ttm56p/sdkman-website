@@ -15,4 +15,5 @@ ul(class: 'nav-sidebar') {
     li { a(href: '#selfupdate', class: 'anchor-link', 'Self-Update') }
     li { a(href: '#flush', class: 'anchor-link', 'Flush') }
     li { a(href: '#help', class: 'anchor-link', 'Help') }
+    li { a(href: '#config', class: 'anchor-link', 'Configuration') }
 }

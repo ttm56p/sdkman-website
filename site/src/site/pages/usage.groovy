@@ -30,6 +30,7 @@ layout 'layouts/main.groovy', true,
                             include template: 'pages/usage/selfupdate.groovy'
                             include template: 'pages/usage/flush.groovy'
                             include template: 'pages/usage/help.groovy'
+                            include template: 'pages/usage/config.groovy'
                         }
                     }
                 }
