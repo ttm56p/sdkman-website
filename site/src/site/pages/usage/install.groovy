@@ -40,5 +40,11 @@ Done installing!
         pre { code '$ sdk install scala 2.11.7'  }
         yield 'All subsequent steps same as above.'
     }
+    a(name: 'localversion'){}
+    h4 { yield 'Install Local Version(s)' }
+    p {
+        yield 'Need a snapshot? Already have a local installation? Setup a local version:'
+        pre { code '$ sdk install grails 3.1.0-SNAPSHOT /path/to/grails-3.1.0-SNAPSHOT' }
+    }
 }
 br()
