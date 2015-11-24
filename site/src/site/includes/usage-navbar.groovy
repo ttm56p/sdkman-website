@@ -2,6 +2,7 @@ ul(class: 'nav-sidebar') {
     li(class: 'active') { a(href: 'usage.html') { strong('Usage') } }
     li { a(href: '#installdefault', class: 'anchor-link', 'Install Latest Stable') }
     li { a(href: '#installspecific', class: 'anchor-link', 'Install Specific Version') }
+    li { a(href: '#localversion', class: 'anchor-link', 'Install Local Version') }
     li { a(href: '#remove', class: 'anchor-link', 'Remove Version') }
     li { a(href: '#listcandidates', class: 'anchor-link', 'List Candidates') }
     li { a(href: '#listversions', class: 'anchor-link', 'List Versions') }
