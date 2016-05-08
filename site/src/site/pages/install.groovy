@@ -20,7 +20,7 @@ layout 'layouts/main.groovy', true,
                                     br()
                                     yield 'Simply open a new terminal and enter: '
                                 }
-                                pre { code '$ curl -s get.sdkman.io | bash' }
+                                pre { code '$ curl -s "https://get.sdkman.io" | bash' }
                                 p {
                                     yield 'Follow the instructions on-screen to complete installation.'
                                     br()
@@ -52,7 +52,7 @@ layout 'layouts/main.groovy', true,
                                     yield ' prior to installing.'
                                     br()
                                     yield 'Simply open a new terminal and enter:'
-                                    pre { code '$ export SDKMAN_DIR="/usr/local/sdkman" && curl -s get.sdkman.io | bash' }
+                                    pre { code '$ export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash' }
                                     yield 'For this to work it is vital that your user has full access rights to this folder.'
                                     yield 'It is also important that the folder does not exist as sdkman will attempt to create it.'
                                 }
