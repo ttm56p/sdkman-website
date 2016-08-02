@@ -7,7 +7,7 @@ menu {
     }
 
     group('Socialize') {
-        item 'Discuss on Gitter',           'http://gitter.im/sdkman//user-issues',             'fa-envelope'
+        item 'Discuss on Gitter',           'https://gitter.im/sdkman/user-issues',             'fa-envelope'
         item 'sdkman on Twitter',           'https://twitter.com/sdkmanager',                   'fa-twitter'
         item 'Source code on GitHub',       'https://github.com/sdkman',                        'fa-github'
         item 'Report issues on GitHub',     'https://github.com/sdkman/sdkman-cli/issues',      'fa-bug'
