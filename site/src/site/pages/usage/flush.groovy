@@ -2,13 +2,13 @@ article {
     a(name: 'flush'){}
     h2 { yield 'Flush' }
     p {
-        yield "From time to time it may be necessary to flush sdkman's local state."
+        yield "From time to time it may be necessary to flush SDKMAN!'s local state."
         yield "The flush command helps with this and allows for the following to be performed:"
 
         h4 { yield 'Candidates' }
         pre { code '$ sdk flush candidates' }
         yield 'Clears out the Candidate list. Opening a new terminal will fetch and store the latest list.'
-        yield 'This is usually required when a new Candidate is made available on sdkman.'
+        yield 'This is usually required when a new Candidate is made available on SDKMAN!.'
 
         h4 { yield 'Broadcast' }
         pre { code '$ sdk flush broadcast' }
@@ -20,7 +20,7 @@ article {
 
         h4 { yield 'Temporary Folder' }
         pre { code '$ sdk flush temp' }
-        yield 'Clears out the staging work folder used when installing new versions of candidates and sdkman itself.'
+        yield 'Clears out the staging work folder used when installing new versions of candidates and SDKMAN! itself.'
 
     }
 }

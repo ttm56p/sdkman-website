@@ -4,7 +4,7 @@ article {
     p {
         yield 'Initially called '
         em 'Aeroplane Mode'
-        yield ', this allows sdkman to function when working offline. '
+        yield ', this allows SDKMAN! to function when working offline. '
         yield 'It has a parameter that can be passed to'
         em 'enable'
         yield ' or '

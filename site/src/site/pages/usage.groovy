@@ -1,5 +1,5 @@
 layout 'layouts/main.groovy', true,
-        pageTitle: 'Usage - sdkman',
+        pageTitle: 'Usage - SDKMAN!',
         mainContent: contents {
             div(id: 'content', class: 'page-1') {
                 div(class: 'row') {

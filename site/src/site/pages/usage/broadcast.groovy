@@ -12,7 +12,7 @@ $ sdk broadcast
   ================================================================================
 '''     }
         yield '''It is also worth mentioning that whenever an SDK version is released on
-                                             sdkman, a notification will appear when next using the CLI.
+                                             SDKMAN!, a notification will appear when next using the CLI.
                                              Every new broadcast is also pushed to Twitter.'''
     }
 }

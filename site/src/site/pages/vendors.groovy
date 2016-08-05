@@ -1,5 +1,5 @@
 layout 'layouts/main.groovy', true,
-        pageTitle: 'Vendors - sdkman',
+        pageTitle: 'Vendors - SDKMAN!',
         mainContent: contents {
             div(id: 'content', class: 'page-1') {
                 div(class: 'row') {
@@ -19,9 +19,9 @@ layout 'layouts/main.groovy', true,
 
                             article {
                                 p {
-                                    yield 'sdkman is unique in that it empowers SDK Vendors to publish their own Candidate '
+                                    yield 'SDKMAN! is unique in that it empowers SDK Vendors to publish their own Candidate '
                                     yield 'releases on our platform. We provide a secure API that can be used to manage '
-                                    yield 'all aspects of a release on sdkman. This includes '
+                                    yield 'all aspects of a release on SDKMAN!. This includes '
                                     strong 'Releasing'
                                     yield ' a new Version, '
                                     yield 'setting an existing Version as '
@@ -29,7 +29,7 @@ layout 'layouts/main.groovy', true,
                                     yield ' (Stable) and '
                                     strong 'Announcing'
                                     yield ' the release '
-                                    yield 'on the sdkman CLI broadcast and Twitter feed.'
+                                    yield 'on the SDKMAN! CLI broadcast and Twitter feed.'
                                 }
                             }
 
@@ -52,8 +52,8 @@ layout 'layouts/main.groovy', true,
                                 h3 { yield 'Access' }
                                 p { 
                                     yield '''This is a secured API, and requires appropriate credentials to perform the above operations. Access will be granted on a 
-                                    case-by-case basis to Vendors who are interested in making their technology available on sdkman. If you want to publish your releases 
-                                    on sdkman, please contact ''' 
+                                    case-by-case basis to Vendors who are interested in making their technology available on SDKMAN!. If you want to publish your releases 
+                                    on SDKMAN!, please contact ''' 
                                     a(href: 'mailto:vermeulen.mp@gmail.com', 'Marco Vermeulen')
                                     yield ' to help getting you on board.'
                                 }                             
@@ -65,7 +65,7 @@ layout 'layouts/main.groovy', true,
                                 yield 'The simplest way to call the API is by using cURL. Of course, any other client can be used to perform the API operations:'
                                 p {
                                     h4 { yield 'Release a new Candidate Version' }
-                                    yield 'This will perform a Minor Release on sdkman. It will simply add the new Candidate Version, but will not make it the default version for the Candidate.'
+                                    yield 'This will perform a Minor Release on SDKMAN!. It will simply add the new Candidate Version, but will not make it the default version for the Candidate.'
                                     pre {
                                         code '''
 curl -X POST \\
@@ -99,9 +99,9 @@ curl -X PUT \\
 
                                 p {
                                     h4 { yield 'Broadcast a Structured Message' }
-                                    yield 'This will result in a structured message announcement on social media and sdkman CLI. The result will look something like: '
+                                    yield 'This will result in a structured message announcement on social media and SDKMAN! CLI. The result will look something like: '
                                     code 'Grails 3.0.0 has been released on SDKMAN! #grailsfw'
-                                    yield'. This message will be announced to the broadcast channel of sdkman CLI, as well as on the '
+                                    yield'. This message will be announced to the broadcast channel of SDKMAN! CLI, as well as on the '
                                     a(href: 'https://www.twitter.com/sdkmanager', '@sdkmanager')
                                     yield ' Twitter feed.'
                                     pre {

@@ -1,5 +1,5 @@
 layout 'layouts/main.groovy', true,
-        pageTitle: 'Installation - sdkman',
+        pageTitle: 'Installation - SDKMAN!',
         mainContent: contents {
             div(id: 'content', class: 'page-1') {
                 div(class: 'row') {
@@ -14,8 +14,8 @@ layout 'layouts/main.groovy', true,
                             }
                             article {
                                 p {
-                                    yield '''Installing sdkman on UNIX-like platforms is as easy as ever.
-                                             sdkman installs smoothly on Mac OSX, Linux, Cygwin,
+                                    yield '''Installing SDKMAN! on UNIX-like platforms is as easy as ever.
+                                             SDKMAN! installs smoothly on Mac OSX, Linux, Cygwin,
                                              Solaris and FreeBSD. We also support Bash and ZSH shells.'''
                                     br()
                                     yield 'Simply open a new terminal and enter: '
@@ -45,7 +45,7 @@ layout 'layouts/main.groovy', true,
                                     yield 'Installing to a Custom Location'
                                 }
                                 p {
-                                    yield 'It is possible to install sdkman to a custom location other than '
+                                    yield 'It is possible to install SDKMAN! to a custom location other than '
                                     code '$HOME/.sdkman'
                                     yield '. This can be achieved by exporting your custom location as '
                                     code 'SDKMAN_DIR'
@@ -54,7 +54,7 @@ layout 'layouts/main.groovy', true,
                                     yield 'Simply open a new terminal and enter:'
                                     pre { code '$ export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash' }
                                     yield 'For this to work it is vital that your user has full access rights to this folder.'
-                                    yield 'It is also important that the folder does not exist as sdkman will attempt to create it.'
+                                    yield 'It is also important that the folder does not exist as SDKMAN! will attempt to create it.'
                                 }
                             }
                         }
