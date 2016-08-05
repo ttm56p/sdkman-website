@@ -54,7 +54,7 @@ layout 'layouts/main.groovy', true,
                                     yield '''This is a secured API, and requires appropriate credentials to perform the above operations. Access will be granted on a 
                                     case-by-case basis to Vendors who are interested in making their technology available on SDKMAN!. If you want to publish your releases 
                                     on SDKMAN!, please contact ''' 
-                                    a(href: 'mailto:vermeulen.mp@gmail.com', 'Marco Vermeulen')
+                                    a(href: 'mailto:marco@sdkman.io', 'Marco Vermeulen')
                                     yield ' to help getting you on board.'
                                 }                             
                             }
