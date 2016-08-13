@@ -32,7 +32,7 @@ layout 'layouts/main.groovy', true,
                                 p 'Lastly, run the following code snippet to ensure that installation succeeded:'
                                 pre { code '$ sdk version' }
                                 p 'If all went well, you should see the version information:'
-                                pre { code '  sdkman 2.4.3' }
+                                pre { code '  sdkman 5.0.0+51' }
                                 p {
                                     yield 'That\'s all there is to it! Next we will look at '
                                     a(href: "/usage.html", 'Usage')
