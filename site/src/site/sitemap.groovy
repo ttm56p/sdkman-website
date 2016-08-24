@@ -12,7 +12,7 @@ menu {
         item 'Source code on GitHub',       'https://github.com/sdkman',                        'fa-github'
         item 'Report issues on GitHub',     'https://github.com/sdkman/sdkman-cli/issues',      'fa-bug'
         item 'Stack Overflow questions',    'http://stackoverflow.com/questions/tagged/sdkman', 'fa-stack-overflow'
-        item 'StatusPage.io',               'http://statuspage.io',                             'fa-fire'
+        item 'StatusPage.io',               'http://status.sdkman.io',                          ''
     }
 }
 
