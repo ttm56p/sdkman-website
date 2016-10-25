@@ -47,7 +47,7 @@ layout 'layouts/main.groovy', true,
                                     code '~/.sdkman/etc/config'
                                     yield ' file as follows:'
                                     br()
-                                    code 'sdkman_beta_channel=true'
+                                    pre { code 'sdkman_beta_channel=true' }
                                 }
                             }
 
