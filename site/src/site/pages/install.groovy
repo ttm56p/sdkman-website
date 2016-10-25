@@ -45,18 +45,11 @@ layout 'layouts/main.groovy', true,
                                          These versions can be considered stable for the most part, but might occasionally break.
                                          To join the program, simply update the the '''
                                     code '~/.sdkman/etc/config'
-                                    yield ' file to as follows:'
+                                    yield ' file as follows:'
                                     br()
                                     code 'sdkman_beta_channel=true'
                                 }
-
-                                p {
-                                    yield 'That\'s all there is to it! Next we will look at '
-                                    a(href: "/usage.html", 'Usage')
-                                    yield '.'
-                                }
                             }
-
 
                             h3 {
                                 yield 'Installing to a Custom Location'
@@ -72,6 +65,12 @@ layout 'layouts/main.groovy', true,
                                 pre { code '$ export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash' }
                                 yield 'For this to work it is vital that your user has full access rights to this folder.'
                                 yield 'It is also important that the folder does not exist as SDKMAN! will attempt to create it.'
+                            }
+
+                            p {
+                                yield 'That\'s all there is to it! Next we will look at '
+                                a(href: "/usage.html", 'Usage')
+                                yield '.'
                             }
                         }
                     }
