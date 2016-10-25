@@ -22,7 +22,11 @@ sdkman_disable_gvm_alias=true|false
 
 # configure curl timeouts
 sdkman_curl_connect_timeout=5
-sdkman_curl_max_time=4'''
+sdkman_curl_max_time=4
+
+# subscribe to the beta channel
+sdkman_beta_channel=true
+'''
         }
     }
 }
