@@ -35,10 +35,10 @@ layout 'layouts/main.groovy', true,
                                 pre { code '  sdkman 5.0.0+51' }
                             }
 
-                            h3 {
-                                yield 'Beta Channel'
-                            }
                             article {
+                                h3 {
+                                    yield 'Beta Channel'
+                                }
                                 p {
                                     yield '''For the more adventurous among us, we have a beta channel.
                                          All new CLI features will first be rolled out to this group of users for trial purposes.
@@ -48,13 +48,14 @@ layout 'layouts/main.groovy', true,
                                     yield ' file as follows:'
                                     br()
                                     pre { code 'sdkman_beta_channel=true' }
+
                                 }
                             }
 
-                            h3 {
-                                yield 'Installing to a Custom Location'
-                            }
                             article {
+                                h3 {
+                                    yield 'Installing to a Custom Location'
+                                }
                                 yield 'It is possible to install SDKMAN! to a custom location other than '
                                 code '$HOME/.sdkman'
                                 yield '. This can be achieved by exporting your custom location as '
