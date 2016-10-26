@@ -3,7 +3,7 @@
  */
 
 layout 'layouts/main.groovy', true,
-        pageTitle: 'The Groovy programming language - 404',
+        pageTitle: 'SDKMAN!, the Software Development Kit Manager- 404',
         mainContent: contents {
             div(id: 'content', class: 'page-1') {
                 div(class: 'row') {
@@ -11,12 +11,11 @@ layout 'layouts/main.groovy', true,
                         div(class: 'panel panel-danger') {
                             div(class: 'panel-heading', 'Oops! The page you are looking for does not exist!')
                             div(class: 'panel-body') {
-                                p 'We could not find the page you are looking for. Maybe you are looking for one of those?'
+                                p 'We could not find the page you are looking for. Maybe you are looking for one of these?'
                                 ul {
-                                    li("The ${$a(href: latestDocURL('documentation'), 'reference documentation')} of the Groovy language.")
-                                    li("The latest ${$a(href: latestDocURL('api'), 'Javadocs')} of the language.")
-                                    li("The latest ${$a(href: latestDocURL('gapi'), 'Groovdocs')} of the language.")
-                                    li("Description of ${$a(href: latestDocURL('groovy-jdk'), 'the Groovy development kit APIs')}.")
+                                    li("The ${$a(href: "/install.html", 'Installation Page')}.")
+                                    li("The ${$a(href: "/usage.html", 'Usage Page')}.")
+                                    li("The ${$a(href: "/vendors.html", 'Vendors Page')}.")
                                 }
                             }
                         }
