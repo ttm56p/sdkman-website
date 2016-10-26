@@ -36,9 +36,8 @@ layout 'layouts/main.groovy', true,
                             }
 
                             article {
-                                h3 {
-                                    yield 'Beta Channel'
-                                }
+                                h3 { yield 'Beta Channel' }
+
                                 p {
                                     yield '''For the more adventurous among us, we have a beta channel.
                                          All new CLI features will first be rolled out to this group of users for trial purposes.
@@ -56,9 +55,34 @@ layout 'layouts/main.groovy', true,
                             }
 
                             article {
-                                h3 {
-                                    yield 'Installing to a Custom Location'
+                                h3 { yield 'Uninstallation' }
+                                yield '''In the unlikely event that you would like to uninstall SDKMAN!, we don\'t have
+                                         an automated way of doing this yet. If you really do want to remove it from your
+                                         system, it is very easy to do so.'''
+                                yield 'The following will guide you through backing up, then removing the entire installation from your system.'
+                                pre {
+                                    code '$ tar zcvf ~/sdkman-backup_$(date +%F-%kh%M).tar.gz ~/.sdkman'
+                                    code '$ rm -rf ~/.sdkman'
                                 }
+                                yield 'The last step involves editing and removing the initialisation snippet from your '
+                                code '.bashrc'
+                                yield ', '
+                                code '.bash_profile'
+                                yield ' and/or '
+                                code '.profile'
+                                yield ' files. If you use ZSH, remove it from the '
+                                code '.zshrc'
+                                yield ' file. The snippet of code to be removed looks something like this:'
+                                pre {
+                                    code '#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!'
+                                    code '[[ -s "/home/marco/.sdkman/bin/sdkman-init.sh" ]] && source "/home/marco/.sdkman/bin/sdkman-init.sh"'
+                                }
+                                yield 'Once removed, you have successfully uninstalled SDKMAN! from your machine.'
+                            }
+
+                            article {
+                                h3 { yield 'Installing to a Custom Location' }
+
                                 yield 'It is possible to install SDKMAN! to a custom location other than '
                                 code '$HOME/.sdkman'
                                 yield '. This can be achieved by exporting your custom location as '
