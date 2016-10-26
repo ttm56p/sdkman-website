@@ -42,13 +42,16 @@ layout 'layouts/main.groovy', true,
                                 p {
                                     yield '''For the more adventurous among us, we have a beta channel.
                                          All new CLI features will first be rolled out to this group of users for trial purposes.
-                                         These versions can be considered stable for the most part, but might occasionally break.
-                                         To join the program, simply update the the '''
+                                         Beta versions can be considered stable for the most part, but might occasionally break.
+                                         To join the beta program, simply update the the '''
                                     code '~/.sdkman/etc/config'
                                     yield ' file as follows:'
-                                    br()
                                     pre { code 'sdkman_beta_channel=true' }
-
+                                    yield 'Next, open a new terminal and perform a forced update with:'
+                                    pre { code '$ sdk selfupdate force' }
+                                    yield 'To leave the beta channel, simply set the above config back to '
+                                    code 'false'
+                                    yield ' and follow the same procedure.'
                                 }
                             }
 
