@@ -31,7 +31,7 @@ layout 'layouts/main.groovy', true,
                                 pre { code '$ source "$HOME/.sdkman/bin/sdkman-init.sh"' }
                                 p 'Lastly, run the following code snippet to ensure that installation succeeded:'
                                 pre { code '$ sdk version' }
-                                p 'If all went well, you should see the version information:'
+                                p 'If all went well, the version should be displayed. Something like:'
                                 pre { code '  sdkman 5.0.0+51' }
                             }
 
