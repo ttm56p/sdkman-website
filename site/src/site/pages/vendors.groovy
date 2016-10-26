@@ -102,7 +102,7 @@ curl -X PUT \\
                                     yield 'This will result in a structured message announcement on social media and SDKMAN! CLI. The result will look something like: '
                                     code 'Grails 3.0.0 has been released on SDKMAN! #grailsfw'
                                     yield'. This message will be announced to the broadcast channel of SDKMAN! CLI, as well as on the '
-                                    a(href: 'https://www.twitter.com/sdkmanager', '@sdkmanager')
+                                    a(href: 'https://www.twitter.com/sdkman_', '@sdkman_')
                                     yield ' Twitter feed.'
                                     pre {
                                         code '''
