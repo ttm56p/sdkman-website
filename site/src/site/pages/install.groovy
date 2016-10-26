@@ -77,7 +77,7 @@ $ rm -rf ~/.sdkman'''
                                 pre {
                                     code '''
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "/home/marco/.sdkman/bin/sdkman-init.sh" ]] && source "/home/marco/.sdkman/bin/sdkman-init.sh"'''
+[[ -s "/home/dudette/.sdkman/bin/sdkman-init.sh" ]] && source "/home/dudette/.sdkman/bin/sdkman-init.sh"'''
                                 }
                                 yield 'Once removed, you have successfully uninstalled SDKMAN! from your machine.'
                             }
