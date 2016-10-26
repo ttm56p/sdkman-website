@@ -61,7 +61,8 @@ layout 'layouts/main.groovy', true,
                                          system, it is very easy to do so.'''
                                 yield 'The following will guide you through backing up, then removing the entire installation from your system.'
                                 pre {
-                                    code '''$ tar zcvf ~/sdkman-backup_$(date +%F-%kh%M).tar.gz ~/.sdkman
+                                    code '''
+tar zcvf ~/sdkman-backup_$(date +%F-%kh%M).tar.gz -C ~/ .sdkman
 $ rm -rf ~/.sdkman'''
                                 }
                                 yield 'The last step involves editing and removing the initialisation snippet from your '
@@ -74,7 +75,8 @@ $ rm -rf ~/.sdkman'''
                                 code '.zshrc'
                                 yield ' file. The snippet of code to be removed looks something like this:'
                                 pre {
-                                    code '''#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+                                    code '''
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "/home/marco/.sdkman/bin/sdkman-init.sh" ]] && source "/home/marco/.sdkman/bin/sdkman-init.sh"'''
                                 }
                                 yield 'Once removed, you have successfully uninstalled SDKMAN! from your machine.'
