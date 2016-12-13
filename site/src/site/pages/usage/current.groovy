@@ -4,8 +4,8 @@ article {
     p {
         yield 'To see what is currently in use for a Candidate:'
         pre { code '''
-$ sdk current grails
-  Using grails version 2.4.3
+$ sdk current java
+  Using java version 8u111
 '''     }
         yield 'To see what is currently in use for '
         strong 'all'
@@ -13,8 +13,9 @@ $ sdk current grails
         pre { code '''
 $ sdk current
   Using:
-  groovy: 2.1.0
-  scala: 2.11.7
+  groovy: 2.4.7
+  java: 8u111
+  scala: 2.12.1
 '''     }
 
     }

@@ -5,30 +5,30 @@ article {
     p {
         yield 'Install the '
         strong 'latest stable'
-        yield ' version of your SDK of choice (say, Gradle) by running the following command:'
-        pre { code '$ sdk install gradle' }
-        yield 'You will see the following output:'
+        yield ' version of your SDK of choice (say, Java JDK) by running the following command:'
+        pre { code '$ sdk install java' }
+        yield 'You will see something like the following output:'
         pre {
             code '''
-Downloading: gradle 2.6
+Downloading: java 8u111
 
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 39.0M  100 39.0M    0     0   945k      0  0:00:42  0:00:42 --:--:--  978k
+In progress...
 
-Installing: gradle 2.6
+######################################################################## 100.0%
+
+Installing: java 8u111
 Done installing!
 '''
         }
         yield 'Now you will be prompted if you want this version to be set as '
         strong 'default.'
-        pre { code 'Do you want gradle 2.5 to be set as default? (Y/n):' }
+        pre { code 'Do you want java 8u111 to be set as default? (Y/n):' }
         yield 'Answering '
         em 'yes'
         yield ' (or '
         em 'hitting enter'
         yield ') will ensure that all subsequent shells opened will have this version of the SDK in use by default.'
-        pre { code 'Setting gradle 2.5 as default.' }
+        pre { code 'Setting java 8u111 as default.' }
     }
 
     a(name: 'installspecific'){}
@@ -37,14 +37,14 @@ Done installing!
         yield 'Need a '
         strong 'specific'
         yield ' version of an SDK? Simply qualify the version you require:'
-        pre { code '$ sdk install scala 2.11.7'  }
+        pre { code '$ sdk install scala 2.12.1'  }
         yield 'All subsequent steps same as above.'
     }
     a(name: 'localversion'){}
     h4 { yield 'Install Local Version(s)' }
     p {
         yield 'Need a snapshot? Already have a local installation? Setup a local version:'
-        pre { code '$ sdk install grails 3.1.0-SNAPSHOT /path/to/grails-3.1.0-SNAPSHOT' }
+        pre { code '$ sdk install groovy 3.0.0-SNAPSHOT /path/to/groovy-3.0.0-SNAPSHOT' }
     }
 }
 br()
