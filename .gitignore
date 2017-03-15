@@ -6,3 +6,5 @@ build
 .gradle
 .classpath
 node_modules
+candidates.txt
+candidates.html
