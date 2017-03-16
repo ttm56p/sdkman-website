@@ -1,11 +1,24 @@
 layout 'layouts/main.groovy', true,
         pageTitle: 'Available SDKs - SDKMAN!',
         mainContent: contents {
-            div(id: 'content') {
+            div(id: 'content', class: 'page-1') {
                 div(class: 'row') {
-                    div(class: 'col-lg-10') {
-                        h3('SDK Candidates available for installation on SDKMAN!')
-                        include unescaped: 'html/candidates.html'
+                    div(class: 'row-fluid') {
+                        div(class: 'col-lg-3') {
+                            include template: 'includes/usage-navbar.groovy'
+                            br()
+                            include unescaped: 'html/twittersearch.html'
+                        }
+
+                        div(class: 'col-lg-8 col-lg-pull-0') {
+                            h1 {
+                                a(name: 'main'){}
+                                i(class: 'fa fa-laptop'){}
+                                yield ' SDK Installation Candidates'
+                            }
+
+                            include unescaped: 'html/candidates.html'
+                        }
                     }
                 }
             }
