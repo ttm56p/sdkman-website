@@ -5,8 +5,6 @@ layout 'layouts/main.groovy', true,
                 div(class: 'row') {
                     div(class: 'row-fluid') {
                         div(class: 'col-lg-3') {
-                            include template: 'includes/usage-navbar.groovy'
-                            br()
                             include unescaped: 'html/twittersearch.html'
                         }
 
