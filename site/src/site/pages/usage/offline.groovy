@@ -23,7 +23,7 @@ $ sdk offline disable
         yield 'a scaled down capacity. An example is the list command, which will only '
         yield 'display the currently installed and active version(s):'
         pre { code '''
-$ sdk offline enable
+$ sdk list
   ------------------------------------------------------------
   Offline Mode: only showing installed groovy versions
   ------------------------------------------------------------
