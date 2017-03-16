@@ -13,7 +13,7 @@ layout 'layouts/main.groovy', true,
                         div(class: 'col-lg-8 col-lg-pull-0') {
                             h1 {
                                 a(name: 'main'){}
-                                i(class: 'fa fa-laptop'){}
+                                i(class: 'fa fa-cloud-download'){}
                                 yield ' SDK Installation Candidates'
                             }
 
