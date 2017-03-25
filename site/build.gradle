@@ -27,7 +27,7 @@ task copyCname(type:Copy) {
 }
 
 task fetchCandidates(type:Copy) {
-    GFileUtils.copyURLToFile(new URL('https://api.sdkman.io/1/candidates/list'),new File('candidates.txt'));
+    GFileUtils.copyURLToFile(new URL('https://api.sdkman.io/2/candidates/list'),new File('candidates.txt'));
 }
 
 task convertCandidates(type:Copy) {
