@@ -43,18 +43,13 @@ task convertCandidates(type:Copy) {
         if(i > 0) {
             def parts = entry.split('\\n\\n');
 
-            // title might have an url too
             String title = parts[0];
-
-            // if the title has an url
             String[] titleParts = title.split("(?=http\\:\\/\\/)|(?=https\\:\\/\\/)")
-            if(titleParts.size() > 1) {
-                def candidate = titleParts[0].substring(0, titleParts[0].indexOf("("))
-                gen+="<h4>"+candidate?.trim()+"</h4>\n"
-                gen+="<a href='"+titleParts[1]?.trim()+"' target='_blank'>"+titleParts[1]+"</a></br>\n"
-            } else {
-                gen += "<h4>" + title?.trim() + "</h4>\n" // title fallback
-            }
+
+            def candidate = titleParts[0].substring(0, titleParts[0].indexOf("("))
+
+            gen+="<h4>"+candidate?.trim()+"</h4>\n"
+            gen+="<a href='"+titleParts[1]?.trim()+"' target='_blank'>"+titleParts[1]+"</a></br>\n"
             gen+="<p>"+parts[1]+"</p>\n" // content
             gen+="<code>"+parts[2].trim()+"</code>\n" // footer
             gen+="<hr/>\n"
