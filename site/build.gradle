@@ -49,7 +49,8 @@ task convertCandidates(type:Copy) {
             // if the title has an url
             String[] titleParts = title.split("(?=http\\:\\/\\/)|(?=https\\:\\/\\/)")
             if(titleParts.size() > 1) {
-                gen+="<h4>"+titleParts[0]?.trim()+"</h4>\n"
+                def candidate = titleParts[0].substring(0, titleParts[0].indexOf("("))
+                gen+="<h4>"+candidate?.trim()+"</h4>\n"
                 gen+="<a href='"+titleParts[1]?.trim()+"' target='_blank'>"+titleParts[1]+"</a></br>\n"
             } else {
                 gen += "<h4>" + title?.trim() + "</h4>\n" // title fallback
