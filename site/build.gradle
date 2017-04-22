@@ -27,13 +27,13 @@ task copyCname(type:Copy) {
 }
 
 task fetchCandidates(type:Copy) {
-    GFileUtils.copyURLToFile(new URL('https://api.sdkman.io/2/candidates/list'),new File('candidates.txt'));
+    GFileUtils.copyURLToFile(new URL('https://api.sdkman.io/2/candidates/list'), new File('build/candidates.txt'));
 }
 
 task convertCandidates(type:Copy) {
     dependsOn fetchCandidates
 
-    String s = GFileUtils.readFile(new File('candidates.txt'))
+    String s = GFileUtils.readFile(new File('build/candidates.txt'))
     String gen = '';
     // split the text for each candidate
     def elements = s.split('----*\\n')
