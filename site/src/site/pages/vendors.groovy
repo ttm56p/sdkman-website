@@ -69,12 +69,12 @@ layout 'layouts/main.groovy', true,
                                     pre {
                                         code '''
 curl -X POST \\
-    -H "consumer_key: CONSUMER_KEY" \\
-    -H "consumer_token: CONSUMER_TOKEN" \\
+    -H "Consumer-Key: CONSUMER_KEY" \\
+    -H "Consumer-Token: CONSUMER_TOKEN" \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "groovy", "version": "2.4.2", "url": "http://dl.bintray.com/groovy/maven/groovy-binary-2.4.2.zip"}' \\
-    https://vendors.sdkman.io/release
+    https://vendors.sdkman.io/1/release/version
                                         '''
                                     }
                                 }
@@ -86,12 +86,12 @@ curl -X POST \\
                                     pre {
                                         code '''
 curl -X PUT \\
-    -H "consumer_key: CONSUMER_KEY" \\
-    -H "consumer_token: CONSUMER_TOKEN" \\
+    -H "Consumer-Key: CONSUMER_KEY" \\
+    -H "Consumer-Token: CONSUMER_TOKEN" \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "groovy", "default": "2.3.8"}' \\
-    https://vendors.sdkman.io/default
+    https://vendors.sdkman.io/1/default/version
                                         '''
                                     }
                                 }
@@ -107,8 +107,8 @@ curl -X PUT \\
                                     pre {
                                         code '''
 curl -X POST \\
-    -H "consumer_key: CONSUMER_KEY" \\
-    -H "consumer_token: CONSUMER_TOKEN" \\
+    -H "Consumer-Key: CONSUMER_KEY" \\
+    -H "Consumer-Token: CONSUMER_TOKEN" \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "grails", "version": "3.0.0", "hashtag": "grailsfw"}' \\
@@ -124,8 +124,8 @@ curl -X POST \\
                                     pre {
                                         code '''
 curl -X POST \\
-    -H "consumer_key: CONSUMER_KEY" \\
-    -H "consumer_token: CONSUMER_TOKEN" \\
+    -H "Consumer-Key: CONSUMER_KEY" \\
+    -H "Consumer-Token: CONSUMER_TOKEN" \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"text": "SDKMAN! 2.4.0 rolling out. Broadcast and Offline checks optimised."}' \\
@@ -142,9 +142,9 @@ curl -X POST \\
                                 p {
                                     yield 'If fiddling with cURL (or HttpClient) isn’t your thing, you could consider using our Gradle plugin. The plugin allows the release to be done as a side effect of your CI build! It exposes several useful tasks like:'
                                     ul {
-                                        li {code 'gvmReleaseVersion' }
-                                        li {code 'gvmDefaultVersion' }
-                                        li {code 'gvmAnnounceVersion' }
+                                        li {code 'sdkReleaseVersion' }
+                                        li {code 'sdkDefaultVersion' }
+                                        li {code 'sdkAnnounceVersion' }
                                     }
                                     yield 'It also exposes some convenience tasks that roll the above into single tasks:'
                                     ul {
