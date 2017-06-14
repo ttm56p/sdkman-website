@@ -74,7 +74,7 @@ curl -X POST \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
     -d '{"candidate": "groovy", "version": "2.4.2", "url": "http://dl.bintray.com/groovy/maven/groovy-binary-2.4.2.zip"}' \\
-    https://vendors.sdkman.io/1/release/version
+    https://vendors.sdkman.io/release
                                         '''
                                     }
                                 }
@@ -90,8 +90,8 @@ curl -X PUT \\
     -H "Consumer-Token: CONSUMER_TOKEN" \\
     -H "Content-Type: application/json" \\
     -H "Accept: application/json" \\
-    -d '{"candidate": "groovy", "default": "2.3.8"}' \\
-    https://vendors.sdkman.io/1/default/version
+    -d '{"candidate": "groovy", "version": "2.3.8"}' \\
+    https://vendors.sdkman.io/default
                                         '''
                                     }
                                 }
