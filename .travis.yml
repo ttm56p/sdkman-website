@@ -8,7 +8,4 @@ deploy:
   on:
     branch: master
   local_dir: site/build/site
-  repo: https://${GITHUB_TOKEN}@github.com:sdkman/beta.sdkman.github.io
-env:
-  global:
-    secure: mbF/RzbGigReUhIBAhfFR6dHkRpRc6cBRjyjP8v65+pPs5Wyl4F0besfjgJWRUoxqhFagI+FhYGUuc8N5Ce3ix+ji2Mvu43H//DR3ZEbvus/WXsyCNK4aRLWs6RYRpTAUM1uWj6A/4MN1RxlDdxXdOC0TYlRPcPDNjQjBrNu4MVkT0kPzVeC4T1GXdWejQWhdeHGrO5m05hsn9x/XlvU34crOop8sxtswBhF1qoehIM9ktpseUJ7/rk0mfEkEBaCYk4y76HssJhDkWwZlN8uJZsy5tS+iwCg0oWCklJDXsqLAIvW0uQ7Y6m6Yg77d20oEMsu9XE8fsGxaGfsFrCZzYmMClQKot89kLNcnRxGA9ewd6163vNcISnjAPJw12jBYVjZC0tFpoGPbkXr5IMWVgo4i/d7ySfEJ/qGWdLs94o1TLRPmcPnyD+i94M7THKEVSgwhU5I1/rW1WA+IYl3cqLVprpRAfblFUgLz9ylYh4KxmZDn5ydQBflxNM9w94v4j+VFprrAILP6lXeQESfWUMEmCFXCjdKpLXLCjuLjJE4IyqgkvzBv1naU0szMEkCfsBQWTLUIMhfjfWCk575iBL+h6rllBBRzdirYdnT8FBcQn8Fosp06vg1dFsaPI/2igpHwOh3/NtRluGFcEwOk6hTj/4ECA79GG5n5K5JR7Q=
+  repo: sdkman/beta.sdkman.github.io
