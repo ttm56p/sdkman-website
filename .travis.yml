@@ -1,6 +1,6 @@
-script: "./gradlew generateSite"
+script: "./gradlew clean generateSite"
 jdk:
-- openjdk7
+- openjdk8
 deploy:
   provider: pages
   skip_cleanup: true
