@@ -34,6 +34,38 @@ layout 'layouts/main.groovy', true,
                             }
 
                             article {
+                                h3 { yield 'Windows Installation'}
+                                p {
+                                    yield 'Several options exist for installing SDKMAN! on Windows today.'
+                                }
+                                p {
+                                    yield 'The first solution involves installing '
+                                    a(href: 'https://www.cygwin.com/install.html', 'Cygwin')
+                                    yield ''' prior to attempting SDKMAN installation. For our software to function, we require that Cygwin 
+                                        is installed with a basic toolchain including bash, zip, unzip and curl.'''
+                                }
+                                p {
+                                    yield 'The second solution is for Git users using the '
+                                    a(href: 'https://git-scm.com/download/win', 'Git Bash for Windows')
+                                    yield ' environment. In order for this to work, the environment needs to be supplemented with '
+                                    a(href: 'http://www.mingw.org/', 'MinGW')
+                                    yield ' to add the necessary toolchain to function.'
+                                }
+                                p {
+                                    yield 'The last option available is '
+                                    a(href: 'https://github.com/flofreud/posh-gvm', 'Posh GVM')
+                                    yield '''. This is a Powershell port of SDKMAN that is sadly no longer maintained. We seek 
+                                        for contributors with Powershell knowledge to pick this up for our Windows users again. If 
+                                        interested, please talk to us on the '''
+                                    a(href: 'https://gitter.im/sdkman/cli-dev', 'cli-dev Gitter channel.')
+                                }
+                                p {
+                                    strong '''Please be aware that as SDKMAN is written in bash, it requires a bash environment 
+                                        to be present. SDKMAN can not be installed natively on Windows and requires Cygwin or MSYS+MinGW.'''
+                                }
+                            }
+
+                            article {
                                 h3 { yield 'Beta Channel' }
 
                                 p {
