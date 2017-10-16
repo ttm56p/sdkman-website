@@ -42,7 +42,7 @@ layout 'layouts/main.groovy', true,
                                     yield 'The first solution involves installing '
                                     a(href: 'https://www.cygwin.com/install.html', 'Cygwin')
                                     yield ''' prior to attempting SDKMAN installation. For our software to function, we require that Cygwin 
-                                        is installed with a basic toolchain including bash, zip, unzip and curl.'''
+                                        is installed with a basic toolchain including bash, zip, unzip, and curl. (tar and gzip required for special cases)'''
                                 }
                                 p {
                                     yield 'The second solution is for Git users using the '
