@@ -1,0 +1,21 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "io.ratpack:ratpack-gradle:1.5.1"
+  }
+}
+
+apply plugin: 'scala'
+apply plugin: "io.ratpack.ratpack-java"
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile 'org.scala-lang:scala-library:2.12.4'
+}
+
+mainClassName = "io.sdkman.site.Main"
