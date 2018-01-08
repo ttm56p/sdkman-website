@@ -36,19 +36,19 @@
                                 <div class='navbar-header'>
                                     <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
                                         <span class='sr-only'></span><span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span>
-                                    </button><a class='navbar-brand' href='index.html'>
+                                    </button><a class='navbar-brand' href='/'>
                                         <img class='sdk-logo' src='img/logo.png'></img>
                                     </a>
                                 </div><div class='navbar-collapse collapse'>
                                     <ul class='nav navbar-nav navbar-right'>
-                                        <li class=''><a href='install.html'>Install</a></li><li class=''><a href='sdks.html'>SDKs</a></li><li class=''><a href='usage.html'>Usage</a></li><li class=''><a href='vendors.html'>Vendors</a></li><li>
+                                        <li class=''><a href='/install'>Install</a></li><li class=''><a href='/sdks'>SDKs</a></li><li class=''><a href='/usage'>Usage</a></li><li class=''><a href='/vendors'>Vendors</a></li><li>
                                             <a data-effect='st-effect-9' class='st-trigger' href='#'>Socialize</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div><div id='content' class='page-1'><div class='row'><div class='row-fluid'><div class='col-lg-3'><ul class='nav-sidebar'>
-                                            <li class='active'><a href='vendors.html'><strong>Vendors</strong></a></li><li><a href='#operations' class='anchor-link'>Operations</a></li><li><a href='#access' class='anchor-link'>Access</a></li><li><a href='#endpoints' class='anchor-link'>Endpoints</a></li><li><a href='#gradleplugin' class='anchor-link'>Gradle SDK Vendor Plugin</a></li>
+                                            <li class='active'><a href='/vendors'><strong>Vendors</strong></a></li><li><a href='#operations' class='anchor-link'>Operations</a></li><li><a href='#access' class='anchor-link'>Access</a></li><li><a href='#endpoints' class='anchor-link'>Endpoints</a></li><li><a href='#gradleplugin' class='anchor-link'>Gradle SDK Vendor Plugin</a></li>
                                         </ul><br/></div><div class='col-lg-8 col-lg-pull-0'><h1><a name='main'></a><i class='fa fa-briefcase'></i> Vendors</h1><article><p>SDKMAN! is unique in that it empowers SDK Vendors to publish their own Candidate releases on our platform. We provide a secure API that can be used to manage all aspects of a release on SDKMAN!. This includes <strong>Releasing</strong> a new Version, setting an existing Version as <strong>Default</strong> (Stable) and <strong>Announcing</strong> the release on the SDKMAN! CLI broadcast and Twitter feed.</p></article><article><a name='operations'></a><h3>Operations</h3><p>The API is a simple JSON REST API that allows several operations:<ul><li>Release a new Candidate Version</li><li>Make a Version the Default for a given Candidate</li><li>Broadcast a structured release message</li><li>Broadcast a freeform message</li></ul></p></article><article><a name='access'></a><h3>Access</h3><p>This is a secured API, and requires appropriate credentials to perform the above operations. Access will be granted on a 
                                     case-by-case basis to Vendors who are interested in making their technology available on SDKMAN!. If you want to publish your releases 
                                     on SDKMAN!, please contact <a href='mailto:marco@sdkman.io'>Marco Vermeulen</a> to help getting you on board.</p></article><article><a name='endpoints'></a><h3>Endpoints</h3>The simplest way to call the API is by using cURL. Of course, any other client can be used to perform the API operations:<p><h4>Release a new Candidate Version</h4>This will perform a Minor Release on SDKMAN!. It will simply add the new Candidate Version, but will not make it the default version for the Candidate.<pre><code>
