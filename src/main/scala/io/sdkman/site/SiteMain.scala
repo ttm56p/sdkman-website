@@ -11,6 +11,7 @@ object SiteMain extends App {
       .registry {
         Guice.registry { g =>
           g.bind(classOf[ContextualHandler])
+            .bind(classOf[NotFoundErrorHandler])
         }
       }
       .handlers { chain =>
