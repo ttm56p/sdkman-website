@@ -17,6 +17,8 @@ repositories {
 dependencies {
   compile 'org.scala-lang:scala-library:2.12.4'
   compile ratpack.dependency("guice")
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.scalatest:scalatest_2.12:3.0.4'
 }
 
 mainClassName = "io.sdkman.site.SiteMain"

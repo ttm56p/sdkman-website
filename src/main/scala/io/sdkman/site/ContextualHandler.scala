@@ -10,5 +10,5 @@ class ContextualHandler extends Handler {
     }
   }
 
-  def static(context: String): String = s"$context.html"
+  private def static(context: String): String = s"$context.html"
 }

@@ -4,6 +4,8 @@ import ratpack.guice._
 import ratpack.server.BaseDir._
 import ratpack.server.RatpackServer
 
+class SiteMain
+
 object SiteMain extends App {
   RatpackServer.start { server =>
     server

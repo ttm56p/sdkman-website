@@ -4,5 +4,8 @@ import ratpack.error.ClientErrorHandler
 import ratpack.handling.Context
 
 class NotFoundErrorHandler extends ClientErrorHandler {
-  override def error(ctx: Context, statusCode: Int): Unit = ctx.render(ctx.file("/404.html"))
+  override def error(ctx: Context, statusCode: Int): Unit = {
+    ctx.getResponse.status(404)
+    ctx.render(ctx.file("/404.html"))
+  }
 }
