@@ -20,7 +20,7 @@ class ContextualHandlerSpec extends WordSpec with Matchers {
     }
 
     "render 404 if no context is present" in {
-      val action: Action[RequestFixture] = fix => fix
+      val action: Action[RequestFixture] = _ => Unit
 
       val result = RequestFixture.handle(new ContextualHandler, action)
 
