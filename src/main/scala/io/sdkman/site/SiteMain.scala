@@ -11,8 +11,9 @@ object SiteMain extends App {
     server
       .serverConfig(conf => conf.baseDir(find()))
       .registry {
-        Guice.registry { g =>
-          g.bind(classOf[ContextualHandler])
+        Guice.registry { bindings =>
+          bindings
+            .bind(classOf[ContextualHandler])
             .bind(classOf[NotFoundErrorHandler])
         }
       }
