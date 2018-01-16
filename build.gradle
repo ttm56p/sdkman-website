@@ -4,11 +4,16 @@ buildscript {
   }
   dependencies {
     classpath "io.ratpack:ratpack-gradle:1.5.1"
+    classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
   }
 }
 
+
 apply plugin: 'scala'
 apply plugin: "io.ratpack.ratpack-java"
+
+mainClassName = "io.sdkman.site.SiteMain"
+apply plugin: 'com.github.johnrengelman.shadow'
 
 repositories {
   jcenter()
@@ -21,5 +26,3 @@ dependencies {
   testCompile 'junit:junit:4.12'
   testCompile 'org.scalatest:scalatest_2.12:3.0.4'
 }
-
-mainClassName = "io.sdkman.site.SiteMain"
