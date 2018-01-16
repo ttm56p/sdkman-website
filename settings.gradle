@@ -1,4 +1,0 @@
-rootProject.name = 'sdkman-website'
-
-include 'generator','site'
-
