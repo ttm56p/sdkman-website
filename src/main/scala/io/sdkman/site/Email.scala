@@ -8,24 +8,16 @@ import courier.{Envelope, Mailer, Text}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.{Failure, Success}
 
-trait Email extends LazyLogging {
+trait Email extends LazyLogging with Configuration {
 
-  val SmtpHost = "smtp.gmail.com"
-
-  val SmtpPort = 587
-
-  val AdminEmail = ""
-
-  val AdminPassword = ""
-
-  lazy val mailer = Mailer(SmtpHost, SmtpPort)
+  lazy val mailer = Mailer(smtpHost, smtpPort)
     .auth(true)
-    .as(AdminEmail, AdminPassword)
+    .as(adminEmail, adminPassword)
     .startTtls(true)()
 
   def send(email: String, name: String, message: String): Unit = {
-    mailer(Envelope.from(new InternetAddress(AdminEmail))
-      .to(new InternetAddress(AdminEmail))
+    mailer(Envelope.from(new InternetAddress(adminEmail))
+      .to(new InternetAddress(adminEmail))
       .subject(s"SDKMAN contact request: $name")
       .content(Text(compose(email, name, message)))).onComplete {
       case Success(x) =>
@@ -38,7 +30,7 @@ trait Email extends LazyLogging {
 
   private def compose(email: String, name: String, message: String) =
     s"""
-      |The following message was received for $name<$email>:
+      |The following message was received from $name<$email>:
       |
       |$message
     """.stripMargin
