@@ -8,7 +8,9 @@ import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class HandlerChainSpec extends WordSpec with Matchers {
+
   new MainClassApplicationUnderTest(classOf[SiteMain]).test { client =>
+
     "The application" should {
       "respond with an index page on the root context" in {
         val response = client.get("/")

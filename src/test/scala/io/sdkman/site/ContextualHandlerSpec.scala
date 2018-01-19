@@ -12,7 +12,7 @@ import ratpack.test.handling.RequestFixture
 class ContextualHandlerSpec extends WordSpec with Matchers {
   "ContextualHandler" should {
     "render 200 if a context is present" in {
-      val action: Action[RequestFixture] = fix => fix.pathBinding(binding("context", "sdks"))
+      val action: Action[RequestFixture] = fix => fix.pathBinding(PathToken.binding("context", "sdks"))
 
       val result = RequestFixture.handle(new ContextualHandler, action)
 
@@ -26,9 +26,5 @@ class ContextualHandlerSpec extends WordSpec with Matchers {
 
       result.getStatus.getCode shouldBe 404
     }
-  }
-
-  private def binding(key: String, value: String) = new util.HashMap[String, String] {
-    put(key, value)
   }
 }
