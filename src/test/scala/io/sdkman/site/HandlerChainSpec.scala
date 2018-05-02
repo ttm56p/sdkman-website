@@ -44,14 +44,14 @@ class HandlerChainSpec extends WordSpec with Matchers {
         val response = client.get("/usage")
         response.getStatusCode shouldBe 200
         response.getBody.getText should include(
-          "Install the <strong>latest stable</strong> version of your SDK of choice (say, Java JDK) by running the following command")
+          "Install the <strong>latest stable</strong> version of your SDK")
       }
 
       "respond with the vendors page on the vendors context" in {
         val response = client.get("/vendors")
         response.getStatusCode shouldBe 200
         response.getBody.getText should include(
-          "SDKMAN! is unique in that it empowers SDK Vendors to publish their own Candidate releases on our platform.")
+          "SDKMAN! is unique in that it empowers SDK Vendors")
       }
 
       "respond with a not found page on an unknown context" in {
