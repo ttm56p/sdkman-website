@@ -1,21 +1,15 @@
-sudo: required
 services:
   - docker
-language: java
-before_install:
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker run -d --net=host mongo:latest
+env:
+  - TERM=dumb
+jdk:
+  - openjdk8
 script:
-  - docker build -t sdkman/sdkman-website:1.0.0-SNAPSHOT .
-  - docker run -d --env="RATPACK_MONGO__HOST=localhost" --net=host sdkman/sdkman-website:1.0.0-SNAPSHOT
-  - "./gradlew check --stacktrace"
-after_success:
-  - docker push sdkman/sdkman-website:1.0.0-SNAPSHOT
+  - ./gradlew -Prelease.useLastTag=true final docker dockerTag dockerPush
 cache:
   directories:
   - "$HOME/.gradle"
-# blacklist
 branches:
-  except:
-    - RELEASE
+  only:
+    - master
 
