@@ -7,7 +7,7 @@ jdk:
 before_script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 script:
-  - ./gradlew -Prelease.useLastTag=true final docker dockerTag dockerPush
+  - ./gradlew clean -Prelease.useLastTag=true final docker dockerTag dockerPush
 cache:
   directories:
   - "$HOME/.gradle"
