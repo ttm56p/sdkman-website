@@ -4,6 +4,8 @@ env:
   - TERM=dumb
 jdk:
   - openjdk8
+before_script:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 script:
   - ./gradlew -Prelease.useLastTag=true final docker dockerTag dockerPush
 cache:
