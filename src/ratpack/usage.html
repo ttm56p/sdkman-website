@@ -109,6 +109,7 @@
                                         <li><a href='#broadcast' class='anchor-link'>Broadcast Messages</a></li>
                                         <li><a href='#offline' class='anchor-link'>Offline Mode</a></li>
                                         <li><a href='#selfupdate' class='anchor-link'>Self-Update</a></li>
+                                        <li><a href='#update' class='anchor-link'>Update</a></li>
                                         <li><a href='#flush' class='anchor-link'>Flush</a></li>
                                         <li><a href='#help' class='anchor-link'>Help</a></li>
                                         <li><a href='#config' class='anchor-link'>Configuration</a></li>
@@ -380,6 +381,27 @@ $ sdk list
                                     </article>
                                     <br/>
                                     <article>
+                                        <a name='update'></a>
+                                        <h2>Update</h2>
+                                        <p>
+                                            Periodically SDKMAN! requires a refresh to become aware of new (or removed)
+                                            candidates.
+                                            When candidate metadata has potentially grown stale, a warning is displayed
+                                            with instruction
+                                            on how to update. By simply running the following command, the candidate
+                                            cache will be refreshed and new candidates will become available for
+                                            installation:
+
+                                        <pre><code>
+  WARNING: SDKMAN is out-of-date and requires an update.
+
+$ sdk update
+  Adding new candidates(s): kotlin
+                                        </code></pre>
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
                                         <a name='flush'></a>
                                         <h2>Flush</h2>
                                         <p>
@@ -408,8 +430,7 @@ $ sdk list
                                             You can get basic help by running the following command:
                                         <pre><code>$ sdk help</code></pre>
                                         This should yield something like:
-                                        <pre>
-                                                    <code>
+                                        <pre><code>
 Usage: sdk <command> <candidate> [version]
        sdk offline <enable|disable>
 
@@ -432,8 +453,7 @@ Usage: sdk <command> <candidate> [version]
    version    :  where optional, defaults to latest stable if not provided
 
 eg: sdk install groovy
-</code>
-                                                </pre>
+                                        </code></pre>
                                         </p>
                                         <hr class='divider'/>
                                     </article>
@@ -496,6 +516,11 @@ sdkman_beta_channel=true
           room: 'sdkman/user-issues'
         };
 
+
+
+
+
+
 </script>
 <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -505,6 +530,11 @@ sdkman_beta_channel=true
 
           ga('create', 'UA-10247295-12', 'auto');
           ga('send', 'pageview');
+
+
+
+
+
 
 </script>
 </body>
