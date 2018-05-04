@@ -1,57 +1,129 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]--><head>
-    <meta charset='utf-8'/><meta http-equiv='X-UA-Compatible' content='IE=edge'/><meta name='viewport' content='width=device-width, initial-scale=1'/><title>Usage - SDKMAN!</title><link href='img/favicon.ico' type='image/x-ico' rel='icon'/><link rel='stylesheet' type='text/css' href='css/bootstrap.css'/><link rel='stylesheet' type='text/css' href='css/font-awesome.min.css'/><link rel='stylesheet' type='text/css' href='css/style.css'/>
-</head><body>
-    <div id='fork-me'>
-        <a href='https://github.com/sdkman/sdkman-cli'>
-            <img style='position: fixed; top: -14px; right: -14px; border: 0; z-index: 100' src='https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67' alt='Fork me on GitHub' data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png'/>
-        </a>
-    </div><div id='st-container' class='st-container st-effect-9'>
-        <nav class='st-menu st-effect-9' id='menu-12'>
-            <h2 class='icon icon-lab'>Socialize</h2><ul>
-                <li>
-                    <a href='https://gitter.im/sdkman/user-issues' class='icon'><span class='fa fa-envelope'></span> Discuss on Gitter</a>
-                </li><li>
-                    <a href='https://twitter.com/sdkman_' class='icon'><span class='fa fa-twitter'></span> SDKMAN! on Twitter</a>
-                </li><li>
-                    <a href='https://github.com/sdkman' class='icon'><span class='fa fa-github'></span> Source code on GitHub</a>
-                </li><li>
-                    <a href='https://github.com/sdkman/sdkman-cli/issues' class='icon'><span class='fa fa-bug'></span> Report issues on GitHub</a>
-                </li><li>
-                    <a href='http://stackoverflow.com/questions/tagged/sdkman' class='icon'><span class='fa fa-stack-overflow'></span> Stack Overflow questions</a>
-                </li><li>
-                    <a href='http://status.sdkman.io' class='icon'><span class='fa '></span> StatusPage.io</a>
-                </li>
-            </ul>
-        </nav><div class='st-pusher'>
-            <div class='st-content'>
-                <div class='st-content-inner'>
-                    <!--[if lt IE 7]>
-                    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-                <![endif]--><div><div class='navbar navbar-default navbar-static-top' role='navigation'>
-                            <div class='container'>
-                                <div class='navbar-header'>
-                                    <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-                                        <span class='sr-only'></span><span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span>
-                                    </button><a class='navbar-brand' href='/'>
-                                        <img class='sdk-logo' src='img/logo.png'></img>
-                                    </a>
-                                </div><div class='navbar-collapse collapse'>
-                                    <ul class='nav navbar-nav navbar-right'>
-                                        <li class=''><a href='/install'>Install</a></li><li class=''><a href='/sdks'>SDKs</a></li><li class=''><a href='/usage'>Usage</a></li><li class=''><a href='/vendors'>Vendors</a></li><li>
-                                            <a data-effect='st-effect-9' class='st-trigger' href='#'>Socialize</a>
-                                        </li>
-                                    </ul>
-                                </div>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1'/>
+    <title>Usage - SDKMAN!</title>
+    <link href='img/favicon.ico' type='image/x-ico' rel='icon'/>
+    <link rel='stylesheet' type='text/css' href='css/bootstrap.css'/>
+    <link rel='stylesheet' type='text/css' href='css/font-awesome.min.css'/>
+    <link rel='stylesheet' type='text/css' href='css/style.css'/>
+</head>
+<body>
+<div id='fork-me'>
+    <a href='https://github.com/sdkman/sdkman-cli'>
+        <img style='position: fixed; top: -14px; right: -14px; border: 0; z-index: 100'
+             src='https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67'
+             alt='Fork me on GitHub'
+             data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png'/>
+    </a>
+</div>
+<div id='st-container' class='st-container st-effect-9'>
+    <nav class='st-menu st-effect-9' id='menu-12'>
+        <h2 class='icon icon-lab'>Socialize</h2>
+        <ul>
+            <li>
+                <a href='https://gitter.im/sdkman/user-issues' class='icon'><span class='fa fa-envelope'></span> Discuss
+                    on Gitter</a>
+            </li>
+            <li>
+                <a href='https://twitter.com/sdkman_' class='icon'><span class='fa fa-twitter'></span> SDKMAN! on
+                    Twitter</a>
+            </li>
+            <li>
+                <a href='https://github.com/sdkman' class='icon'><span class='fa fa-github'></span> Source code on
+                    GitHub</a>
+            </li>
+            <li>
+                <a href='https://github.com/sdkman/sdkman-cli/issues' class='icon'><span class='fa fa-bug'></span>
+                    Report issues on GitHub</a>
+            </li>
+            <li>
+                <a href='http://stackoverflow.com/questions/tagged/sdkman' class='icon'><span
+                        class='fa fa-stack-overflow'></span> Stack Overflow questions</a>
+            </li>
+            <li>
+                <a href='http://status.sdkman.io' class='icon'><span class='fa '></span> StatusPage.io</a>
+            </li>
+        </ul>
+    </nav>
+    <div class='st-pusher'>
+        <div class='st-content'>
+            <div class='st-content-inner'>
+                <!--[if lt IE 7]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+                        href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+                <![endif]-->
+                <div>
+                    <div class='navbar navbar-default navbar-static-top' role='navigation'>
+                        <div class='container'>
+                            <div class='navbar-header'>
+                                <button type='button' class='navbar-toggle' data-toggle='collapse'
+                                        data-target='.navbar-collapse'>
+                                    <span class='sr-only'></span><span class='icon-bar'></span><span
+                                        class='icon-bar'></span><span class='icon-bar'></span>
+                                </button>
+                                <a class='navbar-brand' href='/'>
+                                    <img class='sdk-logo' src='img/logo.png'></img>
+                                </a>
                             </div>
-                        </div><div id='content' class='page-1'><div class='row'><div class='row-fluid'><div class='col-lg-3'><ul class='nav-sidebar'>
-                                            <li class='active'><a href='/usage'><strong>Usage</strong></a></li><li><a href='#installdefault' class='anchor-link'>Install Latest Stable</a></li><li><a href='#installspecific' class='anchor-link'>Install Specific Version</a></li><li><a href='#localversion' class='anchor-link'>Install Local Version</a></li><li><a href='#remove' class='anchor-link'>Remove Version</a></li><li><a href='#listcandidates' class='anchor-link'>List Candidates</a></li><li><a href='#listversions' class='anchor-link'>List Versions</a></li><li><a href='#use' class='anchor-link'>Use Version</a></li><li><a href='#default' class='anchor-link'>Default Version</a></li><li><a href='#current' class='anchor-link'>Current Version</a></li><li><a href='#outdated' class='anchor-link'>Outdated Version</a></li><li><a href='#version' class='anchor-link'>Version</a></li><li><a href='#broadcast' class='anchor-link'>Broadcast Messages</a></li><li><a href='#offline' class='anchor-link'>Offline Mode</a></li><li><a href='#selfupdate' class='anchor-link'>Self-Update</a></li><li><a href='#flush' class='anchor-link'>Flush</a></li><li><a href='#help' class='anchor-link'>Help</a></li><li><a href='#config' class='anchor-link'>Configuration</a></li>
-                                        </ul><br/></div><div class='col-lg-8 col-lg-pull-0'><h1><a name='main'></a><i class='fa fa-laptop'></i> Usage</h1><article>
-                                            <h2>Installing an SDK</h2><a name='installdefault'></a><h4>Latest Stable</h4><p>
-                                                Install the <strong>latest stable</strong> version of your SDK of choice (say, Java JDK) by running the following command:<pre><code>$ sdk install java</code></pre>You will see something like the following output:<pre>
+                            <div class='navbar-collapse collapse'>
+                                <ul class='nav navbar-nav navbar-right'>
+                                    <li class=''><a href='/install'>Install</a></li>
+                                    <li class=''><a href='/sdks'>SDKs</a></li>
+                                    <li class=''><a href='/usage'>Usage</a></li>
+                                    <li class=''><a href='/vendors'>Vendors</a></li>
+                                    <li>
+                                        <a data-effect='st-effect-9' class='st-trigger' href='#'>Socialize</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='content' class='page-1'>
+                        <div class='row'>
+                            <div class='row-fluid'>
+                                <div class='col-lg-3'>
+                                    <ul class='nav-sidebar'>
+                                        <li class='active'><a href='/usage'><strong>Usage</strong></a></li>
+                                        <li><a href='#installdefault' class='anchor-link'>Install Latest Stable</a></li>
+                                        <li><a href='#installspecific' class='anchor-link'>Install Specific Version</a>
+                                        </li>
+                                        <li><a href='#localversion' class='anchor-link'>Install Local Version</a></li>
+                                        <li><a href='#remove' class='anchor-link'>Remove Version</a></li>
+                                        <li><a href='#listcandidates' class='anchor-link'>List Candidates</a></li>
+                                        <li><a href='#listversions' class='anchor-link'>List Versions</a></li>
+                                        <li><a href='#use' class='anchor-link'>Use Version</a></li>
+                                        <li><a href='#default' class='anchor-link'>Default Version</a></li>
+                                        <li><a href='#current' class='anchor-link'>Current Version</a></li>
+                                        <li><a href='#outdated' class='anchor-link'>Outdated Version</a></li>
+                                        <li><a href='#version' class='anchor-link'>Version</a></li>
+                                        <li><a href='#broadcast' class='anchor-link'>Broadcast Messages</a></li>
+                                        <li><a href='#offline' class='anchor-link'>Offline Mode</a></li>
+                                        <li><a href='#selfupdate' class='anchor-link'>Self-Update</a></li>
+                                        <li><a href='#flush' class='anchor-link'>Flush</a></li>
+                                        <li><a href='#help' class='anchor-link'>Help</a></li>
+                                        <li><a href='#config' class='anchor-link'>Configuration</a></li>
+                                    </ul>
+                                    <br/></div>
+                                <div class='col-lg-8 col-lg-pull-0'><h1><a name='main'></a><i class='fa fa-laptop'></i>
+                                    Usage</h1>
+                                    <article>
+                                        <h2>Installing an SDK</h2><a name='installdefault'></a><h4>Latest Stable</h4>
+                                        <p>
+                                            Install the <strong>latest stable</strong> version of your SDK of choice
+                                            (say, Java JDK) by running the following command:
+                                        <pre><code>$ sdk install java</code></pre>
+                                        You will see something like the following output:
+                                        <pre>
                                                     <code>
 Downloading: java 8u111
 
@@ -62,19 +134,46 @@ In progress...
 Installing: java 8u111
 Done installing!
 </code>
-                                                </pre>Now you will be prompted if you want this version to be set as <strong>default.</strong><pre><code>Do you want java 8u111 to be set as default? (Y/n):</code></pre>Answering <em>yes</em> (or <em>hitting enter</em>) will ensure that all subsequent shells opened will have this version of the SDK in use by default.<pre><code>Setting java 8u111 as default.</code></pre>
-                                            </p><a name='installspecific'></a><h4>Specific Version</h4><p>
-                                                Need a <strong>specific</strong> version of an SDK? Simply qualify the version you require:<pre><code>$ sdk install scala 2.12.1</code></pre>All subsequent steps same as above.
-                                            </p><a name='localversion'></a><h4>Install Local Version(s)</h4><p>
-                                                Need a snapshot? Already have a local installation? Setup a local version:<pre><code>$ sdk install groovy 3.0.0-SNAPSHOT /path/to/groovy-3.0.0-SNAPSHOT</code></pre>
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='remove'></a><h2>Remove Version</h2><p>
-                                                Remove an installed version.<pre><code>$ sdk uninstall scala 2.11.6</code></pre>
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='listcandidates'></a><h2>List Candidates</h2><p>
-                                                To get a listing of available Candidates:<pre><code>$ sdk list</code></pre>This will render a searchable alphabetic list with name, current stable default version, website URL, description and easy install command for each Candidate. The output is piped to <code>less</code> so standard keyboard shortcuts may be used with <code>q</code> to exit.<pre><code>
+                                                </pre>
+                                        Now you will be prompted if you want this version to be set as
+                                        <strong>default.</strong>
+                                        <pre><code>Do you want java 8u111 to be set as default? (Y/n):</code></pre>
+                                        Answering <em>yes</em> (or <em>hitting enter</em>) will ensure that all
+                                        subsequent shells opened will have this version of the SDK in use by default.
+                                        <pre><code>Setting java 8u111 as default.</code></pre>
+                                        </p><a name='installspecific'></a><h4>Specific Version</h4>
+                                        <p>
+                                            Need a <strong>specific</strong> version of an SDK? Simply qualify the
+                                            version you require:
+                                        <pre><code>$ sdk install scala 2.12.1</code></pre>
+                                        All subsequent steps same as above.
+                                        </p><a name='localversion'></a><h4>Install Local Version(s)</h4>
+                                        <p>
+                                            Need a snapshot? Already have a local installation? Setup a local version:
+                                        <pre><code>$ sdk install groovy 3.0.0-SNAPSHOT /path/to/groovy-3.0.0-SNAPSHOT</code></pre>
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='remove'></a>
+                                        <h2>Remove Version</h2>
+                                        <p>
+                                            Remove an installed version.
+                                        <pre><code>$ sdk uninstall scala 2.11.6</code></pre>
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='listcandidates'></a>
+                                        <h2>List Candidates</h2>
+                                        <p>
+                                            To get a listing of available Candidates:
+                                        <pre><code>$ sdk list</code></pre>
+                                        This will render a searchable alphabetic list with name, current stable default
+                                        version, website URL, description and easy install command for each Candidate.
+                                        The output is piped to <code>less</code> so standard keyboard shortcuts may be
+                                        used with <code>q</code> to exit.
+                                        <pre><code>
 ================================================================================
 Available Candidates
 ================================================================================
@@ -98,10 +197,18 @@ Scala (2.11.7)                                        http://www.scala-lang.org/
 ...
 </code>
                                                 </pre>
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='listversions'></a><h2>List Versions</h2><p>
-                                                To get a listing of Candidate Versions:<pre><code>$ sdk list groovy</code></pre>This will result in a list view showing the available, local, installed and current versions of the SDK.<pre><code>
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='listversions'></a>
+                                        <h2>List Versions</h2>
+                                        <p>
+                                            To get a listing of Candidate Versions:
+                                        <pre><code>$ sdk list groovy</code></pre>
+                                        This will result in a list view showing the available, local, installed and
+                                        current versions of the SDK.
+                                        <pre><code>
 ================================================================================
 Available Groovy Versions
 ================================================================================
@@ -128,68 +235,119 @@ Available Groovy Versions
 ================================================================================
 </code>
                                                 </pre>
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='use'></a><h2>Use Version</h2><p>
-                                                Choose to use a given version in the current terminal:<pre><code>$ sdk use scala 2.12.1</code></pre>It is important to realise that this will switch the candidate version <strong>for the current shell only</strong>. To make this change permanent, use the <a href='#default'>default</a> command instead.
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='default'></a><h2>Default Version</h2><p>
-                                                Chose to make a given version the default:<pre><code>$ sdk default scala 2.11.6</code></pre>This will ensure that all subsequent shells will start with version 2.11.6 in use.
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='current'></a><h2>Current Version(s)</h2><p>
-                                                To see what is currently in use for a Candidate:<pre><code>
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='use'></a>
+                                        <h2>Use Version</h2>
+                                        <p>
+                                            Choose to use a given version in the current terminal:
+                                        <pre><code>$ sdk use scala 2.12.1</code></pre>
+                                        It is important to realise that this will switch the candidate version <strong>for
+                                        the current shell only</strong>. To make this change permanent, use the <a
+                                            href='#default'>default</a> command instead.
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='default'></a>
+                                        <h2>Default Version</h2>
+                                        <p>
+                                            Chose to make a given version the default:
+                                        <pre><code>$ sdk default scala 2.11.6</code></pre>
+                                        This will ensure that all subsequent shells will start with version 2.11.6 in
+                                        use.
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='current'></a>
+                                        <h2>Current Version(s)</h2>
+                                        <p>
+                                            To see what is currently in use for a Candidate:
+                                        <pre><code>
 $ sdk current java
   Using java version 8u111
-</code></pre>To see what is currently in use for <strong>all</strong> Candidates:<pre><code>
+</code></pre>
+                                        To see what is currently in use for <strong>all</strong> Candidates:
+                                        <pre><code>
 $ sdk current
   Using:
   groovy: 2.4.7
   java: 8u111
   scala: 2.12.1
 </code></pre>
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='upgrade'></a><h2>Upgrade Version(s)</h2><p>
-                                                To see what is currently out of date for a Candidate on your system:<pre><code>
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='upgrade'></a>
+                                        <h2>Upgrade Version(s)</h2>
+                                        <p>
+                                            To see what is currently out of date for a Candidate on your system:
+                                        <pre><code>
 $ sdk upgrade springboot
   Upgrade:
   springboot (1.2.4.RELEASE, 1.2.3.RELEASE < 1.2.5.RELEASE)
-</code></pre>To see what is outdated for <strong>all</strong> Candidates:<pre><code>
+</code></pre>
+                                        To see what is outdated for <strong>all</strong> Candidates:
+                                        <pre><code>
 $ sdk upgrade
   Upgrade:
   gradle (2.3, 1.11, 2.4, 2.5 < 2.6)
   grails (2.5.1 < 3.0.4)
   springboot (1.2.4.RELEASE, 1.2.3.RELEASE < 1.2.5.RELEASE)
 </code></pre>
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='version'></a><h2>SDKMAN! Version</h2><p>
-                                                Display the current version of SDKMAN!:<pre><code>$ sdk version</code></pre>
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='broadcast'></a><h2>Broadcast Messages</h2><p>
-                                                Get the latest SDK release notifications on the command line:<pre><code>
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='version'></a>
+                                        <h2>SDKMAN! Version</h2>
+                                        <p>
+                                            Display the current version of SDKMAN!:
+                                        <pre><code>$ sdk version</code></pre>
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='broadcast'></a>
+                                        <h2>Broadcast Messages</h2>
+                                        <p>
+                                            Get the latest SDK release notifications on the command line:
+                                        <pre><code>
 $ sdk broadcast
 ==== BROADCAST =================================================================
 * 06/12/16: Scala 2.12.1 released on SDKMAN! #scala
 * 23/11/16: Gradle 3.2.1 released on SDKMAN! #gradle
 * 22/11/16: Ceylon 1.3.1 released on SDKMAN! #ceylonlang
 ================================================================================
-</code></pre>It is also worth mentioning that whenever an SDK version is released on
-                 SDKMAN!, a notification will appear when next using the CLI.
-                 Every new broadcast is also pushed to Twitter.
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='offline'></a><h2>Offline Mode</h2><p>
-                                                Initially called <em>Aeroplane Mode</em>, this allows SDKMAN! to function when working offline. It has a parameter that can be passed to<em>enable</em> or <em>disable</em> the offline mode.<pre><code>
+</code></pre>
+                                        It is also worth mentioning that whenever an SDK version is released on
+                                        SDKMAN!, a notification will appear when next using the CLI.
+                                        Every new broadcast is also pushed to Twitter.
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='offline'></a>
+                                        <h2>Offline Mode</h2>
+                                        <p>
+                                            Initially called <em>Aeroplane Mode</em>, this allows SDKMAN! to function
+                                            when working offline. It has a parameter that can be passed
+                                            to<em>enable</em> or <em>disable</em> the offline mode.
+                                        <pre><code>
 $ sdk offline enable
   Forced offline mode enabled.
 
 $ sdk offline disable
   Online mode re-enabled!
-</code></pre>When operating in <strong>offline</strong> mode, most commands will still work even though they will operate in a scaled down capacity. An example is the list command, which will only display the currently installed and active version(s):<pre><code>
+</code></pre>
+                                        When operating in <strong>offline</strong> mode, most commands will still work
+                                        even though they will operate in a scaled down capacity. An example is the list
+                                        command, which will only display the currently installed and active version(s):
+                                        <pre><code>
 $ sdk list
   ------------------------------------------------------------
   Offline Mode: only showing installed groovy versions
@@ -200,28 +358,57 @@ $ sdk list
   * - installed
   > - currently in use
   ------------------------------------------------------------
-</code></pre>The offline mode will also be disabled/enabled automatically when the internet becomes available/unavailable. Naturally, commands that require internet connectivity will not function but give a warning.
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='selfupdate'></a><h2>Self-Update</h2><p>
-                                                Installs a new version of SDKMAN! if available.<pre><code>$ sdk selfupdate</code></pre>If no new version is available an appropriate message will be displayed. Re-installation may be forced by passing the force parameter to the command:<pre><code>$ sdk selfupdate force</code></pre>Automatic daily checks for new versions of SDKMAN! will also be performed on the behalf of the user.
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='flush'></a><h2>Flush</h2><p>
-                                                From time to time it may be necessary to flush SDKMAN!&apos;s local state.The flush command helps with this and allows for the following to be performed:
-                                                <h4>Broadcast</h4>
-                                                <pre><code>$ sdk flush broadcast</code></pre>
-                                                Clears out the Broadcast cache, downloading the latest available news on next command invocation.
-                                                <h4>Archives</h4>
-                                                <pre><code>$ sdk flush archives</code></pre>
-                                                Cleans the cache containing all downloaded SDK binaries. This can take up a lot of space so is worth clearing out from time to time!
-                                                <h4>Temporary Folder</h4>
-                                                <pre><code>$ sdk flush temp</code></pre>
-                                                Clears out the staging work folder used when installing new versions of candidates and SDKMAN! itself.
-                                            </p>
-                                        </article><br/><article>
-                                            <a name='help'></a><h2>Help</h2><p>
-                                                You can get basic help by running the following command:<pre><code>$ sdk help</code></pre>This should yield something like:<pre>
+</code></pre>
+                                        The offline mode will also be disabled/enabled automatically when the internet
+                                        becomes available/unavailable. Naturally, commands that require internet
+                                        connectivity will not function but give a warning.
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='selfupdate'></a>
+                                        <h2>Self-Update</h2>
+                                        <p>
+                                            Installs a new version of SDKMAN! if available.
+                                        <pre><code>$ sdk selfupdate</code></pre>
+                                        If no new version is available an appropriate message will be displayed.
+                                        Re-installation may be forced by passing the force parameter to the command:
+                                        <pre><code>$ sdk selfupdate force</code></pre>
+                                        Automatic daily checks for new versions of SDKMAN! will also be performed on the
+                                        behalf of the user.
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='flush'></a>
+                                        <h2>Flush</h2>
+                                        <p>
+                                            From time to time it may be necessary to flush SDKMAN!&apos;s local
+                                            state.The flush command helps with this and allows for the following to be
+                                            performed:
+                                        <h4>Broadcast</h4>
+                                        <pre><code>$ sdk flush broadcast</code></pre>
+                                        Clears out the Broadcast cache, downloading the latest available news on next
+                                        command invocation.
+                                        <h4>Archives</h4>
+                                        <pre><code>$ sdk flush archives</code></pre>
+                                        Cleans the cache containing all downloaded SDK binaries. This can take up a lot
+                                        of space so is worth clearing out from time to time!
+                                        <h4>Temporary Folder</h4>
+                                        <pre><code>$ sdk flush temp</code></pre>
+                                        Clears out the staging work folder used when installing new versions of
+                                        candidates and SDKMAN! itself.
+                                        </p>
+                                    </article>
+                                    <br/>
+                                    <article>
+                                        <a name='help'></a>
+                                        <h2>Help</h2>
+                                        <p>
+                                            You can get basic help by running the following command:
+                                        <pre><code>$ sdk help</code></pre>
+                                        This should yield something like:
+                                        <pre>
                                                     <code>
 Usage: sdk <command> <candidate> [version]
        sdk offline <enable|disable>
@@ -247,10 +434,18 @@ Usage: sdk <command> <candidate> [version]
 eg: sdk install groovy
 </code>
                                                 </pre>
-                                            </p><hr class='divider'/>
-                                        </article><article>
-                                            <a name='config'></a><h2>Configuration</h2><p>
-                                                Although configuration is limited, the list of configurable items will grow as required. Configuration can be found in the <code>~/.sdkman/etc/config</code> file. Currently the following is configurable:<pre><code>
+                                        </p>
+                                        <hr class='divider'/>
+                                    </article>
+                                    <article>
+                                        <a name='config'></a>
+                                        <h2>Configuration</h2>
+                                        <p>
+                                            Although configuration is limited, the list of configurable items will grow
+                                            as required. Configuration can be found in the
+                                            <code>~/.sdkman/etc/config</code> file. Currently the following is
+                                            configurable:
+                                        <pre><code>
 # make sdkman non-interactive, preferred for CI environments
 sdkman_auto_answer=true|false
 
@@ -270,20 +465,39 @@ sdkman_curl_max_time=4
 sdkman_beta_channel=true
 </code>
                                                 </pre>
-                                            </p>
-                                        </article><br/></div></div></div></div><footer id='footer'>
-                            <div class='row'>
-                                <div class='clearfix'>&copy; 2012-2018 SDKMAN! is Open Source Software licensed under <a href='http://www.apache.org/licenses/LICENSE-2.0.html'>Apache 2</a></div><div class='clearfix'>Logos and additional Design by <a href='https://github.com/dmesu'>Daida Medina</a></div>
+                                        </p>
+                                    </article>
+                                    <br/></div>
                             </div>
-                        </footer></div>
+                        </div>
+                    </div>
+                    <footer id='footer'>
+                        <div class='row'>
+                            <div class='clearfix'>&copy; 2012-2018 SDKMAN! is Open Source Software licensed under <a
+                                    href='http://www.apache.org/licenses/LICENSE-2.0.html'>Apache 2</a></div>
+                            <div class='clearfix'>Logos and additional Design by <a href='https://github.com/dmesu'>Daida
+                                Medina</a></div>
+                        </div>
+                    </footer>
                 </div>
             </div>
         </div>
-    </div><script src='js/vendor/jquery-1.10.2.min.js' defer></script><script src='js/vendor/classie.js' defer></script><script src='js/vendor/bootstrap.js' defer></script><script src='js/vendor/sidebarEffects.js' defer></script><script src='js/vendor/modernizr-2.6.2.min.js' defer></script><script src='js/plugins.js' defer></script><script src='https://sidecar.gitter.im/dist/sidecar.v1.js' defer></script><script>
+    </div>
+</div>
+<script src='js/vendor/jquery-1.10.2.min.js' defer></script>
+<script src='js/vendor/classie.js' defer></script>
+<script src='js/vendor/bootstrap.js' defer></script>
+<script src='js/vendor/sidebarEffects.js' defer></script>
+<script src='js/vendor/modernizr-2.6.2.min.js' defer></script>
+<script src='js/plugins.js' defer></script>
+<script src='https://sidecar.gitter.im/dist/sidecar.v1.js' defer></script>
+<script>
         ((window.gitter = {}).chat = {}).options = {
           room: 'sdkman/user-issues'
         };
-    </script><script>
+
+</script>
+<script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -291,5 +505,7 @@ sdkman_beta_channel=true
 
           ga('create', 'UA-10247295-12', 'auto');
           ga('send', 'pageview');
-    </script>
-</body></html>
+
+</script>
+</body>
+</html>

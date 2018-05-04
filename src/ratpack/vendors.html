@@ -1,57 +1,139 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]--><head>
-    <meta charset='utf-8'/><meta http-equiv='X-UA-Compatible' content='IE=edge'/><meta name='viewport' content='width=device-width, initial-scale=1'/><title>Vendors - SDKMAN!</title><link href='img/favicon.ico' type='image/x-ico' rel='icon'/><link rel='stylesheet' type='text/css' href='css/bootstrap.css'/><link rel='stylesheet' type='text/css' href='css/font-awesome.min.css'/><link rel='stylesheet' type='text/css' href='css/style.css'/>
-</head><body>
-    <div id='fork-me'>
-        <a href='https://github.com/sdkman/sdkman-cli'>
-            <img style='position: fixed; top: -14px; right: -14px; border: 0; z-index: 100' src='https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67' alt='Fork me on GitHub' data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png'/>
-        </a>
-    </div><div id='st-container' class='st-container st-effect-9'>
-        <nav class='st-menu st-effect-9' id='menu-12'>
-            <h2 class='icon icon-lab'>Socialize</h2><ul>
-                <li>
-                    <a href='https://gitter.im/sdkman/user-issues' class='icon'><span class='fa fa-envelope'></span> Discuss on Gitter</a>
-                </li><li>
-                    <a href='https://twitter.com/sdkman_' class='icon'><span class='fa fa-twitter'></span> SDKMAN! on Twitter</a>
-                </li><li>
-                    <a href='https://github.com/sdkman' class='icon'><span class='fa fa-github'></span> Source code on GitHub</a>
-                </li><li>
-                    <a href='https://github.com/sdkman/sdkman-cli/issues' class='icon'><span class='fa fa-bug'></span> Report issues on GitHub</a>
-                </li><li>
-                    <a href='http://stackoverflow.com/questions/tagged/sdkman' class='icon'><span class='fa fa-stack-overflow'></span> Stack Overflow questions</a>
-                </li><li>
-                    <a href='http://status.sdkman.io' class='icon'><span class='fa '></span> StatusPage.io</a>
-                </li>
-            </ul>
-        </nav><div class='st-pusher'>
-            <div class='st-content'>
-                <div class='st-content-inner'>
-                    <!--[if lt IE 7]>
-                    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-                <![endif]--><div><div class='navbar navbar-default navbar-static-top' role='navigation'>
-                            <div class='container'>
-                                <div class='navbar-header'>
-                                    <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-                                        <span class='sr-only'></span><span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span>
-                                    </button><a class='navbar-brand' href='/'>
-                                        <img class='sdk-logo' src='img/logo.png'></img>
-                                    </a>
-                                </div><div class='navbar-collapse collapse'>
-                                    <ul class='nav navbar-nav navbar-right'>
-                                        <li class=''><a href='/install'>Install</a></li><li class=''><a href='/sdks'>SDKs</a></li><li class=''><a href='/usage'>Usage</a></li><li class=''><a href='/vendors'>Vendors</a></li><li>
-                                            <a data-effect='st-effect-9' class='st-trigger' href='#'>Socialize</a>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1'/>
+    <title>Vendors - SDKMAN!</title>
+    <link href='img/favicon.ico' type='image/x-ico' rel='icon'/>
+    <link rel='stylesheet' type='text/css' href='css/bootstrap.css'/>
+    <link rel='stylesheet' type='text/css' href='css/font-awesome.min.css'/>
+    <link rel='stylesheet' type='text/css' href='css/style.css'/>
+</head>
+<body>
+<div id='fork-me'>
+    <a href='https://github.com/sdkman/sdkman-cli'>
+        <img style='position: fixed; top: -14px; right: -14px; border: 0; z-index: 100'
+             src='https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67'
+             alt='Fork me on GitHub'
+             data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png'/>
+    </a>
+</div>
+<div id='st-container' class='st-container st-effect-9'>
+    <nav class='st-menu st-effect-9' id='menu-12'>
+        <h2 class='icon icon-lab'>Socialize</h2>
+        <ul>
+            <li>
+                <a href='https://gitter.im/sdkman/user-issues' class='icon'><span class='fa fa-envelope'></span> Discuss
+                    on Gitter</a>
+            </li>
+            <li>
+                <a href='https://twitter.com/sdkman_' class='icon'><span class='fa fa-twitter'></span> SDKMAN! on
+                    Twitter</a>
+            </li>
+            <li>
+                <a href='https://github.com/sdkman' class='icon'><span class='fa fa-github'></span> Source code on
+                    GitHub</a>
+            </li>
+            <li>
+                <a href='https://github.com/sdkman/sdkman-cli/issues' class='icon'><span class='fa fa-bug'></span>
+                    Report issues on GitHub</a>
+            </li>
+            <li>
+                <a href='http://stackoverflow.com/questions/tagged/sdkman' class='icon'><span
+                        class='fa fa-stack-overflow'></span> Stack Overflow questions</a>
+            </li>
+            <li>
+                <a href='http://status.sdkman.io' class='icon'><span class='fa '></span> StatusPage.io</a>
+            </li>
+        </ul>
+    </nav>
+    <div class='st-pusher'>
+        <div class='st-content'>
+            <div class='st-content-inner'>
+                <!--[if lt IE 7]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+                        href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+                <![endif]-->
+                <div>
+                    <div class='navbar navbar-default navbar-static-top' role='navigation'>
+                        <div class='container'>
+                            <div class='navbar-header'>
+                                <button type='button' class='navbar-toggle' data-toggle='collapse'
+                                        data-target='.navbar-collapse'>
+                                    <span class='sr-only'></span><span class='icon-bar'></span><span
+                                        class='icon-bar'></span><span class='icon-bar'></span>
+                                </button>
+                                <a class='navbar-brand' href='/'>
+                                    <img class='sdk-logo' src='img/logo.png'></img>
+                                </a>
+                            </div>
+                            <div class='navbar-collapse collapse'>
+                                <ul class='nav navbar-nav navbar-right'>
+                                    <li class=''><a href='/install'>Install</a></li>
+                                    <li class=''><a href='/sdks'>SDKs</a></li>
+                                    <li class=''><a href='/usage'>Usage</a></li>
+                                    <li class=''><a href='/vendors'>Vendors</a></li>
+                                    <li>
+                                        <a data-effect='st-effect-9' class='st-trigger' href='#'>Socialize</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='content' class='page-1'>
+                        <div class='row'>
+                            <div class='row-fluid'>
+                                <div class='col-lg-3'>
+                                    <ul class='nav-sidebar'>
+                                        <li class='active'><a href='/vendors'><strong>Vendors</strong></a></li>
+                                        <li><a href='#operations' class='anchor-link'>Operations</a></li>
+                                        <li><a href='#access' class='anchor-link'>Access</a></li>
+                                        <li><a href='#endpoints' class='anchor-link'>Endpoints</a></li>
+                                        <li><a href='#gradleplugin' class='anchor-link'>Gradle SDK Vendor Plugin</a>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div><div id='content' class='page-1'><div class='row'><div class='row-fluid'><div class='col-lg-3'><ul class='nav-sidebar'>
-                                            <li class='active'><a href='/vendors'><strong>Vendors</strong></a></li><li><a href='#operations' class='anchor-link'>Operations</a></li><li><a href='#access' class='anchor-link'>Access</a></li><li><a href='#endpoints' class='anchor-link'>Endpoints</a></li><li><a href='#gradleplugin' class='anchor-link'>Gradle SDK Vendor Plugin</a></li>
-                                        </ul><br/></div><div class='col-lg-8 col-lg-pull-0'><h1><a name='main'></a><i class='fa fa-briefcase'></i> Vendors</h1><article><p>SDKMAN! is unique in that it empowers SDK Vendors to publish their own Candidate releases on our platform. We provide a secure API that can be used to manage all aspects of a release on SDKMAN!. This includes <strong>Releasing</strong> a new Version, setting an existing Version as <strong>Default</strong> (Stable) and <strong>Announcing</strong> the release on the SDKMAN! CLI broadcast and Twitter feed.</p></article><article><a name='operations'></a><h3>Operations</h3><p>The API is a simple JSON REST API that allows several operations:<ul><li>Release a new Candidate Version</li><li>Make a Version the Default for a given Candidate</li><li>Broadcast a structured release message</li><li>Broadcast a freeform message</li></ul></p></article><article><a name='access'></a><h3>Access</h3><p>This is a secured API, and requires appropriate credentials to perform the above operations. Access will be granted on a 
-                                    case-by-case basis to Vendors who are interested in making their technology available on SDKMAN!. If you want to publish your releases 
-                                    on SDKMAN!, please contact <a href='mailto:marco@sdkman.io'>Marco Vermeulen</a> to help getting you on board.</p></article><article><a name='endpoints'></a><h3>Endpoints</h3>The simplest way to call the API is by using cURL. Of course, any other client can be used to perform the API operations:<p><h4>Release a new Candidate Version</h4>This will perform a Minor Release on SDKMAN!. It will simply add the new Candidate Version, but will not make it the default version for the Candidate.<pre><code>
+                                    <br/></div>
+                                <div class='col-lg-8 col-lg-pull-0'><h1><a name='main'></a><i
+                                        class='fa fa-briefcase'></i> Vendors</h1>
+                                    <article><p>SDKMAN! is unique in that it empowers SDK Vendors to publish their own
+                                        Candidate releases on our platform. We provide a secure API that can be used to
+                                        manage all aspects of a release on SDKMAN!. This includes
+                                        <strong>Releasing</strong> a new Version, setting an existing Version as
+                                        <strong>Default</strong> (Stable) and <strong>Announcing</strong> the release on
+                                        the SDKMAN! CLI broadcast and Twitter feed.</p></article>
+                                    <article><a name='operations'></a>
+                                        <h3>Operations</h3>
+                                        <p>The API is a simple JSON REST API that allows several operations:
+                                        <ul>
+                                            <li>Release a new Candidate Version</li>
+                                            <li>Make a Version the Default for a given Candidate</li>
+                                            <li>Broadcast a structured release message</li>
+                                            <li>Broadcast a freeform message</li>
+                                        </ul>
+                                        </p></article>
+                                    <article><a name='access'></a>
+                                        <h3>Access</h3>
+                                        <p>This is a secured API, and requires appropriate credentials to perform the
+                                            above operations. Access will be granted on a
+                                            case-by-case basis to Vendors who are interested in making their technology
+                                            available on SDKMAN!. If you want to publish your releases
+                                            on SDKMAN!, please contact <a href='mailto:marco@sdkman.io'>Marco
+                                                Vermeulen</a> to help getting you on board.</p></article>
+                                    <article><a name='endpoints'></a>
+                                        <h3>Endpoints</h3>The simplest way to call the API is by using cURL. Of course,
+                                        any other client can be used to perform the API operations:<p><h4>Release a new
+                                            Candidate Version</h4>This will perform a Minor Release on SDKMAN!. It will
+                                        simply add the new Candidate Version, but will not make it the default version
+                                        for the Candidate.
+                                        <pre><code>
 curl -X POST \
     -H "Consumer-Key: CONSUMER_KEY" \
     -H "Consumer-Token: CONSUMER_TOKEN" \
@@ -59,7 +141,12 @@ curl -X POST \
     -H "Accept: application/json" \
     -d '{"candidate": "groovy", "version": "2.4.2", "url": "http://dl.bintray.com/groovy/maven/groovy-binary-2.4.2.zip"}' \
     https://vendors.sdkman.io/release
-                                        </code></pre></p><br/><p><h4>Set existing Version as Default for Candidate</h4>When calling this endpoint for an existing Candidate Version, it will make it the Default Version for that Candidate. This makes a Minor release a Major release!<pre><code>
+                                        </code></pre>
+                                        </p><br/>
+                                        <p><h4>Set existing Version as Default for Candidate</h4>When calling this
+                                        endpoint for an existing Candidate Version, it will make it the Default Version
+                                        for that Candidate. This makes a Minor release a Major release!
+                                        <pre><code>
 curl -X PUT \
     -H "Consumer-Key: CONSUMER_KEY" \
     -H "Consumer-Token: CONSUMER_TOKEN" \
@@ -67,7 +154,14 @@ curl -X PUT \
     -H "Accept: application/json" \
     -d '{"candidate": "groovy", "version": "2.3.8"}' \
     https://vendors.sdkman.io/default
-                                        </code></pre></p><br/><p><h4>Broadcast a Structured Message</h4>This will result in a structured message announcement on social media and SDKMAN! CLI. The result will look something like: <code>Grails 3.0.0 has been released on SDKMAN! #grailsfw</code>. This message will be announced to the broadcast channel of SDKMAN! CLI, as well as on the <a href='https://www.twitter.com/sdkman_'>@sdkman_</a> Twitter feed.<pre><code>
+                                        </code></pre>
+                                        </p><br/>
+                                        <p><h4>Broadcast a Structured Message</h4>This will result in a structured
+                                        message announcement on social media and SDKMAN! CLI. The result will look
+                                        something like: <code>Grails 3.0.0 has been released on SDKMAN! #grailsfw</code>.
+                                        This message will be announced to the broadcast channel of SDKMAN! CLI, as well
+                                        as on the <a href='https://www.twitter.com/sdkman_'>@sdkman_</a> Twitter feed.
+                                        <pre><code>
 curl -X POST \
     -H "Consumer-Key: CONSUMER_KEY" \
     -H "Consumer-Token: CONSUMER_TOKEN" \
@@ -75,7 +169,11 @@ curl -X POST \
     -H "Accept: application/json" \
     -d '{"candidate": "grails", "version": "3.0.0", "hashtag": "grailsfw"}' \
     https://vendors.sdkman.io/announce/struct
-                                        </code></pre></p><br/><p><h4>Broadcast a Freeform Message</h4>This endpoint is not used as much as the previous, but allows freeform messages to be announced.<pre><code>
+                                        </code></pre>
+                                        </p><br/>
+                                        <p><h4>Broadcast a Freeform Message</h4>This endpoint is not used as much as the
+                                        previous, but allows freeform messages to be announced.
+                                        <pre><code>
 curl -X POST \
     -H "Consumer-Key: CONSUMER_KEY" \
     -H "Consumer-Token: CONSUMER_TOKEN" \
@@ -83,19 +181,61 @@ curl -X POST \
     -H "Accept: application/json" \
     -d '{"text": "SDKMAN! 2.4.0 rolling out. Broadcast and Offline checks optimised."}' \
     https://vendors.sdkman.io/announce/freeform
-                                        </code></pre></p><br/></article><article><a name='gradleplugin'></a><h3>Gradle SDK Vendor Plugin</h3><p>If fiddling with cURL (or HttpClient) isn’t your thing, you could consider using our Gradle plugin. The plugin allows the release to be done as a side effect of your CI build! It exposes several useful tasks like:<ul><li><code>sdkReleaseVersion</code></li><li><code>sdkDefaultVersion</code></li><li><code>sdkAnnounceVersion</code></li></ul>It also exposes some convenience tasks that roll the above into single tasks:<ul><li><code>sdkMajorRelease</code>: performs release, default and structured announce</li><li><code>sdkMinorRelease</code>: performs release and structured announce, <em>no</em> default</li></ul>For more details of about this plugin, as well as how to configure it, please refer to the <a href='https://github.com/sdkman/gradle-sdkvendor-plugin'>Github Page</a> for the project.</p></article></div></div></div></div><footer id='footer'>
-                            <div class='row'>
-                                <div class='clearfix'>&copy; 2012-2018 SDKMAN! is Open Source Software licensed under <a href='http://www.apache.org/licenses/LICENSE-2.0.html'>Apache 2</a></div><div class='clearfix'>Logos and additional Design by <a href='https://github.com/dmesu'>Daida Medina</a></div>
+                                        </code></pre>
+                                        </p><br/></article>
+                                    <article><a name='gradleplugin'></a>
+                                        <h3>Gradle SDK Vendor Plugin</h3>
+                                        <p>If fiddling with cURL (or HttpClient) isn’t your thing, you could consider
+                                            using our Gradle plugin. The plugin allows the release to be done as a side
+                                            effect of your CI build! It exposes several useful tasks like:
+                                        <ul>
+                                            <li><code>sdkReleaseVersion</code></li>
+                                            <li><code>sdkDefaultVersion</code></li>
+                                            <li><code>sdkAnnounceVersion</code></li>
+                                        </ul>
+                                        It also exposes some convenience tasks that roll the above into single tasks:
+                                        <ul>
+                                            <li><code>sdkMajorRelease</code>: performs release, default and structured
+                                                announce
+                                            </li>
+                                            <li><code>sdkMinorRelease</code>: performs release and structured announce,
+                                                <em>no</em> default
+                                            </li>
+                                        </ul>
+                                        For more details of about this plugin, as well as how to configure it, please
+                                        refer to the <a href='https://github.com/sdkman/gradle-sdkvendor-plugin'>Github
+                                            Page</a> for the project.</p></article>
+                                </div>
                             </div>
-                        </footer></div>
+                        </div>
+                    </div>
+                    <footer id='footer'>
+                        <div class='row'>
+                            <div class='clearfix'>&copy; 2012-2018 SDKMAN! is Open Source Software licensed under <a
+                                    href='http://www.apache.org/licenses/LICENSE-2.0.html'>Apache 2</a></div>
+                            <div class='clearfix'>Logos and additional Design by <a href='https://github.com/dmesu'>Daida
+                                Medina</a></div>
+                        </div>
+                    </footer>
                 </div>
             </div>
         </div>
-    </div><script src='js/vendor/jquery-1.10.2.min.js' defer></script><script src='js/vendor/classie.js' defer></script><script src='js/vendor/bootstrap.js' defer></script><script src='js/vendor/sidebarEffects.js' defer></script><script src='js/vendor/modernizr-2.6.2.min.js' defer></script><script src='js/plugins.js' defer></script><script src='https://sidecar.gitter.im/dist/sidecar.v1.js' defer></script><script>
+    </div>
+</div>
+<script src='js/vendor/jquery-1.10.2.min.js' defer></script>
+<script src='js/vendor/classie.js' defer></script>
+<script src='js/vendor/bootstrap.js' defer></script>
+<script src='js/vendor/sidebarEffects.js' defer></script>
+<script src='js/vendor/modernizr-2.6.2.min.js' defer></script>
+<script src='js/plugins.js' defer></script>
+<script src='https://sidecar.gitter.im/dist/sidecar.v1.js' defer></script>
+<script>
         ((window.gitter = {}).chat = {}).options = {
           room: 'sdkman/user-issues'
         };
-    </script><script>
+
+</script>
+<script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -103,5 +243,7 @@ curl -X POST \
 
           ga('create', 'UA-10247295-12', 'auto');
           ga('send', 'pageview');
-    </script>
-</body></html>
+
+</script>
+</body>
+</html>

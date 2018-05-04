@@ -1,80 +1,209 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]--><head>
-    <meta charset='utf-8'/><meta http-equiv='X-UA-Compatible' content='IE=edge'/><meta name='viewport' content='width=device-width, initial-scale=1'/><title>Installation - SDKMAN!</title><link href='img/favicon.ico' type='image/x-ico' rel='icon'/><link rel='stylesheet' type='text/css' href='css/bootstrap.css'/><link rel='stylesheet' type='text/css' href='css/font-awesome.min.css'/><link rel='stylesheet' type='text/css' href='css/style.css'/>
-</head><body>
-    <div id='fork-me'>
-        <a href='https://github.com/sdkman/sdkman-cli'>
-            <img style='position: fixed; top: -14px; right: -14px; border: 0; z-index: 100' src='https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67' alt='Fork me on GitHub' data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png'/>
-        </a>
-    </div><div id='st-container' class='st-container st-effect-9'>
-        <nav class='st-menu st-effect-9' id='menu-12'>
-            <h2 class='icon icon-lab'>Socialize</h2><ul>
-                <li>
-                    <a href='https://gitter.im/sdkman/user-issues' class='icon'><span class='fa fa-envelope'></span> Discuss on Gitter</a>
-                </li><li>
-                    <a href='https://twitter.com/sdkman_' class='icon'><span class='fa fa-twitter'></span> SDKMAN! on Twitter</a>
-                </li><li>
-                    <a href='https://github.com/sdkman' class='icon'><span class='fa fa-github'></span> Source code on GitHub</a>
-                </li><li>
-                    <a href='https://github.com/sdkman/sdkman-cli/issues' class='icon'><span class='fa fa-bug'></span> Report issues on GitHub</a>
-                </li><li>
-                    <a href='http://stackoverflow.com/questions/tagged/sdkman' class='icon'><span class='fa fa-stack-overflow'></span> Stack Overflow questions</a>
-                </li><li>
-                    <a href='http://status.sdkman.io' class='icon'><span class='fa '></span> StatusPage.io</a>
-                </li>
-            </ul>
-        </nav><div class='st-pusher'>
-            <div class='st-content'>
-                <div class='st-content-inner'>
-                    <!--[if lt IE 7]>
-                    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-                <![endif]--><div><div class='navbar navbar-default navbar-static-top' role='navigation'>
-                            <div class='container'>
-                                <div class='navbar-header'>
-                                    <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-                                        <span class='sr-only'></span><span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span>
-                                    </button><a class='navbar-brand' href='/'>
-                                        <img class='sdk-logo' src='img/logo.png'></img>
-                                    </a>
-                                </div><div class='navbar-collapse collapse'>
-                                    <ul class='nav navbar-nav navbar-right'>
-                                        <li class=''><a href='/install'>Install</a></li><li class=''><a href='/sdks'>SDKs</a></li><li class=''><a href='/usage'>Usage</a></li><li class=''><a href='/vendors'>Vendors</a></li><li>
-                                            <a data-effect='st-effect-9' class='st-trigger' href='#'>Socialize</a>
-                                        </li>
-                                    </ul>
-                                </div>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1'/>
+    <title>Installation - SDKMAN!</title>
+    <link href='img/favicon.ico' type='image/x-ico' rel='icon'/>
+    <link rel='stylesheet' type='text/css' href='css/bootstrap.css'/>
+    <link rel='stylesheet' type='text/css' href='css/font-awesome.min.css'/>
+    <link rel='stylesheet' type='text/css' href='css/style.css'/>
+</head>
+<body>
+<div id='fork-me'>
+    <a href='https://github.com/sdkman/sdkman-cli'>
+        <img style='position: fixed; top: -14px; right: -14px; border: 0; z-index: 100'
+             src='https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67'
+             alt='Fork me on GitHub'
+             data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png'/>
+    </a>
+</div>
+<div id='st-container' class='st-container st-effect-9'>
+    <nav class='st-menu st-effect-9' id='menu-12'>
+        <h2 class='icon icon-lab'>Socialize</h2>
+        <ul>
+            <li>
+                <a href='https://gitter.im/sdkman/user-issues' class='icon'><span class='fa fa-envelope'></span> Discuss
+                    on Gitter</a>
+            </li>
+            <li>
+                <a href='https://twitter.com/sdkman_' class='icon'><span class='fa fa-twitter'></span> SDKMAN! on
+                    Twitter</a>
+            </li>
+            <li>
+                <a href='https://github.com/sdkman' class='icon'><span class='fa fa-github'></span> Source code on
+                    GitHub</a>
+            </li>
+            <li>
+                <a href='https://github.com/sdkman/sdkman-cli/issues' class='icon'><span class='fa fa-bug'></span>
+                    Report issues on GitHub</a>
+            </li>
+            <li>
+                <a href='http://stackoverflow.com/questions/tagged/sdkman' class='icon'><span
+                        class='fa fa-stack-overflow'></span> Stack Overflow questions</a>
+            </li>
+            <li>
+                <a href='http://status.sdkman.io' class='icon'><span class='fa '></span> StatusPage.io</a>
+            </li>
+        </ul>
+    </nav>
+    <div class='st-pusher'>
+        <div class='st-content'>
+            <div class='st-content-inner'>
+                <!--[if lt IE 7]>
+                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+                        href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+                <![endif]-->
+                <div>
+                    <div class='navbar navbar-default navbar-static-top' role='navigation'>
+                        <div class='container'>
+                            <div class='navbar-header'>
+                                <button type='button' class='navbar-toggle' data-toggle='collapse'
+                                        data-target='.navbar-collapse'>
+                                    <span class='sr-only'></span><span class='icon-bar'></span><span
+                                        class='icon-bar'></span><span class='icon-bar'></span>
+                                </button>
+                                <a class='navbar-brand' href='/'>
+                                    <img class='sdk-logo' src='img/logo.png'></img>
+                                </a>
                             </div>
-                        </div><div id='content' class='page-1'><div class='row'><div class='row-fluid'><div class='col-lg-3'></div><div class='col-lg-8 col-lg-pull-0'><h1><i class='fa fa-cloud-download'></i> Installation</h1><article><p>Installing SDKMAN! on UNIX-like platforms is as easy as ever.
-                                             SDKMAN! installs smoothly on Mac OSX, Linux, Cygwin,
-                                             Solaris and FreeBSD. We also support Bash and ZSH shells.<br/>Simply open a new terminal and enter: </p><pre><code>$ curl -s "https://get.sdkman.io" | bash</code></pre><p>Follow the instructions on-screen to complete installation.<br/>Next, open a new terminal <b>or</b> enter:</p><pre><code>$ source "$HOME/.sdkman/bin/sdkman-init.sh"</code></pre><p>Lastly, run the following code snippet to ensure that installation succeeded:</p><pre><code>$ sdk version</code></pre><p>If all went well, the version should be displayed. Something like:</p><pre><code>  sdkman 5.0.0+51</code></pre></article><article><h3>Windows Installation</h3><p>Several options exist for installing SDKMAN! on Windows today.</p><p>The first solution involves installing <a href='https://www.cygwin.com/install.html'>Cygwin</a> prior to attempting SDKMAN installation. For our software to function, we require that Cygwin
-                                        is installed with a basic toolchain including bash, zip, unzip, and curl. (tar and gzip required for special cases)</p><p>The second solution is for Git users using the <a href='https://git-scm.com/download/win'>Git Bash for Windows</a> environment. In order for this to work, the environment needs to be supplemented with <a href='http://www.mingw.org/'>MinGW</a> to add the necessary toolchain to function.</p><p>The last option available is <a href='https://github.com/flofreud/posh-gvm'>Posh GVM</a>. This is a Powershell port of SDKMAN that is sadly no longer maintained. We seek 
-                                        for contributors with Powershell knowledge to pick this up for our Windows users again. If 
-                                        interested, please talk to us on the <a href='https://gitter.im/sdkman/cli-dev'>cli-dev Gitter channel.</a></p><p><strong>Please be aware that as SDKMAN is written in bash, it requires a bash environment 
-                                        to be present. SDKMAN can not be installed natively on Windows and requires Cygwin or MSYS+MinGW.</strong></p></article><article><h3>Beta Channel</h3><p>For the more adventurous among us, we have a beta channel.
-                                         All new CLI features will first be rolled out to this group of users for trial purposes.
-                                         Beta versions can be considered stable for the most part, but might occasionally break.
-                                         To join the beta program, simply update the the <code>~/.sdkman/etc/config</code> file as follows:<pre><code>sdkman_beta_channel=true</code></pre>Next, open a new terminal and perform a forced update with:<pre><code>$ sdk selfupdate force</code></pre>To leave the beta channel, simply set the above config back to <code>false</code> and follow the same procedure.</p></article><article><h3>Uninstallation</h3>In the unlikely event that you would like to uninstall SDKMAN!, we don&apos;t have
-                                         an automated way of doing this yet. If you really do want to remove it from your
-                                         system, it is very easy to do so.The following will guide you through backing up, then removing the entire installation from your system.<pre><code>
+                            <div class='navbar-collapse collapse'>
+                                <ul class='nav navbar-nav navbar-right'>
+                                    <li class=''><a href='/install'>Install</a></li>
+                                    <li class=''><a href='/sdks'>SDKs</a></li>
+                                    <li class=''><a href='/usage'>Usage</a></li>
+                                    <li class=''><a href='/vendors'>Vendors</a></li>
+                                    <li>
+                                        <a data-effect='st-effect-9' class='st-trigger' href='#'>Socialize</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='content' class='page-1'>
+                        <div class='row'>
+                            <div class='row-fluid'>
+                                <div class='col-lg-3'></div>
+                                <div class='col-lg-8 col-lg-pull-0'><h1><i class='fa fa-cloud-download'></i>
+                                    Installation</h1>
+                                    <article><p>Installing SDKMAN! on UNIX-like platforms is as easy as ever.
+                                        SDKMAN! installs smoothly on Mac OSX, Linux, Cygwin,
+                                        Solaris and FreeBSD. We also support Bash and ZSH shells.<br/>Simply open a new
+                                        terminal and enter: </p>
+                                        <pre><code>$ curl -s "https://get.sdkman.io" | bash</code></pre>
+                                        <p>Follow the instructions on-screen to complete installation.<br/>Next, open a
+                                            new terminal <b>or</b> enter:</p>
+                                        <pre><code>$ source "$HOME/.sdkman/bin/sdkman-init.sh"</code></pre>
+                                        <p>Lastly, run the following code snippet to ensure that installation
+                                            succeeded:</p>
+                                        <pre><code>$ sdk version</code></pre>
+                                        <p>If all went well, the version should be displayed. Something like:</p>
+                                        <pre><code>  sdkman 5.0.0+51</code></pre>
+                                    </article>
+                                    <article><h3>Windows Installation</h3>
+                                        <p>Several options exist for installing SDKMAN! on Windows today.</p>
+                                        <p>The first solution involves installing <a
+                                                href='https://www.cygwin.com/install.html'>Cygwin</a> prior to
+                                            attempting SDKMAN installation. For our software to function, we require
+                                            that Cygwin
+                                            is installed with a basic toolchain including bash, zip, unzip, and curl.
+                                            (tar and gzip required for special cases)</p>
+                                        <p>The second solution is for Git users using the <a
+                                                href='https://git-scm.com/download/win'>Git Bash for Windows</a>
+                                            environment. In order for this to work, the environment needs to be
+                                            supplemented with <a href='http://www.mingw.org/'>MinGW</a> to add the
+                                            necessary toolchain to function.</p>
+                                        <p>The last option available is <a href='https://github.com/flofreud/posh-gvm'>Posh
+                                            GVM</a>. This is a Powershell port of SDKMAN that is sadly no longer
+                                            maintained. We seek
+                                            for contributors with Powershell knowledge to pick this up for our Windows
+                                            users again. If
+                                            interested, please talk to us on the <a
+                                                    href='https://gitter.im/sdkman/cli-dev'>cli-dev Gitter channel.</a>
+                                        </p>
+                                        <p><strong>Please be aware that as SDKMAN is written in bash, it requires a bash
+                                            environment
+                                            to be present. SDKMAN can not be installed natively on Windows and requires
+                                            Cygwin or MSYS+MinGW.</strong></p></article>
+                                    <article><h3>Beta Channel</h3>
+                                        <p>For the more adventurous among us, we have a beta channel.
+                                            All new CLI features will first be rolled out to this group of users for
+                                            trial purposes.
+                                            Beta versions can be considered stable for the most part, but might
+                                            occasionally break.
+                                            To join the beta program, simply update the the
+                                            <code>~/.sdkman/etc/config</code> file as follows:
+                                        <pre><code>sdkman_beta_channel=true</code></pre>
+                                        Next, open a new terminal and perform a forced update with:
+                                        <pre><code>$ sdk selfupdate force</code></pre>
+                                        To leave the beta channel, simply set the above config back to
+                                        <code>false</code> and follow the same procedure.</p></article>
+                                    <article><h3>Uninstallation</h3>In the unlikely event that you would like to
+                                        uninstall SDKMAN!, we don&apos;t have
+                                        an automated way of doing this yet. If you really do want to remove it from your
+                                        system, it is very easy to do so.The following will guide you through backing
+                                        up, then removing the entire installation from your system.
+                                        <pre><code>
 tar zcvf ~/sdkman-backup_$(date +%F-%kh%M).tar.gz -C ~/ .sdkman
-$ rm -rf ~/.sdkman</code></pre>The last step involves editing and removing the initialisation snippet from your <code>.bashrc</code>, <code>.bash_profile</code> and/or <code>.profile</code> files. If you use ZSH, remove it from the <code>.zshrc</code> file. The snippet of code to be removed looks something like this:<pre><code>
+$ rm -rf ~/.sdkman</code></pre>
+                                        The last step involves editing and removing the initialisation snippet from your
+                                        <code>.bashrc</code>, <code>.bash_profile</code> and/or <code>.profile</code>
+                                        files. If you use ZSH, remove it from the <code>.zshrc</code> file. The snippet
+                                        of code to be removed looks something like this:
+                                        <pre><code>
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "/home/dudette/.sdkman/bin/sdkman-init.sh" ]] && source "/home/dudette/.sdkman/bin/sdkman-init.sh"</code></pre>Once removed, you have successfully uninstalled SDKMAN! from your machine.</article><article><h3>Installing to a Custom Location</h3>It is possible to install SDKMAN! to a custom location other than <code>$HOME/.sdkman</code>. This can be achieved by exporting your custom location as <code>SDKMAN_DIR</code> prior to installing.<br/>Simply open a new terminal and enter:<pre><code>$ export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash</code></pre>For this to work it is vital that your user has full access rights to this folder.It is also important that the folder does not exist as SDKMAN! will attempt to create it.</article><p>That&apos;s all there is to it! Next we will look at <a href='/usage'>Usage</a>.</p></div></div></div></div><footer id='footer'>
-                            <div class='row'>
-                                <div class='clearfix'>&copy; 2012-2018 SDKMAN! is Open Source Software licensed under <a href='http://www.apache.org/licenses/LICENSE-2.0.html'>Apache 2</a></div><div class='clearfix'>Logos and additional Design by <a href='https://github.com/dmesu'>Daida Medina</a></div>
+[[ -s "/home/dudette/.sdkman/bin/sdkman-init.sh" ]] && source "/home/dudette/.sdkman/bin/sdkman-init.sh"</code></pre>
+                                        Once removed, you have successfully uninstalled SDKMAN! from your machine.
+                                    </article>
+                                    <article><h3>Installing to a Custom Location</h3>It is possible to install SDKMAN!
+                                        to a custom location other than <code>$HOME/.sdkman</code>. This can be achieved
+                                        by exporting your custom location as <code>SDKMAN_DIR</code> prior to
+                                        installing.<br/>Simply open a new terminal and enter:
+                                        <pre><code>$ export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash</code></pre>
+                                        For this to work it is vital that your user has full access rights to this
+                                        folder.It is also important that the folder does not exist as SDKMAN! will
+                                        attempt to create it.
+                                    </article>
+                                    <p>That&apos;s all there is to it! Next we will look at <a href='/usage'>Usage</a>.
+                                    </p></div>
                             </div>
-                        </footer></div>
+                        </div>
+                    </div>
+                    <footer id='footer'>
+                        <div class='row'>
+                            <div class='clearfix'>&copy; 2012-2018 SDKMAN! is Open Source Software licensed under <a
+                                    href='http://www.apache.org/licenses/LICENSE-2.0.html'>Apache 2</a></div>
+                            <div class='clearfix'>Logos and additional Design by <a href='https://github.com/dmesu'>Daida
+                                Medina</a></div>
+                        </div>
+                    </footer>
                 </div>
             </div>
         </div>
-    </div><script src='js/vendor/jquery-1.10.2.min.js' defer></script><script src='js/vendor/classie.js' defer></script><script src='js/vendor/bootstrap.js' defer></script><script src='js/vendor/sidebarEffects.js' defer></script><script src='js/vendor/modernizr-2.6.2.min.js' defer></script><script src='js/plugins.js' defer></script><script src='https://sidecar.gitter.im/dist/sidecar.v1.js' defer></script><script>
+    </div>
+</div>
+<script src='js/vendor/jquery-1.10.2.min.js' defer></script>
+<script src='js/vendor/classie.js' defer></script>
+<script src='js/vendor/bootstrap.js' defer></script>
+<script src='js/vendor/sidebarEffects.js' defer></script>
+<script src='js/vendor/modernizr-2.6.2.min.js' defer></script>
+<script src='js/plugins.js' defer></script>
+<script src='https://sidecar.gitter.im/dist/sidecar.v1.js' defer></script>
+<script>
         ((window.gitter = {}).chat = {}).options = {
           room: 'sdkman/user-issues'
         };
-    </script><script>
+
+</script>
+<script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -82,5 +211,7 @@ $ rm -rf ~/.sdkman</code></pre>The last step involves editing and removing the i
 
           ga('create', 'UA-10247295-12', 'auto');
           ga('send', 'pageview');
-    </script>
-</body></html>
+
+</script>
+</body>
+</html>
