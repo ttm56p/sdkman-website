@@ -17,6 +17,7 @@ object SiteMain extends App {
         Guice.registry { bindings =>
           bindings
             .bind(classOf[ContactFormHandler])
+            .bind(classOf[SdksPageHandler])
             .bind(classOf[ContextualHandler])
             .bind(classOf[NotFoundErrorHandler])
         }
@@ -24,6 +25,7 @@ object SiteMain extends App {
       .handlers { chain =>
         chain
           .post("contact", classOf[ContactFormHandler])
+          .get("sdks", classOf[SdksPageHandler])
           .get(":context", classOf[ContextualHandler])
           .files(fs => fs.indexFiles(IndexPage))
       }
