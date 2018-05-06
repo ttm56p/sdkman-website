@@ -33,7 +33,7 @@ class SdkPageAccSpec extends WordSpec with Matchers with BeforeAndAfterAll with 
 
       "render an sdk heading" in {
         eventually {
-          response.getBody.getText should include("<h4>Java</h4>")
+          response.getBody.getText should include("<h4>Java (8.0.163-zulu)</h4>")
         }
       }
 
