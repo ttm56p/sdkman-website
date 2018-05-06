@@ -6,8 +6,11 @@ jdk:
   - openjdk8
 before_script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker run --name=mongo --rm -d -p="27017:27017" mongo:3.2
 script:
   - ./gradlew clean -Prelease.useLastTag=true final docker dockerTag dockerPush
+after_script:
+  - docker rm -f mongo
 cache:
   directories:
   - "$HOME/.gradle"
