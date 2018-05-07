@@ -6,13 +6,14 @@
             <div class='col-lg-3'>
                 <ul class='nav-sidebar'>
                     <li class='active'><a href='/usage'><strong>Available SDKs</strong></a></li>
-                        @for(c <- candidates) {
-                            <li><a href='#@{c.candidate}' class='anchor-link'>@{c.name}</a></li>
-                        }
-                    </ul>
-                </div>
-            <div class='col-lg-8 col-lg-pull-0'><h1><a name='main'></a><i
-                    class='fa fa-cloud-download'></i> SDK Installation Candidates</h1>
+                    @for(c <- candidates) {
+                    <li><a href='#@{c.candidate}' class='anchor-link'>@{c.name}</a></li>
+                    }
+                </ul>
+            </div>
+            <div class='col-lg-8 col-lg-pull-0'>
+                <h1><a name='main'></a>
+                    <i class='fa fa-cloud-download'></i> SDK Installation Candidates</h1>
                 <ul>
                     @for(c <- candidates) {
                     <li>
