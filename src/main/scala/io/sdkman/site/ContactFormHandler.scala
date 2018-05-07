@@ -10,7 +10,7 @@ class ContactFormHandler extends Handler with RatpackSugar with Email {
     ctx.parse(classOf[Form]).blockingOp { f =>
       send(f.get("email"), f.get("name"), f.get("message"))
     } andThen { _ =>
-      ctx.redirect("/")
+      ctx.redirect("//")
     }
   }
 }
