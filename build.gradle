@@ -71,17 +71,24 @@ docker {
   dependsOn shadowJar
 }
 
+def compileTemplate(File template, File sourceDir, File gensrcDir) {
+  TwirlCompiler.compile(
+          template,
+          file(sourceDir),
+          file(gensrcDir),
+          "play.twirl.api.HtmlFormat",
+          ["io.sdkman.repos.Candidate", "play.twirl.api.Html"],
+          new ArrayList<String>())
+}
+
 task prepareTemplates() {
   doLast {
     def sourceDir = file("src/main/twirl")
-    sourceDir.listFiles().each { template ->
-      TwirlCompiler.compile(
-              template,
-              file(sourceDir),
-              file(gensrcDir),
-              "play.twirl.api.HtmlFormat",
-              ["io.sdkman.repos.Candidate", "play.twirl.api.Html"],
-              new ArrayList<String>())
+    ["", "includes/"].each { folder ->
+      file("$sourceDir/$folder").listFiles().findAll { !it.directory }.each { File template ->
+        println("Compiling template: ${template.name}: $sourceDir/$folder -> $gensrcDir/")
+        compileTemplate(template, file("$sourceDir/$folder"), file(gensrcDir))
+      }
     }
   }
 }
