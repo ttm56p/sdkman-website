@@ -16,8 +16,8 @@
                     <i class='fa fa-cloud-download'></i> SDK Installation Candidates</h1>
                 <ul>
                     @for(c <- candidates) {
+                    <a name='@c.candidate'></a>
                     <li>
-                        <a name='@c.candidate'></a>
                         <h4>@c.name (@c.default)</h4>
                         <a href='@c.websiteUrl' target='_blank'>@c.websiteUrl</a></br>
                         <p>@c.description</p>
