@@ -4,7 +4,7 @@ buildscript {
     jcenter()
   }
   dependencies {
-    classpath "io.ratpack:ratpack-gradle:1.5.1"
+    classpath "io.ratpack:ratpack-gradle:1.5.4"
     classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
     classpath "com.netflix.nebula:nebula-release-plugin:6.3.3"
     classpath "gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.19.2"
