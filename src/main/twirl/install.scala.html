@@ -1,110 +1,91 @@
-@()
-@header()
-<body>
-@forkme()
-<div id='st-container' class='st-container st-effect-9'>
-    @socialise()
-    <div class='st-pusher'>
-        <div class='st-content'>
-            <div class='st-content-inner'>
-                @browserhappy()
-                <div>
-                    @navigation()
-                    <div id='content' class='page-1'>
-                        <div class='row'>
-                            <div class='row-fluid'>
-                                <div class='col-lg-3'></div>
-                                <div class='col-lg-8 col-lg-pull-0'><h1><i class='fa fa-cloud-download'></i>
-                                    Installation</h1>
-                                    <article><p>Installing SDKMAN! on UNIX-like platforms is as easy as ever.
-                                        SDKMAN! installs smoothly on Mac OSX, Linux, Cygwin,
-                                        Solaris and FreeBSD. We also support Bash and ZSH shells.<br/>Simply open a new
-                                        terminal and enter: </p>
-                                        <pre><code>$ curl -s "https://get.sdkman.io" | bash</code></pre>
-                                        <p>Follow the instructions on-screen to complete installation.<br/>Next, open a
-                                            new terminal <b>or</b> enter:</p>
-                                        <pre><code>$ source "$HOME/.sdkman/bin/sdkman-init.sh"</code></pre>
-                                        <p>Lastly, run the following code snippet to ensure that installation
-                                            succeeded:</p>
-                                        <pre><code>$ sdk version</code></pre>
-                                        <p>If all went well, the version should be displayed. Something like:</p>
-                                        <pre><code>  sdkman 5.0.0+51</code></pre>
-                                    </article>
-                                    <article><h3>Windows Installation</h3>
-                                        <p>Several options exist for installing SDKMAN! on Windows today.</p>
-                                        <p>The first solution involves installing <a
-                                                href='https://www.cygwin.com/install.html'>Cygwin</a> prior to
-                                            attempting SDKMAN installation. For our software to function, we require
-                                            that Cygwin
-                                            is installed with a basic toolchain including bash, zip, unzip, and curl.
-                                            (tar and gzip required for special cases)</p>
-                                        <p>The second solution is for Git users using the <a
-                                                href='https://git-scm.com/download/win'>Git Bash for Windows</a>
-                                            environment. In order for this to work, the environment needs to be
-                                            supplemented with <a href='http://www.mingw.org/'>MinGW</a> to add the
-                                            necessary toolchain to function.</p>
-                                        <p>The last option available is <a href='https://github.com/flofreud/posh-gvm'>Posh
-                                            GVM</a>. This is a Powershell port of SDKMAN that is sadly no longer
-                                            maintained. We seek
-                                            for contributors with Powershell knowledge to pick this up for our Windows
-                                            users again. If
-                                            interested, please talk to us on the <a
-                                                    href='https://gitter.im/sdkman/cli-dev'>cli-dev Gitter channel.</a>
-                                        </p>
-                                        <p><strong>Please be aware that as SDKMAN is written in bash, it requires a bash
-                                            environment
-                                            to be present. SDKMAN can not be installed natively on Windows and requires
-                                            Cygwin or MSYS+MinGW.</strong></p></article>
-                                    <article><h3>Beta Channel</h3>
-                                        <p>For the more adventurous among us, we have a beta channel.
-                                            All new CLI features will first be rolled out to this group of users for
-                                            trial purposes.
-                                            Beta versions can be considered stable for the most part, but might
-                                            occasionally break.
-                                            To join the beta program, simply update the the
-                                            <code>~/.sdkman/etc/config</code> file as follows:
-                                        <pre><code>sdkman_beta_channel=true</code></pre>
-                                        Next, open a new terminal and perform a forced update with:
-                                        <pre><code>$ sdk selfupdate force</code></pre>
-                                        To leave the beta channel, simply set the above config back to
-                                        <code>false</code> and follow the same procedure.</p></article>
-                                    <article><h3>Uninstallation</h3>In the unlikely event that you would like to
-                                        uninstall SDKMAN!, we don&apos;t have
-                                        an automated way of doing this yet. If you really do want to remove it from your
-                                        system, it is very easy to do so.The following will guide you through backing
-                                        up, then removing the entire installation from your system.
-                                        <pre><code>
+@layout(title = "Installation") {
+<div id='content' class='page-1'>
+    <div class='row'>
+        <div class='row-fluid'>
+            <div class='col-lg-3'></div>
+            <div class='col-lg-8 col-lg-pull-0'><h1><i class='fa fa-cloud-download'></i>
+                Installation</h1>
+                <article><p>Installing SDKMAN! on UNIX-like platforms is as easy as ever.
+                    SDKMAN! installs smoothly on Mac OSX, Linux, Cygwin,
+                    Solaris and FreeBSD. We also support Bash and ZSH shells.<br/>Simply open a new
+                    terminal and enter: </p>
+                    <pre><code>$ curl -s "https://get.sdkman.io" | bash</code></pre>
+                    <p>Follow the instructions on-screen to complete installation.<br/>Next, open a
+                        new terminal <b>or</b> enter:</p>
+                    <pre><code>$ source "$HOME/.sdkman/bin/sdkman-init.sh"</code></pre>
+                    <p>Lastly, run the following code snippet to ensure that installation
+                        succeeded:</p>
+                    <pre><code>$ sdk version</code></pre>
+                    <p>If all went well, the version should be displayed. Something like:</p>
+                    <pre><code>  sdkman 5.0.0+51</code></pre>
+                </article>
+                <article><h3>Windows Installation</h3>
+                    <p>Several options exist for installing SDKMAN! on Windows today.</p>
+                    <p>The first solution involves installing <a
+                            href='https://www.cygwin.com/install.html'>Cygwin</a> prior to
+                        attempting SDKMAN installation. For our software to function, we require
+                        that Cygwin
+                        is installed with a basic toolchain including bash, zip, unzip, and curl.
+                        (tar and gzip required for special cases)</p>
+                    <p>The second solution is for Git users using the <a
+                            href='https://git-scm.com/download/win'>Git Bash for Windows</a>
+                        environment. In order for this to work, the environment needs to be
+                        supplemented with <a href='http://www.mingw.org/'>MinGW</a> to add the
+                        necessary toolchain to function.</p>
+                    <p>The last option available is <a href='https://github.com/flofreud/posh-gvm'>Posh
+                        GVM</a>. This is a Powershell port of SDKMAN that is sadly no longer
+                        maintained. We seek
+                        for contributors with Powershell knowledge to pick this up for our Windows
+                        users again. If
+                        interested, please talk to us on the <a
+                                href='https://gitter.im/sdkman/cli-dev'>cli-dev Gitter channel.</a>
+                    </p>
+                    <p><strong>Please be aware that as SDKMAN is written in bash, it requires a bash
+                        environment
+                        to be present. SDKMAN can not be installed natively on Windows and requires
+                        Cygwin or MSYS+MinGW.</strong></p></article>
+                <article><h3>Beta Channel</h3>
+                    <p>For the more adventurous among us, we have a beta channel.
+                        All new CLI features will first be rolled out to this group of users for
+                        trial purposes.
+                        Beta versions can be considered stable for the most part, but might
+                        occasionally break.
+                        To join the beta program, simply update the the
+                        <code>~/.sdkman/etc/config</code> file as follows:
+                    <pre><code>sdkman_beta_channel=true</code></pre>
+                    Next, open a new terminal and perform a forced update with:
+                    <pre><code>$ sdk selfupdate force</code></pre>
+                    To leave the beta channel, simply set the above config back to
+                    <code>false</code> and follow the same procedure.</p></article>
+                <article><h3>Uninstallation</h3>In the unlikely event that you would like to
+                    uninstall SDKMAN!, we don&apos;t have
+                    an automated way of doing this yet. If you really do want to remove it from your
+                    system, it is very easy to do so.The following will guide you through backing
+                    up, then removing the entire installation from your system.
+                    <pre><code>
 tar zcvf ~/sdkman-backup_$(date +%F-%kh%M).tar.gz -C ~/ .sdkman
 $ rm -rf ~/.sdkman</code></pre>
-                                        The last step involves editing and removing the initialisation snippet from your
-                                        <code>.bashrc</code>, <code>.bash_profile</code> and/or <code>.profile</code>
-                                        files. If you use ZSH, remove it from the <code>.zshrc</code> file. The snippet
-                                        of code to be removed looks something like this:
-                                        <pre><code>
+                    The last step involves editing and removing the initialisation snippet from your
+                    <code>.bashrc</code>, <code>.bash_profile</code> and/or <code>.profile</code>
+                    files. If you use ZSH, remove it from the <code>.zshrc</code> file. The snippet
+                    of code to be removed looks something like this:
+                    <pre><code>
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "/home/dudette/.sdkman/bin/sdkman-init.sh" ]] && source "/home/dudette/.sdkman/bin/sdkman-init.sh"</code></pre>
-                                        Once removed, you have successfully uninstalled SDKMAN! from your machine.
-                                    </article>
-                                    <article><h3>Installing to a Custom Location</h3>It is possible to install SDKMAN!
-                                        to a custom location other than <code>$HOME/.sdkman</code>. This can be achieved
-                                        by exporting your custom location as <code>SDKMAN_DIR</code> prior to
-                                        installing.<br/>Simply open a new terminal and enter:
-                                        <pre><code>$ export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash</code></pre>
-                                        For this to work it is vital that your user has full access rights to this
-                                        folder.It is also important that the folder does not exist as SDKMAN! will
-                                        attempt to create it.
-                                    </article>
-                                    <p>That&apos;s all there is to it! Next we will look at <a href='/usage'>Usage</a>.
-                                    </p></div>
-                            </div>
-                        </div>
-                    </div>
-                    @footer()
-                </div>
-            </div>
+                    Once removed, you have successfully uninstalled SDKMAN! from your machine.
+                </article>
+                <article><h3>Installing to a Custom Location</h3>It is possible to install SDKMAN!
+                    to a custom location other than <code>$HOME/.sdkman</code>. This can be achieved
+                    by exporting your custom location as <code>SDKMAN_DIR</code> prior to
+                    installing.<br/>Simply open a new terminal and enter:
+                    <pre><code>$ export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash</code></pre>
+                    For this to work it is vital that your user has full access rights to this
+                    folder.It is also important that the folder does not exist as SDKMAN! will
+                    attempt to create it.
+                </article>
+                <p>That&apos;s all there is to it! Next we will look at <a href='/usage'>Usage</a>.
+                </p></div>
         </div>
     </div>
 </div>
-@scripts()
-</body>
-</html>
+}

@@ -80,7 +80,7 @@ task prepareTemplates() {
               file(sourceDir),
               file(gensrcDir),
               "play.twirl.api.HtmlFormat",
-              ["io.sdkman.repos.Candidate"],
+              ["io.sdkman.repos.Candidate", "play.twirl.api.Html"],
               new ArrayList<String>())
     }
   }
