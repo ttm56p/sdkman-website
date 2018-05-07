@@ -1,0 +1,63 @@
+import play.japi.twirl.compiler.TwirlCompiler
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.scala-lang:scala-library:2.12.5'
+        classpath 'org.scala-lang.modules:scala-parser-combinators_2.12:1.1.0'
+        classpath 'com.typesafe.play:twirl-compiler_2.12:1.3.13'
+        classpath 'com.typesafe.play:twirl-api_2.12:1.3.13'
+    }
+}
+
+configurations {
+    generatedCompile
+}
+
+def gensrcDir = "$buildDir/gensrc/scala"
+sourceSets {
+    generated {
+        scala.srcDir gensrcDir
+        compileClasspath = configurations.generatedCompile
+    }
+    main {
+        compileClasspath += sourceSets.generated.output
+    }
+    test {
+        compileClasspath += sourceSets.generated.output
+    }
+}
+
+def compileTemplate(File template, File sourceDir, File gensrcDir) {
+    TwirlCompiler.compile(
+            template,
+            file(sourceDir),
+            file(gensrcDir),
+            "play.twirl.api.HtmlFormat",
+            ["io.sdkman.repos.Candidate", "play.twirl.api.Html"],
+            new ArrayList<String>())
+}
+
+task prepareTemplates() {
+    doLast {
+        def sourceDir = file("src/main/twirl")
+        ["", "includes/"].each { folder ->
+            file("$sourceDir/$folder").listFiles().findAll { !it.directory }.each { File template ->
+                println("Compiling template: ${template.name}: $sourceDir/$folder -> $gensrcDir/")
+                compileTemplate(template, file("$sourceDir/$folder"), file(gensrcDir))
+            }
+        }
+    }
+}
+
+compileGeneratedScala {
+  dependsOn(prepareTemplates)
+  classpath = configurations.compile
+}
+
+compileScala {
+  dependsOn(compileGeneratedScala)
+  source += sourceSets.generated.scala
+}
