@@ -3,13 +3,21 @@
 <div id='content' class='page-1'>
     <div class='row'>
         <div class='row-fluid'>
-            <div class='col-lg-3'></div>
+            <div class='col-lg-3'>
+                <ul class='nav-sidebar'>
+                    <li class='active'><a href='/usage'><strong>Available SDKs</strong></a></li>
+                        @for(c <- candidates) {
+                            <li><a href='#@{c.candidate}' class='anchor-link'>@{c.name}</a></li>
+                        }
+                    </ul>
+                </div>
             <div class='col-lg-8 col-lg-pull-0'><h1><a name='main'></a><i
                     class='fa fa-cloud-download'></i> SDK Installation Candidates</h1>
                 <ul>
                     @for(c <- candidates) {
                     <li>
                         <h4>@c.name (@c.default)</h4>
+                        <a name='@c.candidate'></a>
                         <a href='@c.websiteUrl' target='_blank'>@c.websiteUrl</a></br>
                         <p>@c.description</p>
                         <code>$ sdk install @c.candidate</code>
