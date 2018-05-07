@@ -13,7 +13,7 @@ class HandlerChainSpec extends WordSpec with Matchers {
 
     "The application" should {
       "respond with an index page on the root context" in {
-        val response = client.get("/")
+        val response = client.get("")
         response.getStatusCode shouldBe 200
         client.getText should include(
           "The Software Development Kit Manager")

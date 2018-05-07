@@ -8,7 +8,7 @@ class SiteMain
 
 object SiteMain extends App {
 
-  val IndexPage = "index.html"
+  val IndexPage = "twirl/index.scala.html"
 
   RatpackServer.start { server =>
     server
@@ -27,6 +27,7 @@ object SiteMain extends App {
           .post("contact", classOf[ContactFormHandler])
           .get("sdks", classOf[SdksPageHandler])
           .get(":context", classOf[ContextualHandler])
+          .get(classOf[ContextualHandler])
           .files(fs => fs.indexFiles(IndexPage))
       }
   }

@@ -1,14 +1,17 @@
 package io.sdkman.site
 
-import ratpack.handling.{Context, Handler}
+import ratpack.handling.Context
+import support.{Handler, OK}
 
 class ContextualHandler extends Handler {
-  override def handle(ctx: Context): Unit = {
-    val contextO = Option(ctx.getAllPathTokens.get("context"))
-    contextO.fold(ctx.notFound()) { context =>
-      ctx.render(ctx.file(static(context)))
+  override def handles(implicit ctx: Context): Unit = {
+    Option(ctx.getAllPathTokens.get("context")) match {
+      case Some("index") => OK(html.index())
+      case Some("install") => OK(html.install())
+      case Some("usage") => OK(html.usage())
+      case Some("vendors") => OK(html.vendors())
+      case Some(_) => ctx.notFound()
+      case None => OK(html.index())
     }
   }
-
-  private def static(context: String): String = s"$context.html"
 }
