@@ -14,14 +14,14 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
   ExecHarness.runSingle { _ =>
 
     "ContactFormHandler" should {
-      "redirect to the index page" in {
+      "render the index page" in {
         val action: Action[RequestFixture] = { fix =>
           fix.method("POST").body("email=a&name=b&message=c", APPLICATION_FORM)
         }
 
         val result = RequestFixture.handle(new TestContactFormHandler, action)
 
-        result.getStatus.getCode shouldBe 302
+        result.getStatus.getCode shouldBe 200
       }
 
       "send an email for a form submission" in {
