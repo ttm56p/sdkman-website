@@ -20,3 +20,13 @@
           ga('create', 'UA-10247295-12', 'auto');
           ga('send', 'pageview');
 </script>
+<script>
+    function submitContactForm() {
+        var modal = document.getElementById('myModal');
+        modal.classList.add('out');
+        modal.style.display = 'none';
+
+        document.getElementById('contact-form').submit();
+        console.log('Submitted document!');
+    }
+</script>
