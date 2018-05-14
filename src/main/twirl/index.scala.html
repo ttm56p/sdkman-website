@@ -1,3 +1,4 @@
+@(recaptchaSiteKey: String)
 @main(title = "Home") {
 <div id='band' class='band'></div>
 <div id='content'>
@@ -249,6 +250,6 @@
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
-    @contact()
+    @contact(recaptchaSiteKey)
 </div>
 }
