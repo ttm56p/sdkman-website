@@ -15,7 +15,7 @@ class ContactFormHandler extends Handler with RatpackSugar with Email with LazyL
 
       send(f.get("email"), f.get("name"), f.get("message"))
     } andThen { _ =>
-      ctx.redirect("//")
+      ctx.redirect("//index")
     }
   }
 }
