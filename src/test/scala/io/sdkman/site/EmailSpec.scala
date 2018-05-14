@@ -1,7 +1,7 @@
 package io.sdkman.site
 
+import com.typesafe.scalalogging.LazyLogging
 import javax.mail.Message
-
 import courier.Mailer
 import org.junit.runner.RunWith
 import org.jvnet.mock_javamail.Mailbox
@@ -35,7 +35,7 @@ class EmailSpec extends WordSpec with Matchers with Eventually {
     }
   }
 
-  sealed class TestEmail extends Email {
+  sealed class TestEmail extends Email with Configuration with LazyLogging {
 
     override lazy val adminPassword = ""
 

@@ -8,7 +8,9 @@ import courier.{Envelope, Mailer, Text}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.{Failure, Success}
 
-trait Email extends LazyLogging with Configuration {
+trait Email {
+
+  self: LazyLogging with Configuration =>
 
   lazy val mailer = Mailer(smtpHost, smtpPort)
     .auth(true)
