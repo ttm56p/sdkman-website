@@ -21,12 +21,10 @@
           ga('send', 'pageview');
 </script>
 <script>
-    function submitContactForm() {
+    function submitContactForm(token) {
         var modal = document.getElementById('myModal');
         modal.classList.add('out');
         modal.style.display = 'none';
-
         document.getElementById('contact-form').submit();
-        console.log('Submitted document!');
     }
 </script>
