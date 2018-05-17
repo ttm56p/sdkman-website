@@ -14,5 +14,7 @@ trait Configuration {
 
   lazy val adminPassword = config.getString("smtp.password")
 
+  lazy val recaptchaUrl = config.getString("recaptcha.url")
+
   lazy val recaptchaSiteKey = config.getString("recaptcha.key")
 }
