@@ -15,11 +15,8 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
 
     "ContactFormHandler" should {
       "render the index page" in {
-        val action: Action[RequestFixture] = { fix =>
-          fix.method("POST").body("email=a&name=b&message=c&g-recaptcha-response=d", APPLICATION_FORM)
-        }
 
-        val result = RequestFixture.handle(new TestContactFormHandler, action)
+        val result = RequestFixture.handle(new TestContactFormHandler, requestAction())
 
         result.getStatus.getCode shouldBe 200
       }
@@ -29,13 +26,9 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
         val recaptchaSecret = "secret"
         val recaptchaRemoteIpAddress = "127.0.0.1"
 
-        val action: Action[RequestFixture] = { fix =>
-          fix.method("POST").body(s"email=a&name=b&message=c&g-recaptcha-response=$recaptchaResponse", APPLICATION_FORM)
-        }
-
         val handler = new TestContactFormHandler
 
-        RequestFixture.handle(handler, action)
+        RequestFixture.handle(handler, requestAction(recaptchaResponse = recaptchaResponse))
 
         handler.recaptchaResponse shouldBe recaptchaResponse
         handler.recaptchaSecret shouldBe recaptchaSecret
@@ -47,13 +40,9 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
         val name = "name"
         val message = "message"
 
-        val action: Action[RequestFixture] = { fixture =>
-          fixture.method("POST").body(s"email=$email&name=$name&message=$message&g-recaptcha-response=d", APPLICATION_FORM)
-        }
-
         val handler = new TestContactFormHandler
 
-        RequestFixture.handle(handler, action)
+        RequestFixture.handle(handler, requestAction(email, name, message))
 
         handler.email shouldBe email
         handler.name shouldBe name
@@ -65,10 +54,6 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
         val recaptchaSecret = "secret"
         val recaptchaRemoteIpAddress = "127.0.0.1"
 
-        val action: Action[RequestFixture] = { fix =>
-          fix.method("POST").body(s"email=a&name=b&message=c&g-recaptcha-response=$recaptchaResponse", APPLICATION_FORM)
-        }
-
         val handler = new TestContactFormHandler {
           override def recaptcha(secret: String, response: String, ipAddress: String) = {
             super.recaptcha(secret, response, ipAddress)
@@ -76,7 +61,7 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
           }
         }
 
-        RequestFixture.handle(handler, action)
+        RequestFixture.handle(handler, requestAction())
 
         handler.email shouldBe "not update"
         handler.name shouldBe "not update"
@@ -107,4 +92,16 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
       Right("success")
     }
   }
+
+  private def requestAction(email: String = "a",
+                            name: String = "b",
+                            message: String = "c",
+                            recaptchaResponse: String = "d"): Action[RequestFixture] = {
+    requestFixture =>
+      requestFixture
+        .method("POST")
+        .body(s"email=$email&name=$name&message=$message&g-recaptcha-response=$recaptchaResponse",
+          APPLICATION_FORM)
+  }
+
 }
