@@ -13,9 +13,17 @@ class ContactFormHandler extends Handler with RatpackSugar with Email with LazyL
       val ipAddress = ctx.getRequest.getHeaders.get("X-Real-IP")
       logger.info(s"Recaptcha: $recaptchaResponse $ipAddress")
 
-      send(f.get("email"), f.get("name"), f.get("message"))
+      recaptcha("secret", "response", "127.0.0.1") match {
+        case Right(s) =>
+          logger.info("Sending email...")
+          send(f.get("email"), f.get("name"), f.get("message"))
+        case Left(t) =>
+          logger.warn(s"Bad actor detected: ${t.getMessage}")
+      }
     } andThen { _ =>
       OK(html.index(recaptchaSiteKey))
     }
   }
+
+  def recaptcha(secret: String, response: String, ipAddress: String): Either[Throwable, String] = Right("success")
 }
