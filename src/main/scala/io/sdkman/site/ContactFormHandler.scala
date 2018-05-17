@@ -10,10 +10,10 @@ class ContactFormHandler extends Handler with RatpackSugar with Email with LazyL
   override def handles(implicit ctx: Context): Unit = {
     ctx.parse(classOf[Form]).blockingOp { f =>
       val recaptchaResponse = f.get("g-recaptcha-response")
-      val ipAddress = ctx.getRequest.getHeaders.get("X-Real-IP")
-      logger.info(s"Recaptcha: $recaptchaResponse $ipAddress")
+      val remoteIpAddress = ctx.getRequest.getHeaders.get("X-Real-IP")
+      logger.info(s"Recaptcha: $recaptchaResponse $remoteIpAddress")
 
-      recaptcha("secret", "response", "127.0.0.1") match {
+      recaptcha(recaptchaSecret, recaptchaResponse, remoteIpAddress) match {
         case Right(s) =>
           logger.info("Sending email...")
           send(f.get("email"), f.get("name"), f.get("message"))

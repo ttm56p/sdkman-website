@@ -24,15 +24,15 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
       "post to the recaptcha api" in {
         val recaptchaResponse = "response"
         val recaptchaSecret = "secret"
-        val recaptchaRemoteIpAddress = "127.0.0.1"
+        val remoteIpAddress = "127.0.0.1"
 
         val handler = new TestContactFormHandler
 
-        RequestFixture.handle(handler, requestAction(recaptchaResponse = recaptchaResponse))
+        RequestFixture.handle(handler, requestAction(recaptchaResponse = recaptchaResponse, remoteIp = remoteIpAddress))
 
         handler.recaptchaResponse shouldBe recaptchaResponse
         handler.recaptchaSecret shouldBe recaptchaSecret
-        handler.recaptchaRemoteIpAddress shouldBe recaptchaRemoteIpAddress
+        handler.recaptchaRemoteIpAddress shouldBe remoteIpAddress
       }
 
       "send email if racaptcha call succeeds" in {
@@ -71,12 +71,15 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
   }
 
   private class TestContactFormHandler extends ContactFormHandler {
+
+    override lazy val recaptchaSecret = "secret"
+
     var email = "not update"
     var name = "not update"
     var message = "not update"
 
     var recaptchaResponse = "not updated"
-    var recaptchaSecret = "not updated"
+    var recaptchaSharedSecret = "not updated"
     var recaptchaRemoteIpAddress = "not updated"
 
     override def send(email: String, name: String, message: String): Unit = {
@@ -86,7 +89,7 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
     }
 
     override def recaptcha(secret: String, response: String, ipAddress: String): Either[Throwable, String] = {
-      this.recaptchaSecret = secret
+      this.recaptchaSharedSecret = secret
       this.recaptchaResponse = response
       this.recaptchaRemoteIpAddress = ipAddress
       Right("success")
@@ -96,12 +99,12 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
   private def requestAction(email: String = "a",
                             name: String = "b",
                             message: String = "c",
-                            recaptchaResponse: String = "d"): Action[RequestFixture] = {
+                            recaptchaResponse: String = "d",
+                            remoteIp: String = "e"): Action[RequestFixture] =
     requestFixture =>
       requestFixture
         .method("POST")
-        .body(s"email=$email&name=$name&message=$message&g-recaptcha-response=$recaptchaResponse",
-          APPLICATION_FORM)
-  }
+        .header("X-Real-IP", remoteIp)
+        .body(s"email=$email&name=$name&message=$message&g-recaptcha-response=$recaptchaResponse", APPLICATION_FORM)
 
 }

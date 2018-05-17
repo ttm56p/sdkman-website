@@ -17,4 +17,6 @@ trait Configuration {
   lazy val recaptchaUrl = config.getString("recaptcha.url")
 
   lazy val recaptchaSiteKey = config.getString("recaptcha.key")
+
+  lazy val recaptchaSecret = config.getString("recaptcha.secret")
 }
