@@ -1,5 +1,7 @@
 package io.sdkman.site
 
+import java.net.URI
+
 import com.typesafe.config.ConfigFactory
 
 trait Configuration {
@@ -14,7 +16,7 @@ trait Configuration {
 
   lazy val adminPassword = config.getString("smtp.password")
 
-  lazy val recaptchaUrl = config.getString("recaptcha.url")
+  lazy val recaptchaUrl = new URI(config.getString("recaptcha.url"))
 
   lazy val recaptchaSiteKey = config.getString("recaptcha.key")
 

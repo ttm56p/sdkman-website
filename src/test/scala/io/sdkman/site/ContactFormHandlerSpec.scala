@@ -1,22 +1,30 @@
 package io.sdkman.site
 
 import org.junit.runner.RunWith
+import org.scalatest.concurrent.Eventually
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.{Matchers, WordSpec}
+import ratpack.exec.Promise
 import ratpack.func.Action
+import ratpack.handling.Context
 import ratpack.http.MediaType.APPLICATION_FORM
 import ratpack.test.exec.ExecHarness
 import ratpack.test.handling.RequestFixture
 
 @RunWith(classOf[JUnitRunner])
-class ContactFormHandlerSpec extends WordSpec with Matchers {
+class ContactFormHandlerSpec extends WordSpec with Matchers with Eventually {
 
   ExecHarness.runSingle { _ =>
 
     "ContactFormHandler" should {
       "render the index page" in {
 
-        val result = RequestFixture.handle(new TestContactFormHandler, requestAction())
+        val handler = new TestContactFormHandler {
+          override def recaptcha(request: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] =
+            Promise.value(RecaptchaResponse(success = true))
+        }
+
+        val result = RequestFixture.handle(handler, requestAction())
 
         result.getStatus.getCode shouldBe 200
       }
@@ -26,13 +34,22 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
         val recaptchaSecret = "secret"
         val remoteIpAddress = "127.0.0.1"
 
-        val handler = new TestContactFormHandler
+        val handler = new TestContactFormHandler {
+          override def recaptcha(req: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = {
+            this.recaptchaSharedSecret = req.secret
+            this.recaptchaResponse = req.response
+            this.recaptchaRemoteIpAddress = req.remoteIp
+            Promise.value(RecaptchaResponse(success = true))
+          }
+        }
 
         RequestFixture.handle(handler, requestAction(recaptchaResponse = recaptchaResponse, remoteIp = remoteIpAddress))
 
-        handler.recaptchaResponse shouldBe recaptchaResponse
-        handler.recaptchaSecret shouldBe recaptchaSecret
-        handler.recaptchaRemoteIpAddress shouldBe remoteIpAddress
+        eventually {
+          handler.recaptchaResponse shouldBe recaptchaResponse
+          handler.recaptchaSecret shouldBe recaptchaSecret
+          handler.recaptchaRemoteIpAddress shouldBe remoteIpAddress
+        }
       }
 
       "send email if racaptcha call succeeds" in {
@@ -40,13 +57,22 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
         val name = "name"
         val message = "message"
 
-        val handler = new TestContactFormHandler
+        val handler = new TestContactFormHandler {
+          override def recaptcha(req: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = {
+            this.email = "person@example.com"
+            this.name = "name"
+            this.message = "message"
+            Promise.value(RecaptchaResponse(success = true))
+          }
+        }
 
         RequestFixture.handle(handler, requestAction(email, name, message))
 
-        handler.email shouldBe email
-        handler.name shouldBe name
-        handler.message shouldBe message
+        eventually {
+          handler.email shouldBe email
+          handler.name shouldBe name
+          handler.message shouldBe message
+        }
       }
 
       "not send email if recaptcha call fails" in {
@@ -55,17 +81,18 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
         val recaptchaRemoteIpAddress = "127.0.0.1"
 
         val handler = new TestContactFormHandler {
-          override def recaptcha(secret: String, response: String, ipAddress: String) = {
-            super.recaptcha(secret, response, ipAddress)
-            Left(new Throwable("recaptcha failed"))
-          }
+          override def recaptcha(req: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = Promise.error(new Throwable("recaptcha failed"))
         }
 
-        RequestFixture.handle(handler, requestAction())
+        RequestFixture.handle(handler, requestAction(
+          recaptchaResponse = recaptchaResponse,
+          remoteIp = recaptchaRemoteIpAddress))
 
-        handler.email shouldBe "not update"
-        handler.name shouldBe "not update"
-        handler.message shouldBe "not update"
+        eventually {
+          handler.email shouldBe "not update"
+          handler.name shouldBe "not update"
+          handler.message shouldBe "not update"
+        }
       }
     }
   }
@@ -87,20 +114,13 @@ class ContactFormHandlerSpec extends WordSpec with Matchers {
       this.name = name
       this.message = message
     }
-
-    override def recaptcha(secret: String, response: String, ipAddress: String): Either[Throwable, String] = {
-      this.recaptchaSharedSecret = secret
-      this.recaptchaResponse = response
-      this.recaptchaRemoteIpAddress = ipAddress
-      Right("success")
-    }
   }
 
-  private def requestAction(email: String = "a",
-                            name: String = "b",
-                            message: String = "c",
-                            recaptchaResponse: String = "d",
-                            remoteIp: String = "e"): Action[RequestFixture] =
+  private def requestAction(email: String = "email",
+                            name: String = "name",
+                            message: String = "message",
+                            recaptchaResponse: String = "recaptchaResponse",
+                            remoteIp: String = "remoteIp"): Action[RequestFixture] =
     requestFixture =>
       requestFixture
         .method("POST")

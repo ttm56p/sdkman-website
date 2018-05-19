@@ -3,28 +3,31 @@ package io.sdkman.site
 import com.typesafe.scalalogging.LazyLogging
 import ratpack.form.Form
 import ratpack.handling.Context
-import support.{Handler, OK, RatpackSugar}
+import support.{Handler, OK, PromiseTransform, RatpackSugar}
 
 class ContactFormHandler extends Handler
   with RatpackSugar
   with Email
   with Recaptcha
   with LazyLogging
-  with Configuration {
+  with Configuration
+  with PromiseTransform {
 
   override def handles(implicit ctx: Context): Unit = {
     ctx.parse(classOf[Form]).blockingOp { f =>
+
+      val email = f.get("email")
+      val name = f.get("name")
+      val message = f.get("message")
+      logger.info(s"Received request: $message - ($name<$email>)")
+
       val recaptchaResponse = f.get("g-recaptcha-response")
       val remoteIpAddress = ctx.getRequest.getHeaders.get("X-Real-IP")
       logger.info(s"Recaptcha: $recaptchaResponse $remoteIpAddress")
 
-      recaptcha(recaptchaSecret, recaptchaResponse, remoteIpAddress) match {
-        case Right(s) =>
-          logger.info("Sending email...")
-          send(f.get("email"), f.get("name"), f.get("message"))
-        case Left(t) =>
-          logger.warn(s"Bad actor detected: ${t.getMessage}")
-      }
-    } andThen (_ => OK(html.index(recaptchaSiteKey)))
+      recaptcha(RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress))
+        .blockingOp(op => send(email, name, message))
+        .onError(t => logger.warn(s"Recaptcha failed for: ${t.getMessage} ($name<$email>)"))
+    }.then(_ => OK(html.index(recaptchaSiteKey)))
   }
 }
