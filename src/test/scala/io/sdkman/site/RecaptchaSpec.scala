@@ -1,5 +1,6 @@
 package io.sdkman.site
 
+import com.typesafe.scalalogging.LazyLogging
 import org.junit.runner.RunWith
 import org.scalatest._
 import org.scalatest.junit.JUnitRunner
@@ -11,9 +12,7 @@ import support.{FutureTransform, Handler}
 @RunWith(classOf[JUnitRunner])
 class RecaptchaSpec extends WordSpec with Matchers with BeforeAndAfter with OptionValues {
   "Recaptcha" should {
-    "make an http post to the siteverify api" in {
-
-
+    "return an either right on success with challenge_ts" in {
       val successResponse =
         """
           |{
@@ -37,16 +36,34 @@ class RecaptchaSpec extends WordSpec with Matchers with BeforeAndAfter with Opti
       handler.errorCodes shouldBe None
     }
 
-    "return an either right on success with challenge_ts" in {
-
-    }
-
     "return an either left on failure with error codes" in {
 
+      val failedResponse =
+        """
+          |{
+          |  "success": false,
+          |  "error-codes": [
+          |    "timeout-or-duplicate"
+          |  ]
+          |}
+        """.stripMargin
+
+      val handler = new TestHandler {
+        override lazy val recaptchaUrl = EmbeddedApp.fromHandler(ctx => ctx.render(failedResponse)).getAddress
+      }
+
+      EmbeddedApp.fromHandler(handler).test { httpClient =>
+        httpClient.getText shouldBe "OK"
+      }
+
+      handler.success shouldBe false
+      handler.hostname shouldBe None
+      handler.challengeTs shouldBe None
+      handler.errorCodes shouldBe 'defined
     }
   }
 
-  private class TestHandler extends Handler with Recaptcha with Configuration with FutureTransform {
+  private class TestHandler extends Handler with Recaptcha with Configuration with FutureTransform with LazyLogging {
 
     var success: Boolean = false
     var challengeTs: Option[String] = None
@@ -60,7 +77,8 @@ class RecaptchaSpec extends WordSpec with Matchers with BeforeAndAfter with Opti
         hostname = resp.hostname
         errorCodes = resp.`error-codes`
         resp
-      }.then { _ => ctx.render("OK") }
+      }.then(_ => ctx.render("OK"))
     }
   }
+
 }
