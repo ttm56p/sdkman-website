@@ -28,7 +28,7 @@ class ContactFormHandler extends Handler
 
       Blocking.on {
         recaptcha(RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress)).blockingOp { recaptchaResponse =>
-          if (recaptchaResponse.success) send(email, name, message)
+          if (recaptchaResponse.success) send(email, name, message) else send(email, name, recaptchaResponse.toString)
         }
       }
     } then (_ => OK(html.index(recaptchaSiteKey)))
