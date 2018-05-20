@@ -12,10 +12,11 @@ trait Recaptcha extends {
   self: Configuration with LazyLogging =>
 
   def recaptcha(request: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = {
-    ctx.get(classOf[HttpClient]).post(recaptchaUrl, spec => spec.getBody.text(request.toString)).map[RecaptchaResponse] { response: ReceivedResponse =>
-      decode[RecaptchaResponse](response.getBody.getText).fold(
-        e => RecaptchaResponse(success = false, `error-codes` = Some(e.getMessage)),
-        rr => rr)
+    ctx.get(classOf[HttpClient]).post(recaptchaUrl, spec => spec.getBody.text(request.toString)).map[RecaptchaResponse] {
+      response: ReceivedResponse =>
+        decode[RecaptchaResponse](response.getBody.getText).fold(
+          e => RecaptchaResponse(success = false, `error-codes` = Some(e.getMessage)),
+          rr => rr)
     }
   }
 

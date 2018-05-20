@@ -40,6 +40,8 @@ dependencies {
   testCompile 'junit:junit:4.12'
   testCompile 'org.scalatest:scalatest_2.12:3.0.4'
   testCompile 'org.jvnet.mock-javamail:mock-javamail:1.9'
+  testCompile 'com.github.tomakehurst:wiremock-standalone:2.17.0'
+
 }
 
 docker {

@@ -1,6 +1,7 @@
 package io.sdkman.site
 
 import com.typesafe.scalalogging.LazyLogging
+import ratpack.exec.Blocking
 import ratpack.form.Form
 import ratpack.handling.Context
 import support.{Handler, OK, PromiseTransform, RatpackSugar}
@@ -25,9 +26,11 @@ class ContactFormHandler extends Handler
       val remoteIpAddress = ctx.getRequest.getHeaders.get("X-Real-IP")
       logger.info(s"Recaptcha: $recaptchaResponse $remoteIpAddress")
 
-      recaptcha(RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress))
-        .blockingOp(op => send(email, name, message))
-        .onError(t => logger.warn(s"Recaptcha failed for: ${t.getMessage} ($name<$email>)"))
-    }.then(_ => OK(html.index(recaptchaSiteKey)))
+      Blocking.on {
+        recaptcha(RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress)).blockingOp { recaptchaResponse =>
+          if (recaptchaResponse.success) send(email, name, message)
+        }
+      }
+    } then (_ => OK(html.index(recaptchaSiteKey)))
   }
 }
