@@ -61,6 +61,27 @@ class RecaptchaSpec extends WordSpec with Matchers with BeforeAndAfter with Opti
       handler.challengeTs shouldBe None
       handler.errorCodes shouldBe 'defined
     }
+
+    "return an either left on failed response marshall with error codes" in {
+
+      val failedResponse =
+        """
+          |<xml>invalid</xml>
+        """.stripMargin
+
+      val handler = new TestHandler {
+        override lazy val recaptchaUrl = EmbeddedApp.fromHandler(ctx => ctx.render(failedResponse)).getAddress
+      }
+
+      EmbeddedApp.fromHandler(handler).test { httpClient =>
+        httpClient.getText shouldBe "OK"
+      }
+
+      handler.success shouldBe false
+      handler.hostname shouldBe None
+      handler.challengeTs shouldBe None
+      handler.errorCodes shouldBe 'defined
+    }
   }
 
   private class TestHandler extends Handler with Recaptcha with Configuration with FutureTransform with LazyLogging {

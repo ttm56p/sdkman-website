@@ -13,11 +13,9 @@ trait Recaptcha extends {
 
   def recaptcha(request: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = {
     ctx.get(classOf[HttpClient]).post(recaptchaUrl, spec => spec.getBody.text(request.toString)).map[RecaptchaResponse] { response: ReceivedResponse =>
-      val rresp = decode[RecaptchaResponse](response.getBody.getText).fold(
+      decode[RecaptchaResponse](response.getBody.getText).fold(
         e => RecaptchaResponse(success = false, `error-codes` = Some(e.getMessage)),
-        rr => if (!rr.success) throw new Exception(rr.`error-codes`.mkString(";")) else rr)
-      logger.info(s"Recaptcha responded: ${rresp.toString}")
-      rresp
+        rr => rr)
     }
   }
 
@@ -29,4 +27,5 @@ trait Recaptcha extends {
                                challenge_ts: Option[String] = None,
                                hostname: Option[String] = None,
                                `error-codes`: Option[String] = None)
+
 }
