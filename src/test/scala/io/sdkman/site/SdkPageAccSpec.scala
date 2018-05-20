@@ -1,14 +1,11 @@
 package io.sdkman.site
 
 import io.sdkman.repos.Candidate
-import org.junit.runner.RunWith
 import org.scalatest.concurrent.Eventually
-import org.scalatest.junit.JUnitRunner
 import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpec}
 import ratpack.test.MainClassApplicationUnderTest
 import support.Mongo
 
-@RunWith(classOf[JUnitRunner])
 class SdkPageAccSpec extends WordSpec with Matchers with BeforeAndAfterAll with Eventually {
 
   override def beforeAll = {
