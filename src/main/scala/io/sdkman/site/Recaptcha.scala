@@ -11,7 +11,7 @@ trait Recaptcha extends DefaultJsonProtocol {
   self: Configuration with LazyLogging =>
 
   case class RecaptchaRequest(secret: String, response: String, remoteIp: String) {
-    override def toString: String = s"secret=$secret&response=$response&remoteip=$remoteIp"
+    def body = s"secret=$secret&response=$response&remoteip=$remoteIp"
   }
 
   case class RecaptchaResponse(success: Boolean,
@@ -22,7 +22,7 @@ trait Recaptcha extends DefaultJsonProtocol {
   implicit val colorFormat = jsonFormat4(RecaptchaResponse)
 
   def recaptcha(request: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = {
-    ctx.get(classOf[HttpClient]).post(recaptchaUrl, spec => spec.getBody.text(request.toString))
+    ctx.get(classOf[HttpClient]).post(recaptchaUrl, spec => spec.getBody.text(request.body))
       .map[RecaptchaResponse] { response => response.getBody.getText.parseJson.convertTo[RecaptchaResponse]
     }
   }

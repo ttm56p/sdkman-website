@@ -27,8 +27,9 @@ class ContactFormHandler extends Handler
       logger.info(s"Recaptcha: $recaptchaResponse $remoteIpAddress")
 
       Blocking.on {
-        recaptcha(RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress)).blockingOp { recaptchaResponse =>
-          if (recaptchaResponse.success) send(email, name, message) else send(email, name, recaptchaResponse.toString)
+        val request = RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress)
+        recaptcha(request).blockingOp { recaptchaResponse =>
+          if (recaptchaResponse.success) send(email, name, message) else send(email, name, s"$request (${request.body}) -> ${recaptchaResponse.toString}")
         }
       }
     } then (_ => OK(html.index(recaptchaSiteKey)))
