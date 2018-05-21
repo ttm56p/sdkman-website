@@ -59,28 +59,7 @@ class RecaptchaSpec extends WordSpec with Matchers with BeforeAndAfter with Opti
       handler.success shouldBe false
       handler.hostname shouldBe None
       handler.challengeTs shouldBe None
-      handler.errorCodes shouldBe 'defined
-    }
-
-    "return an either left on failed response marshall with error codes" in {
-
-      val failedResponse =
-        """
-          |<xml>invalid</xml>
-        """.stripMargin
-
-      val handler = new TestHandler {
-        override lazy val recaptchaUrl = EmbeddedApp.fromHandler(ctx => ctx.render(failedResponse)).getAddress
-      }
-
-      EmbeddedApp.fromHandler(handler).test { httpClient =>
-        httpClient.getText shouldBe "OK"
-      }
-
-      handler.success shouldBe false
-      handler.hostname shouldBe None
-      handler.challengeTs shouldBe None
-      handler.errorCodes shouldBe 'defined
+      handler.errorCodes.value shouldBe List("timeout-or-duplicate")
     }
   }
 
@@ -89,7 +68,7 @@ class RecaptchaSpec extends WordSpec with Matchers with BeforeAndAfter with Opti
     var success: Boolean = false
     var challengeTs: Option[String] = None
     var hostname: Option[String] = None
-    var errorCodes: Option[String] = None
+    var errorCodes: Option[List[String]] = None
 
     override def handles(implicit ctx: Context): Unit = {
       recaptcha(RecaptchaRequest("secret", "response", "remoteIp")).map[RecaptchaResponse] { resp =>
