@@ -1,5 +1,7 @@
 package io.sdkman.site
 
+import java.net.URLEncoder.encode
+
 import com.typesafe.scalalogging.LazyLogging
 import ratpack.exec.Promise
 import ratpack.handling.Context
@@ -11,7 +13,7 @@ trait Recaptcha extends DefaultJsonProtocol {
   self: Configuration with LazyLogging =>
 
   case class RecaptchaRequest(secret: String, response: String, remoteIp: String) {
-    def body = s"secret=$secret&response=$response&remoteip=$remoteIp"
+    def body = s"secret=${encode(secret, "UTF-8")}&response=${encode(response, "UTF-8")}&remoteip=${encode(remoteIp, "UTF-8")}"
   }
 
   case class RecaptchaResponse(success: Boolean,
@@ -22,7 +24,8 @@ trait Recaptcha extends DefaultJsonProtocol {
   implicit val colorFormat = jsonFormat4(RecaptchaResponse)
 
   def recaptcha(request: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = {
-    ctx.get(classOf[HttpClient]).post(recaptchaUrl, spec => spec.getBody.text(request.body))
+    ctx.get(classOf[HttpClient]).post(recaptchaUrl, spec =>
+      spec.headers(hs => hs.add("Content-Type", "application/x-www-form-urlenconded")).body(b => b.text(request.body)))
       .map[RecaptchaResponse] { response => response.getBody.getText.parseJson.convertTo[RecaptchaResponse]
     }
   }
