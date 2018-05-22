@@ -94,6 +94,27 @@ class ContactFormHandlerSpec extends WordSpec with Matchers with Eventually {
           handler.message shouldBe "not update"
         }
       }
+
+      "do not call recaptcha if disabled" in {
+
+        val email = "email"
+        val name = "name"
+        val message = "message"
+
+        val handler = new TestContactFormHandler {
+          override def recaptcha(req: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] =
+            throw new IllegalStateException("Recaptcha was called")
+          override lazy val recaptchaEnabled = false
+        }
+
+        RequestFixture.handle(handler, requestAction(email, name, message))
+
+        eventually {
+          handler.email shouldBe email
+          handler.name shouldBe name
+          handler.message shouldBe message
+        }
+      }
     }
   }
 

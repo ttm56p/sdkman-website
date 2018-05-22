@@ -1,5 +1,5 @@
-@(candidates: Seq[Candidate])
-@main(title = "Available SDKs") {
+@(recaptchaEnabled: Boolean, candidates: Seq[Candidate])
+@main(recaptchaEnabled, title = "Available SDKs") {
 <div id='content' class='page-1'>
     <div class='row'>
         <div class='row-fluid'>

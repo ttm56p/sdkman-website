@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(recaptchaEnabled: Boolean, title: String)(content: Html)
 @header(title)
 <body>
 @forkme()
@@ -17,6 +17,6 @@
         </div>
     </div>
 </div>
-@scripts()
+@scripts(recaptchaEnabled: Boolean)
 </body>
 </html>

@@ -13,11 +13,12 @@ class SdksPageHandler extends Handler
   with CandidatesRepo
   with MongoConn
   with LazyLogging
-  with FutureTransform {
+  with FutureTransform
+  with Configuration {
 
   override def handles(implicit ctx: Context): Unit = {
     findAllCandidates().toPromise.andThen { candidates =>
-      OK(html.sdks(candidates))
+      OK(html.sdks(recaptchaEnabled, candidates))
     }
   }
 }

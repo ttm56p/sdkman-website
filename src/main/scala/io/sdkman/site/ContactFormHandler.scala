@@ -26,15 +26,17 @@ class ContactFormHandler extends Handler
       val remoteIpAddress = ctx.getRequest.getHeaders.get("X-Real-IP")
       logger.info(s"Recaptcha: $recaptchaResponse $remoteIpAddress")
 
-      Blocking.on {
-        val request = RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress)
-        recaptcha(request).blockingOp { recaptchaResponse =>
-          if (recaptchaResponse.success)
-            send(email, name, message)
-          else
-            logger.error(s"Recaptcha failed: ${request.body} -> ${recaptchaResponse.toString}")
+      if (recaptchaEnabled) {
+        Blocking.on {
+          val request = RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress)
+          recaptcha(request).blockingOp { recaptchaResponse =>
+            if (recaptchaResponse.success)
+              send(email, name, message)
+            else
+              logger.error(s"Recaptcha failed: ${request.body} -> ${recaptchaResponse.toString}")
+          }
         }
-      }
-    } then (_ => OK(html.index(recaptchaSiteKey)))
+      } else send(email, name, message)
+    } then (_ => OK(html.index(recaptchaEnabled, recaptchaSiteKey)))
   }
 }

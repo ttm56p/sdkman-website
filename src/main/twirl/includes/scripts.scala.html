@@ -1,3 +1,4 @@
+@(recaptchaEnabled: Boolean)
 <script src='js/vendor/jquery-1.10.2.min.js' defer></script>
 <script src='js/vendor/classie.js' defer></script>
 <script src='js/vendor/bootstrap.js' defer></script>
@@ -5,7 +6,6 @@
 <script src='js/vendor/modernizr-2.6.2.min.js' defer></script>
 <script src='js/plugins.js' defer></script>
 <script src='https://sidecar.gitter.im/dist/sidecar.v1.js' defer></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
         ((window.gitter = {}).chat = {}).options = {
           room: 'sdkman/user-issues'
@@ -20,6 +20,8 @@
           ga('create', 'UA-10247295-12', 'auto');
           ga('send', 'pageview');
 </script>
+@if(recaptchaEnabled) {
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
     function submitContactForm(token) {
         var modal = document.getElementById('myModal');
@@ -28,3 +30,4 @@
         document.getElementById('contact-form').submit();
     }
 </script>
+}
