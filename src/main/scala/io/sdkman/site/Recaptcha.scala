@@ -13,7 +13,12 @@ trait Recaptcha extends DefaultJsonProtocol {
   self: Configuration with LazyLogging =>
 
   case class RecaptchaRequest(secret: String, response: String, remoteIp: String) {
-    def body = s"secret=${encode(secret, "UTF-8")}&response=${encode(response, "UTF-8")}&remoteip=${encode(remoteIp, "UTF-8")}"
+    def body = List(
+      "secret" -> secret,
+      "response" -> response,
+      "remoteip" -> remoteIp)
+      .map { case (k: String, v: String) => s"$k=${encode(v, "UTF-8")}" }
+      .mkString("&")
   }
 
   case class RecaptchaResponse(success: Boolean,
