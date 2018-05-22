@@ -32,7 +32,7 @@ class ContactFormHandler extends Handler
           if (recaptchaResponse.success)
             send(email, name, message)
           else
-            logger.error(s"Recaptcha failed: $request (${request.body}) -> ${recaptchaResponse.toString}")
+            logger.error(s"Recaptcha failed: ${request.body} -> ${recaptchaResponse.toString}")
         }
       }
     } then (_ => OK(html.index(recaptchaSiteKey)))
