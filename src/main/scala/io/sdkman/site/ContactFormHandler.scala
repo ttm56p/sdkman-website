@@ -30,7 +30,9 @@ class ContactFormHandler extends Handler
         val request = RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress)
         recaptcha(request).blockingOp { recaptchaResponse =>
           if (recaptchaResponse.success)
-            send(email, name, message) else send(email, name, s"$request (${request.body}) -> ${recaptchaResponse.toString}")
+            send(email, name, message)
+          else
+            logger.error(s"Recaptcha failed: $request (${request.body}) -> ${recaptchaResponse.toString}")
         }
       }
     } then (_ => OK(html.index(recaptchaSiteKey)))
