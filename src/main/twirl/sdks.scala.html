@@ -18,7 +18,7 @@
                     @for(c <- candidates) {
                     <a name='@c.candidate'></a>
                     <li>
-                        <h4>@c.name (@c.default)</h4>
+                        <h4>@c.name (@c.default.getOrElse("Coming soon!"))</h4>
                         <a href='@c.websiteUrl' target='_blank'>@c.websiteUrl</a></br>
                         <p>@c.description</p>
                         <code>$ sdk install @c.candidate</code>

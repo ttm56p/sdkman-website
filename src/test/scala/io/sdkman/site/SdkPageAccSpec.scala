@@ -15,7 +15,7 @@ class SdkPageAccSpec extends WordSpec with Matchers with BeforeAndAfterAll with 
         candidate = "java",
         name = "Java",
         description = "Java Platform, Standard Edition (or Java SE) is a widely used platform",
-        default = "8.0.163-zulu",
+        default = Some("8.0.163-zulu"),
         websiteUrl = "https://zulu.org/",
         distribution = "PLATFORM_SPECIFIC"))
   }
