@@ -1,6 +1,7 @@
 package io.sdkman.site
 
 import ratpack.guice._
+import ratpack.health.HealthCheckHandler
 import ratpack.server.BaseDir._
 import ratpack.server.RatpackServer
 
@@ -16,6 +17,8 @@ object SiteMain extends App {
       .registry {
         Guice.registry { bindings =>
           bindings
+            .bind(classOf[HealthCheckHandler])
+            .bind(classOf[MongoHealthCheck])
             .bind(classOf[ContactFormHandler])
             .bind(classOf[SdksPageHandler])
             .bind(classOf[ContextualHandler])
@@ -24,6 +27,7 @@ object SiteMain extends App {
       }
       .handlers { chain =>
         chain
+          .get("health/:name?", classOf[HealthCheckHandler])
           .post("contact", classOf[ContactFormHandler])
           .get("sdks", classOf[SdksPageHandler])
           .get(":context", classOf[ContextualHandler])
