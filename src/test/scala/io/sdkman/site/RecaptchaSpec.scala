@@ -8,7 +8,6 @@ import ratpack.handling.Context
 import ratpack.test.embed.EmbeddedApp
 import support.{FutureTransform, Handler}
 
-
 @RunWith(classOf[JUnitRunner])
 class RecaptchaSpec extends WordSpec with Matchers with BeforeAndAfter with OptionValues {
   "Recaptcha" should {

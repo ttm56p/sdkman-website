@@ -6,6 +6,7 @@ import com.typesafe.scalalogging.LazyLogging
 import ratpack.exec.Promise
 import ratpack.handling.Context
 import ratpack.http.client.HttpClient
+import ratpack.http.internal.HttpHeaderConstants.CONTENT_TYPE
 import spray.json._
 
 trait Recaptcha extends DefaultJsonProtocol {
@@ -26,12 +27,15 @@ trait Recaptcha extends DefaultJsonProtocol {
                                hostname: Option[String] = None,
                                `error-codes`: Option[List[String]] = None)
 
-  implicit val colorFormat = jsonFormat4(RecaptchaResponse)
+  implicit val responseFormat = jsonFormat4(RecaptchaResponse)
 
-  def recaptcha(request: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = {
-    ctx.get(classOf[HttpClient]).post(recaptchaUrl, spec =>
-      spec.headers(hs => hs.add("Content-Type", "application/x-www-form-urlenconded")).body(b => b.text(request.body)))
-      .map[RecaptchaResponse] { response => response.getBody.getText.parseJson.convertTo[RecaptchaResponse]
-    }
+  val FormUrlEncoded = "application/x-www-form-urlencoded"
+
+  def recaptcha(rReq: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = {
+    ctx.get(classOf[HttpClient]).post(recaptchaUrl, request =>
+      request
+        .headers(hs => hs.add(CONTENT_TYPE, FormUrlEncoded))
+        .body(b => b.text(rReq.body)))
+      .map[RecaptchaResponse](rResp => rResp.getBody.getText.parseJson.convertTo[RecaptchaResponse])
   }
 }
