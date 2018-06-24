@@ -4,7 +4,7 @@ import com.typesafe.scalalogging.LazyLogging
 import ratpack.exec.Blocking
 import ratpack.form.Form
 import ratpack.handling.Context
-import support.{Handler, OK, PromiseTransform, RatpackSugar}
+import support._
 
 class ContactFormHandler extends Handler
   with RatpackSugar
@@ -17,9 +17,9 @@ class ContactFormHandler extends Handler
   override def handles(implicit ctx: Context): Unit = {
     ctx.parse(classOf[Form]).blockingOp { f =>
 
-      val email = f.get("email")
-      val name = f.get("name")
-      val message = f.get("message")
+      val email = StringOption(f.get("email"))
+      val name = StringOption(f.get("name"))
+      val message = StringOption(f.get("message"))
       logger.info(s"Received request: $message - ($name<$email>)")
 
       val recaptchaResponse = f.get("g-recaptcha-response")

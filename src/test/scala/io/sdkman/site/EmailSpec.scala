@@ -5,12 +5,16 @@ import javax.mail.Message
 import courier.Mailer
 import org.junit.runner.RunWith
 import org.jvnet.mock_javamail.Mailbox
-import org.scalatest.concurrent.Eventually
+import org.scalatest.concurrent.{Eventually, IntegrationPatience}
 import org.scalatest.junit.JUnitRunner
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.{BeforeAndAfter, Matchers, WordSpec}
 
 @RunWith(classOf[JUnitRunner])
-class EmailSpec extends WordSpec with Matchers with Eventually {
+class EmailSpec extends WordSpec with Matchers with Eventually with BeforeAndAfter with IntegrationPatience {
+
+  before {
+    Mailbox.clearAll()
+  }
 
   "Email" should {
     "send an email to the desired email address" in new TestEmail {
@@ -21,7 +25,7 @@ class EmailSpec extends WordSpec with Matchers with Eventually {
       val name = "person"
       val message = "some message"
 
-      send(email, name, message)
+      send(Some(email), Some(name), Some(message))
 
       eventually {
         val box = Mailbox.get(adminEmail)
@@ -31,6 +35,36 @@ class EmailSpec extends WordSpec with Matchers with Eventually {
         val content = email.getContent.toString.trim
         content should startWith("The following message was received from person<person@example.org>")
         content should endWith(message)
+      }
+    }
+
+    "not send an email if form fields are missing" in new TestEmail {
+      override lazy val adminEmail = "source@example.org"
+
+      val email = "person@example.org"
+      val name = "person"
+      val message = "some message"
+
+      send(None, None, None)
+      send(Some(email), Some(name), Some(message))
+
+      eventually {
+        Mailbox.get(adminEmail).size shouldBe 1
+      }
+    }
+
+    "not send an email if some form fields are missing" in new TestEmail {
+      override lazy val adminEmail = "source@example.org"
+
+      val email = "person@example.org"
+      val name = "person"
+      val message = "some message"
+
+      send(None, Some(name), Some(message))
+      send(Some(email), Some(name), Some(message))
+
+      eventually {
+        Mailbox.get(adminEmail).size shouldBe 1
       }
     }
   }
@@ -45,4 +79,5 @@ class EmailSpec extends WordSpec with Matchers with Eventually {
 
     override lazy val mailer = Mailer(smtpHost, smtpPort)()
   }
+
 }

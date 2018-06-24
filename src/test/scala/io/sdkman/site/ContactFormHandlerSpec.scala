@@ -130,10 +130,10 @@ class ContactFormHandlerSpec extends WordSpec with Matchers with Eventually {
     var recaptchaSharedSecret = "not updated"
     var recaptchaRemoteIpAddress = "not updated"
 
-    override def send(email: String, name: String, message: String): Unit = {
-      this.email = email
-      this.name = name
-      this.message = message
+    override def send(email: Option[String], name: Option[String], message: Option[String]): Unit = {
+      this.email = email.getOrElse("")
+      this.name = name.getOrElse("")
+      this.message = message.getOrElse("")
     }
   }
 
