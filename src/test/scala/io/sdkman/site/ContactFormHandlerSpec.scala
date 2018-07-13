@@ -32,7 +32,7 @@ class ContactFormHandlerSpec extends WordSpec with Matchers with Eventually {
       "post to the recaptcha api" in {
         val recaptchaResponse = "response"
         val recaptchaSecret = "secret"
-        val remoteIpAddress = "127.0.0.1"
+        val remoteIp = "127.0.0.1"
 
         val handler = new TestContactFormHandler {
           override def recaptcha(req: RecaptchaRequest)(implicit ctx: Context): Promise[RecaptchaResponse] = {
@@ -43,12 +43,12 @@ class ContactFormHandlerSpec extends WordSpec with Matchers with Eventually {
           }
         }
 
-        RequestFixture.handle(handler, requestAction(recaptchaResponse = recaptchaResponse, remoteIp = remoteIpAddress))
+        RequestFixture.handle(handler, requestAction(recaptchaResponse = recaptchaResponse, remoteIp = remoteIp))
 
         eventually {
           handler.recaptchaResponse shouldBe recaptchaResponse
           handler.recaptchaSecret shouldBe recaptchaSecret
-          handler.recaptchaRemoteIpAddress shouldBe remoteIpAddress
+          handler.recaptchaRemoteIpAddress shouldBe remoteIp
         }
       }
 

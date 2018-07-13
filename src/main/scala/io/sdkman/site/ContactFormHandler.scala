@@ -22,21 +22,24 @@ class ContactFormHandler extends Handler
       val message = StringOption(f.get("message"))
       logger.info(s"Received request: $message - ($name<$email>)")
 
-      val recaptchaResponse = f.get("g-recaptcha-response")
+      val maybeRecaptchaResponse = StringOption(f.get("g-recaptcha-response"))
       val remoteIpAddress = ctx.getRequest.getHeaders.get("X-Real-IP")
-      logger.info(s"Recaptcha: $recaptchaResponse $remoteIpAddress")
+      logger.info(s"Recaptcha: $maybeRecaptchaResponse $remoteIpAddress")
 
       if (recaptchaEnabled) {
-        Blocking.on {
-          val request = RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress)
-          recaptcha(request).blockingOp { recaptchaResponse =>
-            if (recaptchaResponse.success)
-              send(email, name, message)
-            else
-              logger.error(s"Recaptcha failed: ${request.body} -> ${recaptchaResponse.toString}")
+        maybeRecaptchaResponse.fold(logger.warn(s"Rejecting request from $name<$email>, no recaptchaResponse found.")) { recaptchaResponse =>
+          Blocking.on {
+            val request = RecaptchaRequest(recaptchaSecret, recaptchaResponse, remoteIpAddress)
+            recaptcha(request).blockingOp { recaptchaResponse =>
+              if (recaptchaResponse.success)
+                send(email, name, message)
+              else
+                logger.error(s"Recaptcha failed: ${request.body} -> ${recaptchaResponse.toString}")
+            }
           }
         }
       } else send(email, name, message)
+
     } then (_ => OK(html.index(recaptchaEnabled, recaptchaSiteKey)))
   }
 }
