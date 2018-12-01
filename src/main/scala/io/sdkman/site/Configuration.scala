@@ -8,6 +8,8 @@ trait Configuration {
 
   private lazy val config = ConfigFactory.load()
 
+  lazy val optionsEnabled = config.getBoolean("options.enabled")
+
   lazy val smtpHost = config.getString("smtp.host")
 
   lazy val smtpPort = config.getInt("smtp.port")

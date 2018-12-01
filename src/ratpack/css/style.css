@@ -260,6 +260,7 @@ pre {
 
 .nested-wrapper {
     text-align: center;
+    margin-top: 150px;
     margin-bottom: -330px;
     position: relative
 }
@@ -312,7 +313,7 @@ pre {
     max-width: 520px;
     padding: 5px 10px;
     background-color: #fff;
-    max-height: 215px;
+    max-height: 275px;
     border-radius: 10px;
     text-align: center
 }
@@ -328,7 +329,7 @@ pre {
 }
 
 .large.bubble {
-    max-height: 265px
+    max-height: 300px
 }
 
 .right:after {

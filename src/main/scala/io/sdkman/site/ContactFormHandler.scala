@@ -40,6 +40,6 @@ class ContactFormHandler extends Handler
         }
       } else send(email, name, message)
 
-    } then (_ => OK(html.index(recaptchaEnabled, recaptchaSiteKey)))
+    } then (_ => OK(html.index(optionsEnabled, recaptchaEnabled, recaptchaSiteKey)))
   }
 }
