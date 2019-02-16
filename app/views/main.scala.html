@@ -1,22 +1,22 @@
 @(recaptchaEnabled: Boolean, title: String)(content: Html)
-@header(title)
+@includes.header(title)
 <body>
-@forkme()
+@includes.forkme()
 <div id='st-container' class='st-container st-effect-9'>
-    @socialise()
+    @includes.socialise()
     <div class='st-pusher'>
         <div class='st-content'>
             <div class='st-content-inner'>
-                @browserhappy()
+                @includes.browserhappy()
                 <div>
-                    @navigation()
+                    @includes.navigation()
                     @content
-                    @footer()
+                    @includes.footer()
                 </div>
             </div>
         </div>
     </div>
 </div>
-@scripts(recaptchaEnabled: Boolean)
+@includes.scripts(recaptchaEnabled: Boolean)
 </body>
 </html>
