@@ -1,10 +1,18 @@
 package controllers
 
+import io.sdkman.repos.CandidatesRepo
 import javax.inject._
 import play.api.mvc._
+import support.{Configuration, MongoConnection}
+
+import scala.concurrent.ExecutionContext.Implicits.global
 
 @Singleton
-class ContextualController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class ContextualController @Inject()(cc: ControllerComponents)
+  extends AbstractController(cc)
+    with CandidatesRepo
+    with MongoConnection
+    with Configuration {
 
   val index = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index(optionsEnabled = false, recaptchaEnabled = false, recaptchaSiteKey = "invalid"))
@@ -20,5 +28,11 @@ class ContextualController @Inject()(cc: ControllerComponents) extends AbstractC
 
   val vendors = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.vendors(recaptchaEnabled = false))
+  }
+
+  def sdks = Action.async { _ =>
+    findAllCandidates().map { candidates =>
+      Ok(views.html.sdks(recaptchaEnabled = false, candidates))
+    }
   }
 }

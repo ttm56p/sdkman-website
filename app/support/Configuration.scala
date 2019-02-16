@@ -1,4 +1,4 @@
-package io.sdkman.site
+package support
 
 import java.net.URI
 
