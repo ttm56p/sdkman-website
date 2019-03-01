@@ -4,6 +4,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
+GET     /alive                              controllers.HealthController.alive
 GET     /                                   controllers.ContextualController.index
 GET     /install                            controllers.ContextualController.install
 GET     /usage                              controllers.ContextualController.usage
