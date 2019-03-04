@@ -1,7 +1,14 @@
+enablePlugins(JavaServerAppPackaging)
+
+enablePlugins(DockerPlugin)
+
 name := """sdkman-website"""
+
 organization := "io.sdkman"
 
 version := "1.0-SNAPSHOT"
+
+packageName in Docker := "sdkman/sdkman-website"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
