@@ -96,7 +96,7 @@
                         <div class="flipper">
                             <div class="front">
                                 <div class="dev option">
-                                    <img class="option-img" src="img/sdkman-web.png"/>
+                                    <img class="option-img" src="@routes.Assets.at("/img/sdkman-web.png")"/>
                                     <h3>Developers</h3>
                                     <p>Rate-limited free version for Developer Machines</p>
                                     <a class="btn option-btn" href="/install">Install</a>
@@ -123,7 +123,7 @@
                         <div class="flipper">
                             <div class="front">
                                 <div class="ci option">
-                                    <img class="option-img" src="img/chain-web.png"/>
+                                    <img class="option-img" src="@routes.Assets.at("/img/chain-web.png")"/>
                                     <h3>CI Pipelines</h3>
                                     <p>Dedicated hosted paid-for version for Build Automation / CI
                                         Pipelines</p>
@@ -154,9 +154,8 @@
                         <div class="flipper">
                             <div class="front">
                                 <div class="enterprise option">
-                                    <img class="option-img" src="img/crypton-web.png"/>
-                                    <h3>Corporate Enterprises</h3>
-                                    <p>An on-premises version for Firewalled environments with full
+                                    <img class="option-img" src="@routes.Assets.at("/img/crypton-web.png")"/>
+                                    <h3>Corporate Enterprises</h3> <p>An on-premises version for Firewalled environments with full
                                         Administrative Access</p>
                                     <button type="button" class="btn option-btn" data-toggle="modal"
                                     data-target="#myModal">Contact
@@ -249,10 +248,10 @@
             </div>
         </div>
 
-        <img class="city-img" src="img/city.png">
+        <img class="city-img" src="@routes.Assets.at("/img/city.png")">
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
-    @contact(recaptchaEnabled, recaptchaSiteKey)
+    @includes.contact(recaptchaEnabled, recaptchaSiteKey)
 </div>
 }

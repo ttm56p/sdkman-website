@@ -15,7 +15,7 @@ git branch -D "$BRANCH"
 git checkout -b "$BRANCH"
 
 #update version
-for file in "gradle.properties" ".travis.yml" "Dockerfile"; do
+for file in "build.sbt" ".travis.yml"; do
 	sed -i "s/1.0.0-SNAPSHOT/$VERSION/g" "$file"
 	git add "$file"
 done
