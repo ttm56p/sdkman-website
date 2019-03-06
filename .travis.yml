@@ -16,7 +16,7 @@ script:
   - ./sbt test
 
 after_success:
-  - sbt docker:publish
+  - ./sbt docker:publish
 
 after_script:
   - docker rm -f mongo wiremock greenmail
