@@ -10,6 +10,12 @@ version := "1.0.0-SNAPSHOT"
 
 packageName in Docker := "sdkman/sdkman-website"
 
+dockerExposedPorts ++= Seq(9000)
+
+javaOptions in Universal ++= Seq(
+  "-Dpidfile.path=/dev/null"
+)
+
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.12.8"
