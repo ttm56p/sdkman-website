@@ -1,13 +1,14 @@
 package io.sdkman.site
 
 import com.typesafe.scalalogging.LazyLogging
-import javax.mail.Message
 import courier.Mailer
+import javax.mail.Message
 import org.junit.runner.RunWith
 import org.jvnet.mock_javamail.Mailbox
 import org.scalatest.concurrent.{Eventually, IntegrationPatience}
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.{BeforeAndAfter, Matchers, WordSpec}
+import support.{Configuration, Email}
 
 @RunWith(classOf[JUnitRunner])
 class EmailSpec extends WordSpec with Matchers with Eventually with BeforeAndAfter with IntegrationPatience {
@@ -79,5 +80,4 @@ class EmailSpec extends WordSpec with Matchers with Eventually with BeforeAndAft
 
     override lazy val mailer = Mailer(smtpHost, smtpPort)()
   }
-
 }

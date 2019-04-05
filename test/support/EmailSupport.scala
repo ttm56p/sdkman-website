@@ -1,9 +1,8 @@
 package support
 
 import java.util.Properties
-import javax.mail._
 
-import scala.util.Random
+import javax.mail.{Folder, Message, Session, Store}
 
 trait EmailSupport {
 
@@ -23,7 +22,7 @@ trait EmailSupport {
     store
   }
 
-  private def closeStore(store: Store) = store.close()
+  private def closeStore(store: Store): Unit = store.close()
 
   def withStore(email: String)(fun: Store => Unit): Unit = {
     val store = openStore(email)
