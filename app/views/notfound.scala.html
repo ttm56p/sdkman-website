@@ -1,0 +1,22 @@
+@()
+@main(recaptchaEnabled = false, title = "Not Found!") {
+    <div id='content' class='page-1'>
+        <div class='row'>
+            <div class='row-fluid'>
+                <div class='panel panel-danger'>
+                    <div class='panel-heading'>Oops! The page you are looking for does not exist!</div>
+                    <div class='panel-body'><p>We could not find the page you are looking for. Maybe you
+                        are looking for one of these?</p>
+                        <ul>
+                            <li>The <a href='/'>Home Page</a>.</li>
+                            <li>The <a href='/install'>Installation Page</a>.</li>
+                            <li>The <a href='/sdks'>SDKs Page</a>.</li>
+                            <li>The <a href='/usage'>Usage Page</a>.</li>
+                            <li>The <a href='/vendors'>Vendors Page</a>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
