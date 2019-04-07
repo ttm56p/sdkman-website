@@ -1,4 +1,4 @@
-@(recaptchaEnabled: Boolean)
+@(optionsEnabled: Boolean)
 <script src='@routes.Assets.at("js/vendor/jquery-1.10.2.min.js")' defer></script>
 <script src='@routes.Assets.at("js/vendor/classie.js")' defer></script>
 <script src='@routes.Assets.at("js/vendor/bootstrap.js")' defer></script>
@@ -20,7 +20,7 @@
           ga('create', 'UA-10247295-12', 'auto');
           ga('send', 'pageview');
 </script>
-@if(recaptchaEnabled) {
+@if(optionsEnabled) {
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
     function submitContactForm(token) {

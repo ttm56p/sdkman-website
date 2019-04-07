@@ -15,24 +15,24 @@ class ContextualController @Inject()(cc: ControllerComponents)
     with Configuration {
 
   val index = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index(optionsEnabled = false, recaptchaEnabled = false, recaptchaSiteKey = "invalid"))
+    Ok(views.html.index(optionsEnabled, recaptchaSiteKey))
   }
 
   val install = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.install(recaptchaEnabled = false))
+    Ok(views.html.install(optionsEnabled))
   }
 
   val usage = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.usage(recaptchaEnabled = false))
+    Ok(views.html.usage(optionsEnabled))
   }
 
   val vendors = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.vendors(recaptchaEnabled = false))
+    Ok(views.html.vendors(optionsEnabled))
   }
 
   def sdks = Action.async { _ =>
     findAllCandidates().map { candidates =>
-      Ok(views.html.sdks(recaptchaEnabled = false, candidates))
+      Ok(views.html.sdks(optionsEnabled, candidates))
     }
   }
 }

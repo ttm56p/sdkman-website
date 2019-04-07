@@ -1,5 +1,5 @@
-@()
-@main(recaptchaEnabled = false, title = "Not Found!") {
+@(optionsEnabled: Boolean)
+@main(optionsEnabled, title = "Not Found!") {
     <div id='content' class='page-1'>
         <div class='row'>
             <div class='row-fluid'>

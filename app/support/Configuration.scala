@@ -8,8 +8,6 @@ trait Configuration {
 
   private lazy val config = ConfigFactory.load()
 
-  lazy val optionsEnabled = config.getBoolean("options.enabled")
-
   lazy val smtpHost = config.getString("smtp.host")
 
   lazy val smtpPort = config.getInt("smtp.port")
@@ -18,7 +16,7 @@ trait Configuration {
 
   lazy val adminPassword = config.getString("smtp.password")
 
-  lazy val recaptchaEnabled = config.getBoolean("recaptcha.enabled")
+  lazy val optionsEnabled = config.getBoolean("options.enabled")
 
   lazy val recaptchaUrl = new URI(config.getString("recaptcha.url"))
 

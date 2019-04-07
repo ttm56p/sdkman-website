@@ -1,4 +1,4 @@
-@(recaptchaEnabled: Boolean, title: String)(content: Html)
+@(optionsEnabled: Boolean, title: String)(content: Html)
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -26,6 +26,6 @@
         </div>
     </div>
 </div>
-@includes.scripts(recaptchaEnabled: Boolean)
+@includes.scripts(optionsEnabled)
 </body>
 </html>

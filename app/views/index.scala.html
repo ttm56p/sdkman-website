@@ -1,5 +1,5 @@
-@(optionsEnabled: Boolean, recaptchaEnabled: Boolean, recaptchaSiteKey: String)
-@main(recaptchaEnabled, title = "Home") {
+@(optionsEnabled: Boolean, recaptchaSiteKey: String)
+@main(optionsEnabled, title = "Home") {
 <div id='band' class='band'></div>
 <div id='content'>
     <section class="row colset-2-its">
@@ -252,6 +252,6 @@
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
-    @includes.contact(recaptchaEnabled, recaptchaSiteKey)
+    @includes.contact(optionsEnabled, recaptchaSiteKey)
 </div>
 }

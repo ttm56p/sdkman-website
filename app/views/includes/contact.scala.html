@@ -1,4 +1,4 @@
-@(recaptchaEnabled: Boolean, recaptchaSiteKey: String)
+@(optionsEnabled: Boolean, recaptchaSiteKey: String)
 <!-- Modal Contact Form -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -20,7 +20,7 @@
                         <textarea type="text" class="form-control" id="message" name="message"
                                   placeholder="Message"></textarea>
                     </div>
-                    @if(recaptchaEnabled) {
+                    @if(optionsEnabled) {
                     <button type="submit" class="btn btn-primary contact-bt g-recaptcha"
                             data-sitekey="@recaptchaSiteKey" data-callback="submitContactForm">
                         Submit
