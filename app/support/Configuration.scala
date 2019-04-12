@@ -3,10 +3,12 @@ package support
 import java.net.URI
 
 import com.typesafe.config.ConfigFactory
+import javax.inject.Singleton
 
-trait Configuration {
+@Singleton
+class Configuration {
 
-  private lazy val config = ConfigFactory.load()
+  lazy val config = ConfigFactory.load()
 
   lazy val smtpHost = config.getString("smtp.host")
 

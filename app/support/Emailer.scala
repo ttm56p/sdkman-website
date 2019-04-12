@@ -2,18 +2,18 @@ package support
 
 import com.typesafe.scalalogging.LazyLogging
 import courier.{Envelope, Mailer, Text}
+import javax.inject.{Inject, Singleton}
 import javax.mail.internet.InternetAddress
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.{Failure, Success}
 
-trait Email {
+@Singleton
+class Emailer @Inject()(val conf: Configuration) extends LazyLogging {
 
-  self: LazyLogging with Configuration =>
-
-  lazy val mailer = Mailer(smtpHost, smtpPort)
+  lazy val mailer = Mailer(conf.smtpHost, conf.smtpPort)
     .auth(true)
-    .as(adminEmail, adminPassword)
+    .as(conf.adminEmail, conf.adminPassword)
     .startTtls(true)()
 
   def send(maybeEmail: Option[String], maybeName: Option[String], maybeMessage: Option[String]): Unit =
@@ -22,8 +22,8 @@ trait Email {
       name <- maybeName
       message <- maybeMessage
     } yield {
-      mailer(Envelope.from(new InternetAddress(adminEmail))
-        .to(new InternetAddress(adminEmail))
+      mailer(Envelope.from(new InternetAddress(conf.adminEmail))
+        .to(new InternetAddress(conf.adminEmail))
         .subject(s"SDKMAN contact request: $name")
         .content(Text(compose(email, name, message)))).onComplete {
         case Success(x) =>

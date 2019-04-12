@@ -4,14 +4,17 @@ import com.typesafe.scalalogging.LazyLogging
 import javax.inject.Inject
 import play.api.libs.ws.{WSClient, WSResponse}
 import play.api.mvc._
-import support.{Configuration, Email}
+import support.{Configuration, Emailer}
 import play.api.data._
 import play.api.data.Forms._
 
 import scala.concurrent.ExecutionContext
 
-class ContactFormController @Inject()(cc: ControllerComponents, wsClient: WSClient)
-                                     (implicit ec: ExecutionContext) extends AbstractController(cc) with Email with LazyLogging with Configuration {
+class ContactFormController @Inject()(cc: ControllerComponents,
+                                      wsClient: WSClient,
+                                      conf: Configuration,
+                                      emailer: Emailer)(implicit ec: ExecutionContext)
+  extends AbstractController(cc) with LazyLogging {
 
   case class ContactData(email: String, name: String, message: String, `g-recaptcha-response`: String)
 
@@ -30,7 +33,7 @@ class ContactFormController @Inject()(cc: ControllerComponents, wsClient: WSClie
       .map { res: WSResponse =>
         logger.info("Completed call to recaptcha...")
         contactForm.bindFromRequest.value.foreach { data =>
-          send(Some(data.email), Some(data.name), Some(data.message))
+          emailer.send(Some(data.email), Some(data.name), Some(data.message))
         }
         Ok("")
       }

@@ -1,8 +1,8 @@
 package controllers
 
-import io.sdkman.repos.ApplicationRepo
+import com.typesafe.scalalogging.LazyLogging
+import io.sdkman.repos.{ApplicationRepo => IApplicationRepo}
 import javax.inject._
-import org.slf4j.LoggerFactory
 import play.api.libs.json.Json
 import play.api.mvc._
 import support.{Configuration, MongoConnection}
@@ -10,16 +10,11 @@ import support.{Configuration, MongoConnection}
 import scala.concurrent.ExecutionContext.Implicits.global
 
 @Singleton
-class HealthController @Inject()(cc: ControllerComponents)
-  extends AbstractController(cc)
-    with ApplicationRepo
-    with MongoConnection
-    with Configuration {
-
-  lazy val logger = LoggerFactory.getLogger(classOf[HealthController])
+class HealthController @Inject()(cc: ControllerComponents, conf: Configuration, applicationRepo: ApplicationRepo)
+  extends AbstractController(cc) with LazyLogging {
 
   def alive = Action.async { _ =>
-    findApplication().map { maybeApp =>
+    applicationRepo.findApplication().map { maybeApp =>
       maybeApp.fold(NotFound(statusMessage("KO"))) { app =>
         val message = statusMessage(app.alive)
         logger.info(s"/alive 200 response: $message")
@@ -37,3 +32,5 @@ class HealthController @Inject()(cc: ControllerComponents)
 
   private def errorMessage(e: Throwable) = Json.obj("status" -> "KO", "error" -> e.getMessage)
 }
+
+class ApplicationRepo extends IApplicationRepo with MongoConnection
