@@ -413,7 +413,7 @@ pre {
 
 @media (max-width: 475px) {
     #band {
-        background-size: 70%;
+        background-size: 57%;
         height: 155px
     }
 }
@@ -478,7 +478,7 @@ pre {
 
 @media (max-width: 1010px) {
     .event-logo {
-        height:
+        height: auto;
     }
 }
 
