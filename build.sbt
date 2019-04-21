@@ -34,6 +34,6 @@ libraryDependencies ++= Seq(
 libraryDependencies ++= Seq(
   ws,
   guice,
-  "io.sdkman" %% "sdkman-mongodb-persistence" % "0.11",
+  "io.sdkman" %% "sdkman-mongodb-persistence" % "0.13",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
   "ch.lightshed" %% "courier" % "0.1.4")
