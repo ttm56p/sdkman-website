@@ -5,12 +5,12 @@ import io.sdkman.repos.{ApplicationRepo => IApplicationRepo}
 import javax.inject._
 import play.api.libs.json.Json
 import play.api.mvc._
-import support.{Configuration, MongoConnection}
+import support.MongoConnection
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
 @Singleton
-class HealthController @Inject()(cc: ControllerComponents, conf: Configuration, applicationRepo: ApplicationRepo)
+class HealthController @Inject()(cc: ControllerComponents, applicationRepo: ApplicationRepo)
   extends AbstractController(cc) with LazyLogging {
 
   def alive = Action.async { _ =>

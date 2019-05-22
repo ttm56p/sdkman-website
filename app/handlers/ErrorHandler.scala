@@ -1,19 +1,18 @@
 package handlers
 
-import javax.inject.{Inject, Singleton}
+import javax.inject.Singleton
 import play.api.http.HttpErrorHandler
 import play.api.mvc.Results._
 import play.api.mvc._
-import support.Configuration
 
 import scala.concurrent._
 
 @Singleton
-class ErrorHandler @Inject()(conf: Configuration) extends HttpErrorHandler {
+class ErrorHandler extends HttpErrorHandler {
 
   def onClientError(request: RequestHeader, statusCode: Int, message: String) = statusCode match {
     case 404 =>
-      Future.successful(NotFound(views.html.notfound(conf.optionsEnabled)))
+      Future.successful(NotFound(views.html.notfound()))
     case _ =>
       Future.successful(Status(statusCode)("A client error occurred: " + message))
   }

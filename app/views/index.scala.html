@@ -1,5 +1,5 @@
-@(optionsEnabled: Boolean, recaptchaSiteKey: String)
-@main(optionsEnabled, title = "Home") {
+@()
+@main(title = "Home") {
 @includes.advertisement()
 <div id='band' class='band'></div>
 <div id='content'>
@@ -89,106 +89,6 @@
 
     @includes.opencollective()
 
-    @if(optionsEnabled) {
-        <div class="options-background">
-            <section class="row colset-3-its">
-                <h1 id="options-title">Installation Options</h1>
-
-                <div class="col-md-4 option-wrapper">
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper">
-                            <div class="front">
-                                <div class="dev option">
-                                    <img class="option-img" src="@routes.Assets.at("/img/sdkman-web.png")"/>
-                                    <h3>Developers</h3>
-                                    <p>Rate-limited free version for Developer Machines</p>
-                                    <a class="btn option-btn" href="/install">Install</a>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <div class="dev option">
-                                    <p>SDKMAN! will always be free for Developers to use on their
-                                        machines! We strive to keep our service up-to-date with the
-                                        latest versions of the most in-demand Software Development Kits.
-                                        We enjoy making life easy so that they can focus on what matters
-                                        most: writing code! The <b>rate-limited API</b> that backs the
-                                        Free Version of SDKMAN! will be more than sufficient for even
-                                        the most productive Developers!</p>
-                                    <a class="btn option-btn" href="/install">Install</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 option-wrapper">
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper">
-                            <div class="front">
-                                <div class="ci option">
-                                    <img class="option-img" src="@routes.Assets.at("/img/chain-web.png")"/>
-                                    <h3>CI Pipelines</h3>
-                                    <p>Dedicated hosted paid-for version for Build Automation / CI
-                                        Pipelines</p>
-                                    <button type="button" class="btn option-btn" data-toggle="modal"
-                                    data-target="#myModal">Contact
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <div class="ci option">
-                                    <p>We recognise that our tool is very handy for use in automated
-                                        environments. In particular, Build Pipelines can benefit greatly
-                                        by having access to all the latest versions of the SDKs required
-                                        to run a build. With a dedicated Hosted Cloud Instance, your
-                                        builds will be stable with <b>dedicated uncapped APIs</b> to
-                                        serve only your builds.</p>
-                                    <button type="button" class="btn option-btn" data-toggle="modal"
-                                    data-target="#myModal">Contact
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 option-wrapper">
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper">
-                            <div class="front">
-                                <div class="enterprise option">
-                                    <img class="option-img" src="@routes.Assets.at("/img/crypton-web.png")"/>
-                                    <h3>Corporate Enterprises</h3> <p>An on-premises version for Firewalled environments with full
-                                        Administrative Access</p>
-                                    <button type="button" class="btn option-btn" data-toggle="modal"
-                                    data-target="#myModal">Contact
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <div class="enterprise option">
-                                    <p>Secured Corporate environments often demand restricted internet
-                                        access for Employees. Yet, Engineers require specific software
-                                        on their workstations and servers. An On-Premises SDKMAN!
-                                        version is available for this purpose. Administrators can
-                                        publish approved software on their SDKMAN! instance through an
-                                        Admin Console. Backed by most Binary Repositories, this is a <b>stand-alone
-                                        solution for firewalled environments</b>. It is now possible
-                                        to maintain a secure perimeter while keeping Developers and
-                                        Build Pipelines productive.</p>
-                                    <button type="button" class="btn option-btn" data-toggle="modal"
-                                    data-target="#myModal">Contact
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-        </div>
-    }
-
     <div class="nested-wrapper">
         <div class="nested-opinion second">
             <div class="large bubble left">
@@ -254,7 +154,5 @@
         <img class="city-img" src="@routes.Assets.at("/img/city.png")">
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
-
-    @includes.contact(optionsEnabled, recaptchaSiteKey)
 </div>
 }
