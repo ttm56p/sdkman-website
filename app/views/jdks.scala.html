@@ -1,0 +1,33 @@
+@(jdks: Seq[Jdk])
+@main(title = "JDK Distributions") {
+<div id='content' class='page-1'>
+    <div class='row'>
+        <div class='row-fluid'>
+            <div class='col-lg-3'>
+                <ul class='nav-sidebar'>
+                    <li class='active'><a href='/sdks'><strong>Available SDKs</strong></a></li>
+                    @for(j <- jdks) {
+                    <li><a href='#@{j.vendor}' class='anchor-link'>@{j.distribution}: <em>@{j.vendor}</em></a></li>
+                    }
+                </ul>
+            </div>
+            <div class='col-lg-8 col-lg-pull-0'>
+                <h1><a name='main'></a><i class='fa fa-cloud-download'></i> JDK Distributions</h1>
+                @includes.advertisement()
+                <ul>
+                    @for(jdk <- jdks) {
+                    <a name='@jdk.vendor'></a>
+                    <li>
+                        <h4>@jdk.distribution</h4>
+                        <a href='@jdk.url' target='_blank'><h5>@jdk.vendor</h5></a>
+                        <p>@jdk.description</p>
+                        <code>$ sdk install java x.y.z-@jdk.id</code>
+                        <hr/>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+}
