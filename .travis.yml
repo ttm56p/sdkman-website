@@ -1,6 +1,9 @@
 jdk:
   - openjdk8
 
+scala:
+  - 2.12.10
+
 services:
   - docker
 

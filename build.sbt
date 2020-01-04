@@ -18,7 +18,7 @@ javaOptions in Universal ++= Seq(
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.12.10"
 
 resolvers ++= Seq(
   Resolver.bintrayRepo("sdkman", "maven"),
