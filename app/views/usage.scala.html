@@ -16,6 +16,7 @@
                     <li><a href='#use' class='anchor-link'>Use Version</a></li>
                     <li><a href='#default' class='anchor-link'>Default Version</a></li>
                     <li><a href='#current' class='anchor-link'>Current Version</a></li>
+                    <li><a href='#env' class='anchor-link'>Env Command</a></li>
                     <li><a href='#upgrade' class='anchor-link'>Upgrade Versions</a></li>
                     <li><a href='#version' class='anchor-link'>Version</a></li>
                     <li><a href='#broadcast' class='anchor-link'>Broadcast Messages</a></li>
@@ -198,6 +199,40 @@ groovy: 2.4.7
 java: 8u111
 scala: 2.12.1
 </code></pre>
+                    </p>
+                </article>
+                <br/>
+                <article>
+                    <a name='env'></a>
+                    <h2>Env Command</h2>
+                    <p>
+                    Want to switch to a specific JDK or SDK every time you visit a project?
+                    This can be achieved through an <code>.sdkmanrc</code> file in the base
+                    directory of your project. This file can be generated automatically by
+                    issuing the following command:
+                    <pre><code>$ sdk env init</code></pre>
+                    A config file with the following content has now been created in the
+                    current directory:
+                    <pre><code>java=11.0.7.hs-adpt</code></pre>
+                    The file is pre-populated with the current JDK version in use, but can
+                    contain as may key-value pairs of supported SDKs as you want.
+                    To switch to the configuration present in your <code>.sdkmanrc</code> file,
+                    simply issue thefollowing command:
+                    <pre><code>sdk env</code></pre>
+                    You should see output that looks something like this:
+                    <pre><code>Using java version 11.0.7.hs-adpt in this shell.</code></pre>
+                    Your path has now also been updated to use any SDKs listed in your current shell:
+                    <pre><code>
+$ java -version
+openjdk version "11.0.7" 2020-04-14
+OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.7+10)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.7+10, mixed mode)
+                    </code></pre>
+                    </p>
+                    <p>
+                        Do you want switch SDK versions automatically when you <code>cd</code> into a
+                        directory? This can be done by setting the <code>sdkman_auto_env=true</code> in
+                        the SDKMAN configuration.
                     </p>
                 </article>
                 <br/>
@@ -409,6 +444,9 @@ sdkman_debug_mode=true|false
 
 # enable colour mode
 sdkman_colour_enable=true|false
+
+# enable automatic env
+sdkman_auto_env=true=true|false
 </code> </pre>
                     </p>
                 </article>
