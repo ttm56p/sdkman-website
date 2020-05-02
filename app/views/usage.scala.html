@@ -24,6 +24,7 @@
                     <li><a href='#selfupdate' class='anchor-link'>Self-Update</a></li>
                     <li><a href='#update' class='anchor-link'>Update</a></li>
                     <li><a href='#flush' class='anchor-link'>Flush</a></li>
+                    <li><a href='#home' class='anchor-link'>Home</a></li>
                     <li><a href='#help' class='anchor-link'>Help</a></li>
                     <li><a href='#config' class='anchor-link'>Configuration</a></li>
                 </ul>
@@ -370,6 +371,18 @@ Adding new candidates(s): kotlin
                     <pre><code>$ sdk flush temp</code></pre>
                     Clears out the staging work folder used when installing new versions of
                     candidates and SDKMAN! itself.
+                    </p>
+                </article>
+                <br/>
+                <article>
+                    <a name="home"></a>
+                    <h2>Home</h2>
+                    <p>
+                        When using SDKMAN in scripts, it is often useful to get the absolute
+                        path of where an SDK resides (similar to how the <code>java_home</code>
+                        command works on OSX). For this we have the <code>home</code> command.
+                        <pre><code>$ sdk home java 11.0.7.hs-adpt
+/home/somedude/.sdkman/candidates/java/11.0.7.hs-adpt</code></pre>
                     </p>
                 </article>
                 <br/>
