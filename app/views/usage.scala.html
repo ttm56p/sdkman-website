@@ -213,26 +213,22 @@ scala: 2.12.1
                     <pre><code>$ sdk env init</code></pre>
                     A config file with the following content has now been created in the
                     current directory:
-                    <pre><code>java=11.0.7.hs-adpt</code></pre>
+                    <pre><code># Enable auto-env through the sdkman_auto_env config
+# Add key=value pairs of SDKs to use below
+java=x.y.z.hs-adpt</code></pre>
                     The file is pre-populated with the current JDK version in use, but can
-                    contain as may key-value pairs of supported SDKs as you want.
+                    contain as may key-value pairs of supported SDKs as needed.
                     To switch to the configuration present in your <code>.sdkmanrc</code> file,
-                    simply issue thefollowing command:
+                    simply issue the following command:
                     <pre><code>sdk env</code></pre>
                     You should see output that looks something like this:
-                    <pre><code>Using java version 11.0.7.hs-adpt in this shell.</code></pre>
-                    Your path has now also been updated to use any SDKs listed in your current shell:
-                    <pre><code>
-$ java -version
-openjdk version "11.0.7" 2020-04-14
-OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.7+10)
-OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.7+10, mixed mode)
-                    </code></pre>
+                    <pre><code>Using java version x.y.z.hs-adpt in this shell.</code></pre>
+                    Your path has now also been updated to use any of these SDKs in your current shell.
                     </p>
                     <p>
-                        Do you want switch SDK versions automatically when you <code>cd</code> into a
-                        directory? This can be done by setting the <code>sdkman_auto_env=true</code> in
-                        the SDKMAN configuration.
+                    Do you want switch SDK versions automatically when you <code>cd</code> into a
+                    directory? This can be done by setting the <code>sdkman_auto_env=true</code> in
+                    the SDKMAN configuration.
                     </p>
                 </article>
                 <br/>
