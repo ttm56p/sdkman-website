@@ -39,7 +39,8 @@ class ContextualController @Inject()(cc: ControllerComponents,
 
   def sdks = Action.async { _ =>
     candidatesRepo.findAllCandidates().map { candidates =>
-      Ok(views.html.sdks(candidates.filter(_.candidate != "java")))
+      val sanitisedCandidates = candidates.filter(c => !Seq("java", "test").contains(c.candidate))
+      Ok(views.html.sdks(sanitisedCandidates))
     }
   }
 }
