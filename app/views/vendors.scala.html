@@ -71,7 +71,8 @@ https://vendors.sdkman.io/default
                     </p><br/>
                     <p><h4>Broadcast a Structured Message</h4>This will result in a structured
                     message announcement on social media and SDKMAN! CLI. The result will look
-                    something like: <code>Grails 3.0.0 has been released on SDKMAN! #grailsfw</code>.
+                    something like: <code>grails 3.0.0 available for download. https://git.io/release</code>.
+					The url can point to the github release page or the version's changelog.
                     This message will be announced to the broadcast channel of SDKMAN! CLI, as well
                     as on the <a href='https://www.twitter.com/sdkman_'>@@sdkman_</a> Twitter feed.
                     <pre><code>
@@ -80,7 +81,7 @@ curl -X POST \
 -H "Consumer-Token: CONSUMER_TOKEN" \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
--d '{"candidate": "grails", "version": "3.0.0", "hashtag": "grailsfw"}' \
+-d '{"candidate": "grails", "version": "3.0.0", "url": "https://git.io/release"}' \
 https://vendors.sdkman.io/announce/struct
                     </code></pre>
                     </p><br/>
