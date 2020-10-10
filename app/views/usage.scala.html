@@ -359,16 +359,20 @@ Adding new candidates(s): kotlin
                         From time to time it may be necessary to flush SDKMAN!&apos;s local
                         state.The flush command helps with this and allows for the following to be
                         performed:
+                    <h4>Flush storage</h4>
+                    <pre><code>$ sdk flush</code></pre>
+                    This flushes out all archives and the temporary storage folder but doesn not
+                    the broadcast cache.
                     <h4>Broadcast</h4>
                     <pre><code>$ sdk flush broadcast</code></pre>
-                    Clears out the Broadcast cache, downloading the latest available news on next
+                    Clears out the broadcast cache, downloading the latest available news on next
                     command invocation.
                     <h4>Archives</h4>
                     <pre><code>$ sdk flush archives</code></pre>
                     Cleans the cache containing all downloaded SDK binaries. This can take up a lot
                     of space so is worth clearing out from time to time!
                     <h4>Temporary Folder</h4>
-                    <pre><code>$ sdk flush temp</code></pre>
+                    <pre><code>$ sdk flush tmp</code></pre>
                     Clears out the staging work folder used when installing new versions of
                     candidates and SDKMAN! itself.
                     </p>
