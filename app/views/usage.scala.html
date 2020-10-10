@@ -398,28 +398,27 @@ Adding new candidates(s): kotlin
                     <pre><code>$ sdk help</code></pre>
                     This should yield something like:
                     <pre><code>
-Usage: sdk <command> <candidate> [version]
-sdk offline <enable|disable>
+Usage:  sdk &lt;command&gt; [candidate] [version]
+        sdk offline &lt;enable|disable&gt;
 
-commands:
-install   or i    <candidate> [version]
-uninstall or rm   <candidate> <version>
-list      or ls   <candidate>
-use       or u    <candidate> [version]
-default   or d    <candidate> [version]
-current   or c    [candidate]
-upgrade   or ug   [candidate]
-version   or v
-broadcast or b
-help      or h
-offline           <enable|disable>
-selfupdate        [force]
-flush             <candidates|broadcast|archives|temp>
-
-candidate  :  ...
-version    :  where optional, defaults to latest stable if not provided
-
-eg: sdk install groovy
+    commands:
+        install   or i    &lt;candidate&gt; [version] [local-path]
+        uninstall or rm   &lt;candidate&gt; &lt;version&gt;
+        list      or ls   [candidate]
+        use       or u    &lt;candidate&gt; &lt;version&gt;
+        default   or d    &lt;candidate&gt; [version]
+        home      or h    &lt;candidate&gt; &lt;version&gt;
+        env       or e    [init]
+        current   or c    [candidate]
+        upgrade   or ug   [candidate]
+        version   or v
+        broadcast or b
+        help
+        offline           [enable|disable]
+        selfupdate        [force]
+        update
+        flush             [archives|tmp|broadcast|version]
+        ...
                     </code></pre>
                     </p>
                     <hr class='divider'/>
