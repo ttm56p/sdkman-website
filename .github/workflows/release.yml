@@ -23,5 +23,8 @@ jobs:
     - name: Log in to Docker Hub
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - uses: oleksiyrudenko/gha-git-credentials@v2.1
+      with:
+        token: '${{ secrets.GITHUB_TOKEN }}'
     - name: Release
       run: ./sbt "release with-defaults"
