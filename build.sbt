@@ -6,13 +6,11 @@ name := """sdkman-website"""
 
 organization := "io.sdkman"
 
-version := "1.0.0-SNAPSHOT"
-
-packageName in Docker := "sdkman/sdkman-website"
+Docker / packageName := "sdkman/sdkman-website"
 
 dockerExposedPorts ++= Seq(9000)
 
-javaOptions in Universal ++= Seq(
+Universal / javaOptions ++= Seq(
   "-Dpidfile.path=/dev/null"
 )
 
