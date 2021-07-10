@@ -18,7 +18,10 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaVersion := "2.12.10"
 
-resolvers += "jitpack" at "https://jitpack.io"
+resolvers ++= Seq(
+  Resolver.mavenCentral,
+  "jitpack" at "https://jitpack.io"
+)
 
 libraryDependencies ++= Seq(
   ws,
