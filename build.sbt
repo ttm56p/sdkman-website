@@ -30,3 +30,19 @@ libraryDependencies ++= Seq(
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.3",
   "com.iheart" %% "ficus" % "1.5.0"
 )
+
+import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
+
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  ReleaseStep(releaseStepTask(publish in Docker)),
+  setNextVersion,
+  commitNextVersion,
+  pushChanges
+)
