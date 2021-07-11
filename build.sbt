@@ -16,7 +16,7 @@ Universal / javaOptions ++= Seq(
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-scalaVersion := "2.12.10"
+scalaVersion := "2.12.13"
 
 resolvers ++= Seq(
   Resolver.mavenCentral,
