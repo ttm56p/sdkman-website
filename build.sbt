@@ -8,6 +8,8 @@ organization := "io.sdkman"
 
 Docker / packageName := "sdkman/sdkman-website"
 
+dockerBaseImage := "openjdk:11"
+
 dockerExposedPorts ++= Seq(9000)
 
 Universal / javaOptions ++= Seq(
