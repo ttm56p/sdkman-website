@@ -451,11 +451,10 @@ Usage:  sdk &lt;command&gt; [candidate] [version]
                     <a name='config'></a>
                     <h2>Configuration</h2>
                     <p>
-                        Although configuration is limited, the list of configurable items will grow
-                        as required. Configuration can be found in the
-                        <code>~/.sdkman/etc/config</code> file. Currently the following is
-                        configurable:
-                    <pre><code>
+                        Configuration can be found in the <code>~/.sdkman/etc/config</code> file. To edit the
+                        configuration, the <code>sdk config</code> command may be issued to edit this file
+                        in the system editor. The following configurations are available:
+                        <pre><code>
 # make sdkman non-interactive, preferred for CI environments
 sdkman_auto_answer=true|false
 
@@ -473,7 +472,7 @@ sdkman_curl_continue=true
 sdkman_curl_max_time=10
 
 # subscribe to the beta channel
-sdkman_beta_channel=true
+sdkman_beta_channel=true|false
 
 # enable verbose debugging
 sdkman_debug_mode=true|false
@@ -485,10 +484,10 @@ sdkman_colour_enable=true|false
 sdkman_auto_env=true|false
 
 # enable rosetta2 compatibility for apple silicon
-sdkman_rosetta2_compatible=true
+sdkman_rosetta2_compatible=true|false
 
 # enable bash or zsh auto-completion
-sdkman_auto_complete=true
+sdkman_auto_complete=true|false
 </code> </pre>
                     </p>
                 </article>
