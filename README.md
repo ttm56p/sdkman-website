@@ -1,18 +1,16 @@
 # SDKMAN! website
 
-## Releases
+![Build status](https://github.com/sdkman/sdkman-website/actions/workflows/release.yml/badge.svg)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/sdkman/sdkman-website)
 
-The SBT release plugin performs the release process. _semver_ is used as versioning scheme.
+This is the service backing the SDKMAN! website at https://sdkman.io
 
-### Patch release
+## Run local
 
-Pull requests merged to `master` branch will result in a patch version bump. A new image of the version will be built
-and pushed to Docker Hub.
+Make sure you have mongodb running locally or in a Docker Container:
 
-### Major and minor releases
+    $ docker run -d --net=host --name mongo mongo:3.2
 
-A minor release can be achieved by updating the `version.sbt` file. Update the version to the next minor version
-snapshot. For example, if the current version is `0.76.3-SNAPSHOT`, change it to be `0.77.0-SNAPSHOT`. The next
-published Docker image will be `0.77.0`, and the corresponding Git tag `v0.77.0`.
+Start the app:
 
-You can achieve a major release in much the same way.
+	$ ./sbt run
