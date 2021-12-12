@@ -2,17 +2,18 @@ package controllers
 
 import com.typesafe.config.Config
 import io.sdkman.repos.{CandidatesRepo => ICandidatesRepo}
-import javax.inject._
-import play.api.mvc._
-import support.MongoConnection
 import net.ceedubs.ficus.Ficus._
 import net.ceedubs.ficus.readers.ArbitraryTypeReader._
+import play.api.mvc._
+import support.MongoConnection
 
+import javax.inject._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 @Singleton
 class ContextualController @Inject()(cc: ControllerComponents,
+                                     applicationRepo: ApplicationRepo,
                                      candidatesRepo: CandidatesRepo,
                                      conf: Config) extends AbstractController(cc) {
 
@@ -20,12 +21,18 @@ class ContextualController @Inject()(cc: ControllerComponents,
     Ok(views.html.index())
   }
 
-  val install = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.install())
+  val install = Action.async { implicit request: Request[AnyContent] =>
+    applicationRepo.findApplication().map { app =>
+      val sdkmanVersion = app.map(_.stableCliVersion).getOrElse("6.0.0")
+      Ok(views.html.install(sdkmanVersion))
+    }
   }
 
-  val usage = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.usage())
+  val usage = Action.async { implicit request: Request[AnyContent] =>
+    candidatesRepo.findAllCandidates().map { candidates =>
+        val candidateVersions = candidates.map(c => Tuple2(c.candidate, c.default.getOrElse("x.y.z"))).toMap
+        Ok(views.html.usage(candidateVersions))
+      }
   }
 
   val vendors = Action { implicit request: Request[AnyContent] =>

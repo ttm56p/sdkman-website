@@ -1,4 +1,10 @@
-@()
+@(candidates: Map[String, String])
+@groovyVersion = @{candidates.getOrElse("groovy", "x.y.z")}
+@gradleVersion = @{candidates.getOrElse("gradle", "x.y.z")}
+@grailsVersion = @{candidates.getOrElse("grails", "x.y.z")}
+@javaVersion = @{candidates.getOrElse("java", "x.y.z")}
+@scalaVersion = @{candidates.getOrElse("scala", "x.y.z")}
+@springbootVersion = @{candidates.getOrElse("springboot", "x.y.z")}
 @main(title = "Usage") {
 <div id='content' class='page-1'>
     <div class='row'>
@@ -42,35 +48,35 @@
                     You will see something like the following output:
                     <pre>
                                 <code>
-Downloading: java 8u111
+Downloading: java @javaVersion
 
 In progress...
 
 ######################################################################## 100.0%
 
-Installing: java 8u111
+Installing: java @javaVersion
 Done installing!
 </code>
                             </pre>
                     Now you will be prompted if you want this version to be set as
                     <strong>default.</strong>
-                    <pre><code>Do you want java 8u111 to be set as default? (Y/n):</code></pre>
+                    <pre><code>Do you want java @javaVersion to be set as default? (Y/n):</code></pre>
                     Answering <em>yes</em> (or <em>hitting enter</em>) will ensure that all
                     subsequent shells opened will have this version of the SDK in use by default.
-                    <pre><code>Setting java 8u111 as default.</code></pre>
+                    <pre><code>Setting java @javaVersion as default.</code></pre>
                     </p><a name='installspecific'></a><h4>Specific Version</h4>
                     <p>
                         Need a <strong>specific</strong> version of an SDK? Simply qualify the
                         version you require:
-                    <pre><code>$ sdk install scala 2.12.1</code></pre>
+                    <pre><code>$ sdk install scala @scalaVersion</code></pre>
                     All subsequent steps same as above.
                     </p><a name='localversion'></a><h4>Install Local Version(s)</h4>
                     <p>
                         Using a snapshot version? Already have a local installation? Setup a local version by specifying the path to the local installation:
                     <pre><code>$ sdk install groovy 3.0.0-SNAPSHOT /path/to/groovy-3.0.0-SNAPSHOT</code></pre>
-                    <pre><code>$ sdk install java 10-zulu /Library/Java/JavaVirtualMachines/zulu-10.jdk/Contents/Home</code></pre>
+                    <pre><code>$ sdk install java 17-zulu /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home</code></pre>
                     Note that the local version name (<em>3.0.0-SNAPSHOT</em> and
-                    <em>10-zulu</em> in the examples above) must be a unique name
+                    <em>17-zulu</em> in the examples above) must be a unique name
                     which is not already in the list of available version names.
                     </p>
                 </article>
@@ -80,8 +86,8 @@ Done installing!
                     <h2>Remove Version</h2>
                     <p>
                         Remove an installed version.
-                    <pre><code>$ sdk uninstall scala 2.11.6</code></pre>
-                    Note that removing a local version will not remove the local installation.
+                        <pre><code>$ sdk uninstall scala @scalaVersion</code></pre>
+                        Note that removing a local version will not remove the local installation.
                     </p>
                 </article>
                 <br/>
@@ -103,19 +109,19 @@ q-quit                                  /-search down
 j-down                                  ?-search up
 k-up                                    h-help
 --------------------------------------------------------------------------------
-Groovy (2.4.5)                                       http://www.groovy-lang.org/
-
-Groovy is a powerful, optionally typed and dynamic language, with static-typing
-and static compilation capabilities, for the Java platform aimed at multiplying
-developers’ productivity thanks to a concise, familiar and easy to learn syntax.
-It integrates smoothly with any Java program, and immediately delivers to your
-application powerful features, including scripting capabilities, Domain-Specific
-Language authoring, runtime and compile-time meta-programming and functional
-programming.
-
-                                        $ sdk install groovy
+...
 --------------------------------------------------------------------------------
-Scala (2.11.7)                                        http://www.scala-lang.org/
+Java (@javaVersion)        https://projects.eclipse.org/projects/adoptium.temurin/
+
+Java Platform, Standard Edition (or Java SE) is a widely used platform for
+development and deployment of portable code for desktop and server environments.
+Java SE uses the object-oriented Java programming language. It is part of the
+Java software-platform family. Java SE defines a wide range of general-purpose
+APIs – such as Java APIs for the Java Class Library – and also includes the Java
+Language Specification and the Java Virtual Machine Specification.
+
+$ sdk install java
+--------------------------------------------------------------------------------
 ...
 </code>
                             </pre>
@@ -135,20 +141,20 @@ Scala (2.11.7)                                        http://www.scala-lang.org/
 Available Groovy Versions
 ================================================================================
 > * 2.4.4                2.3.1                2.0.8                1.8.3
-2.4.3                2.3.0                2.0.7                1.8.2
-2.4.2                2.2.2                2.0.6                1.8.1
-2.4.1                2.2.1                2.0.5                1.8.0
-2.4.0                2.2.0                2.0.4                1.7.9
-2.3.9                2.1.9                2.0.3                1.7.8
-2.3.8                2.1.8                2.0.2                1.7.7
-2.3.7                2.1.7                2.0.1                1.7.6
-2.3.6                2.1.6                2.0.0                1.7.5
-2.3.5                2.1.5                1.8.9                1.7.4
-2.3.4                2.1.4                1.8.8                1.7.3
-2.3.3                2.1.3                1.8.7                1.7.2
-2.3.2                2.1.2                1.8.6                1.7.11
-2.3.11               2.1.1                1.8.5                1.7.10
-2.3.10               2.1.0                1.8.4                1.7.1
+    2.4.3                2.3.0                2.0.7                1.8.2
+    2.4.2                2.2.2                2.0.6                1.8.1
+    2.4.1                2.2.1                2.0.5                1.8.0
+    2.4.0                2.2.0                2.0.4                1.7.9
+    2.3.9                2.1.9                2.0.3                1.7.8
+    2.3.8                2.1.8                2.0.2                1.7.7
+    2.3.7                2.1.7                2.0.1                1.7.6
+    2.3.6                2.1.6                2.0.0                1.7.5
+    2.3.5                2.1.5                1.8.9                1.7.4
+    2.3.4                2.1.4                1.8.8                1.7.3
+    2.3.3                2.1.3                1.8.7                1.7.2
+    2.3.2                2.1.2                1.8.6                1.7.11
+    2.3.11               2.1.1                1.8.5                1.7.10
+    2.3.10               2.1.0                1.8.4                1.7.1
 
 ================================================================================
 + - local version
@@ -165,7 +171,7 @@ Available Groovy Versions
                     <h2>Use Version</h2>
                     <p>
                         Choose to use a given version in the current terminal:
-                    <pre><code>$ sdk use scala 2.12.1</code></pre>
+                    <pre><code>$ sdk use scala @scalaVersion</code></pre>
                     It is important to realise that this will switch the candidate version <strong>for
                     the current shell only</strong>. To make this change permanent, use the <a
                         href='#default'>default</a> command instead.
@@ -177,8 +183,8 @@ Available Groovy Versions
                     <h2>Default Version</h2>
                     <p>
                         Chose to make a given version the default:
-                    <pre><code>$ sdk default scala 2.11.6</code></pre>
-                    This will ensure that all subsequent shells will start with version 2.11.6 in
+                    <pre><code>$ sdk default scala @scalaVersion</code></pre>
+                    This will ensure that all subsequent shells will start with version @scalaVersion in
                     use.
                     </p>
                 </article>
@@ -190,15 +196,15 @@ Available Groovy Versions
                         To see what is currently in use for a Candidate:
                     <pre><code>
 $ sdk current java
-Using java version 8u111
+Using java version @javaVersion
 </code></pre>
                     To see what is currently in use for <strong>all</strong> Candidates:
                     <pre><code>
 $ sdk current
 Using:
-groovy: 2.4.7
-java: 8u111
-scala: 2.12.1
+groovy: @groovyVersion
+java: @javaVersion
+scala: @scalaVersion
 </code></pre>
                     </p>
                 </article>
@@ -216,37 +222,37 @@ scala: 2.12.1
                     current directory:
                     <pre><code># Enable auto-env through the sdkman_auto_env config
 # Add key=value pairs of SDKs to use below
-java=x.y.z.hs-adpt</code></pre>
+java=@javaVersion</code></pre>
                     The file is pre-populated with the current JDK version in use, but can
                     contain as may key-value pairs of supported SDKs as needed.
                     To switch to the configuration present in your <code>.sdkmanrc</code> file,
                     simply issue the following command:
                     <pre><code>sdk env</code></pre>
                     You should see output that looks something like this:
-                    <pre><code>Using java version x.y.z.hs-adpt in this shell.</code></pre>
+                    <pre><code>Using java version @javaVersion in this shell.</code></pre>
                     Your path has now also been updated to use any of these SDKs in your current shell.
                     When leaving a project, you may want to reset the SDKs to their default version.
                     This can be achieved by entering:
                     <pre><code>
 $ sdk env clear
-Restored java version to x.y.z.hs-adpt (default)
+Restored java version to @javaVersion (default)
                     </code></pre>
                     After checking out a new project, you may be missing some SDKs specified in the project's
                     <code>.sdkmanrc</code> file. To install these missings SDKs, just type:
                     <pre><code>
 $ sdk env install
 
-Downloading: java x.y.z.hs-adpt
+Downloading: java @javaVersion
 
 In progress...
 
 ######################################################################## 100,0%
 
-Repackaging Java x.y.z.hs-adpt...
+Repackaging Java @javaVersion...
 
 Done repackaging...
 
-Installing: java x.y.z.hs-adpt
+Installing: java @javaVersion
 Done installing!
                 </code></pre>
                     Do you want to switch SDK versions automatically when you <code>cd</code> into a
@@ -265,15 +271,15 @@ Done installing!
                     <pre><code>
 $ sdk upgrade springboot
 Upgrade:
-springboot (1.2.4.RELEASE, 1.2.3.RELEASE < 1.2.5.RELEASE)
+springboot (1.2.4.RELEASE, 1.2.3.RELEASE < @springbootVersion)
 </code></pre>
                     To see what is outdated for <strong>all</strong> Candidates:
                     <pre><code>
 $ sdk upgrade
 Upgrade:
-gradle (2.3, 1.11, 2.4, 2.5 < 2.6)
-grails (2.5.1 < 3.0.4)
-springboot (1.2.4.RELEASE, 1.2.3.RELEASE < 1.2.5.RELEASE)
+gradle (2.3, 1.11, 2.4, 2.5 < @gradleVersion)
+grails (2.5.1 < @grailsVersion)
+springboot (1.2.4.RELEASE, 1.2.3.RELEASE < @springbootVersion
 </code></pre>
                     </p>
                 </article>
@@ -295,9 +301,8 @@ springboot (1.2.4.RELEASE, 1.2.3.RELEASE < 1.2.5.RELEASE)
                     <pre><code>
 $ sdk broadcast
 ==== BROADCAST =================================================================
-* 06/12/16: Scala 2.12.1 released on SDKMAN! #scala
-* 23/11/16: Gradle 3.2.1 released on SDKMAN! #gradle
-* 22/11/16: Ceylon 1.3.1 released on SDKMAN! #ceylonlang
+* 2021-12-11: jbang 0.84.2 available on SDKMAN! https://git.io/ABcdE
+* 2021-12-07: mvnd 0.7.1 available on SDKMAN! https://git.io/JDeTK
 ================================================================================
 </code></pre>
                     It is also worth mentioning that whenever an SDK version is released on
@@ -409,8 +414,8 @@ Adding new candidates(s): kotlin
                         When using SDKMAN in scripts, it is often useful to get the absolute
                         path of where an SDK resides (similar to how the <code>java_home</code>
                         command works on macOS). For this we have the <code>home</code> command.
-                        <pre><code>$ sdk home java 11.0.7.hs-adpt
-/home/somedude/.sdkman/candidates/java/11.0.7.hs-adpt</code></pre>
+                        <pre><code>$ sdk home java @javaVersion
+/home/myuser/.sdkman/candidates/java/@javaVersion</code></pre>
                     </p>
                 </article>
                 <br/>
