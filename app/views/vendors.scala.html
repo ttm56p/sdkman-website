@@ -65,7 +65,6 @@ https://vendors.sdkman.io/release
                         <li>SHA-384</li>
                         <li>SHA-512</li>
                     </ul>
-                    </p>
                     <p><h4>Set existing Version as Default for Candidate</h4>When calling this
                     endpoint for an existing Candidate Version, it will make it the Default Version
                     for that Candidate. This makes a Minor release a Major release!
@@ -78,7 +77,7 @@ curl -X PUT \
 -d '{"candidate": "groovy", "version": "2.3.8"}' \
 https://vendors.sdkman.io/default
                     </code></pre>
-                    </p><br/>
+                    <br/>
                     <p><h4>Broadcast a Structured Message</h4>This will result in a structured
                     message announcement on social media and SDKMAN! CLI. The result will look
                     something like: <code>grails 3.0.0 available for download. https://git.io/release</code>.
@@ -94,7 +93,7 @@ curl -X POST \
 -d '{"candidate": "grails", "version": "3.0.0", "url": "https://git.io/release"}' \
 https://vendors.sdkman.io/announce/struct
                     </code></pre>
-                    </p><br/>
+                    <br/>
 				</article>
                 <article><a name='gradleplugin'></a>
                     <h3>Gradle SDK Vendor Plugin</h3>
