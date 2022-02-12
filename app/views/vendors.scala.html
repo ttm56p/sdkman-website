@@ -46,14 +46,15 @@
                     any other client can be used to perform the API operations:<p><h4>Release a new
                         Candidate Version</h4>This will perform a Minor Release on SDKMAN!. It will
                     simply add the new Candidate Version, but will not make it the default version
-                    for the Candidate.
+                    for the Candidate. This endpoint supports <code>POST</code>, <code>PATCH</code>
+                    and <code>DELETE</code> HTTP methods.
                     <pre><code>
 curl -X POST \
 -H "Consumer-Key: CONSUMER_KEY" \
 -H "Consumer-Token: CONSUMER_TOKEN" \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
--d '{"candidate": "groovy", "version": "2.4.2", "url": "http://dl.bintray.com/groovy/maven/groovy-binary-2.4.6.zip", "checksums": { "MD5": "82d265186a651edb53bf187487966b92" } }' \
+-d '{"candidate": "groovy", "version": "2.4.2", "url": "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-2.4.6.zip", "checksums": { "MD5": "82d265186a651edb53bf187487966b92" } }' \
 https://vendors.sdkman.io/release
                     </code></pre>
                     Supported checksum algorithms:
@@ -65,6 +66,26 @@ https://vendors.sdkman.io/release
                         <li>SHA-384</li>
                         <li>SHA-512</li>
                     </ul>
+
+                    <h5>Multi vendor candidates and vendor strings</h5>
+                    For vendors who wish to publish to a multi-vendor candidate like Java or JMC,
+                    we require the presence of a vendor string in the JSON payload. In the
+                    above example, the payload would look something like this:
+<pre><code>
+{
+    "candidate": "java",
+    "version": "11.0.10",
+    "vendor": "zulu",
+    "url": "https://cdn.azul.com/zulu/bin/zulu11.45.27-ca-jdk11.0.10-linux_x64.tar.gz",
+    "platform": "LINUX_64",
+    "checksums": {
+        "SHA-256": "0bd85593bae021314378f3b146cfe36a6c9b0afd964d897c34201034ace3e785"
+    }
+}
+</code></pre>
+                    This will result in a new version comprised of <code>$version-$vendor</code>,
+                    so in this case it would now be referred to as <code>11.0.10-zulu</code>.
+
                     <p><h4>Set existing Version as Default for Candidate</h4>When calling this
                     endpoint for an existing Candidate Version, it will make it the Default Version
                     for that Candidate. This makes a Minor release a Major release!
