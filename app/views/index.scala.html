@@ -1,5 +1,5 @@
-@()
-@main(title = "Home") {
+@()(implicit request: Request[AnyContent])
+@main(title = "Home", request) {
 @includes.advertisement()
 <div id='band' class='band'></div>
 <div id='content'>

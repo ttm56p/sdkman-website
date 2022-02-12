@@ -30,20 +30,20 @@ class ContextualController @Inject()(cc: ControllerComponents,
 
   val usage = Action.async { implicit request: Request[AnyContent] =>
     candidatesRepo.findAllCandidates().map { candidates =>
-        val candidateVersions = candidates.map(c => Tuple2(c.candidate, c.default.getOrElse("x.y.z"))).toMap
-        Ok(views.html.usage(candidateVersions))
-      }
+      val candidateVersions = candidates.map(c => Tuple2(c.candidate, c.default.getOrElse("x.y.z"))).toMap
+      Ok(views.html.usage(candidateVersions))
+    }
   }
 
   val vendors = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.vendors())
   }
 
-  def jdks = Action.async { _ =>
+  def jdks = Action.async { implicit request: Request[AnyContent] =>
     Future.successful(Ok(views.html.jdks(conf.as[Seq[Jdk]]("jdks.vendors").sortBy(_.distribution))))
   }
 
-  def sdks = Action.async { _ =>
+  def sdks = Action.async { implicit request: Request[AnyContent] =>
     candidatesRepo.findAllCandidates().map { candidates =>
       val sanitisedCandidates = candidates.filter(c => !Seq("java", "test").contains(c.candidate))
       Ok(views.html.sdks(sanitisedCandidates))

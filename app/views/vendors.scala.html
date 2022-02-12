@@ -1,5 +1,5 @@
-@()
-@main(title = "Vendors") {
+@()(implicit request: Request[AnyContent])
+@main(title = "Vendors", request) {
 <div id='content' class='page-1'>
     <div class='row'>
         <div class='row-fluid'>

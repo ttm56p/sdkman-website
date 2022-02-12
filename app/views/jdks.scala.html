@@ -1,5 +1,5 @@
-@(jdks: Seq[Jdk])
-@main(title = "JDK Distributions") {
+@(jdks: Seq[Jdk])(implicit request: Request[AnyContent])
+@main(title = "JDK Distributions", request) {
 <div id='content' class='page-1'>
     <div class='row'>
         <div class='row-fluid'>

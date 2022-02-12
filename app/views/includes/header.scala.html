@@ -1,4 +1,4 @@
-@(title: String)
+@(title: String, request: Request[AnyContent])
 <head>
     <meta charset='utf-8'/>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'/>
@@ -12,7 +12,7 @@
 
     <!-- Social bits -->
     <meta property='og:type' content='website' />
-    <meta property='og:url' content='https://sdkman.io/' />
+    <meta property='og:url' content='https://sdkman.io@{request.uri}' />
     <meta property='og:title' content='@title - SDKMAN! the Software Development Kit Manager' />
     <meta property='og:description' content='SDKMAN! is a tool for managing parallel versions of multiple Software Development Kits on most Unix based systems.' />
     <meta property='og:image' content='https://sdkman.io/assets/img/bubble-logo-sdkman-groovy-color.png' />
