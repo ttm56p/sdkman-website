@@ -17,36 +17,37 @@
             <div class='col-lg-8 col-lg-pull-0'>
                 <h1><a name='main'></a><i class='fa fa-briefcase'></i> Vendors</h1>
                 @includes.advertisement()
-                <article><p>SDKMAN! is unique in that it empowers SDK Vendors to publish their own
-                    Candidate releases on our platform. We provide a secure API that can be used to
-                    manage all aspects of a release on SDKMAN!. This includes
-                    <strong>Releasing</strong> a new Version, setting an existing Version as
-                    <strong>Default</strong> (Stable) and <strong>Announcing</strong> the release on
-                    the SDKMAN! CLI broadcast and Twitter feed.</p></article>
+                <article><p>SDKMAN! is unique in that it empowers SDK Vendors to publish their candidate releases on our
+                    platform. We provide a secure API that can be used to manage all aspects of a release on SDKMAN!.
+                    Such aspects include <strong>Releasing</strong> a new version, setting an existing version as
+                    <strong>Default</strong> (Stable) and <strong>Announcing</strong> the release on the SDKMAN! CLI
+                    broadcast and Twitter feed.</p></article>
                 <article><a name='operations'></a>
                     <h3>Operations</h3>
-                    <p>The API is a simple JSON REST API that allows several operations:
+                    The API is a simple JSON REST API that allows three basic operations:
                     <ul>
-                        <li>Release a new Candidate Version</li>
-                        <li>Make a Version the Default for a given Candidate</li>
-                        <li>Broadcast a structured release message</li>
-                        <li>Broadcast a freeform message</li>
+                        <li>Release a new candidate version</li>
+                        <li>Set the default for a candidate</li>
+                        <li>Broadcast a release message</li>
                     </ul>
-                    </p></article>
+                </article>
                 <article><a name='access'></a>
                     <h3>Access</h3>
                     <p>This is a secured API, and requires appropriate credentials to perform the
                         above operations. Access will be granted on a
-                        case-by-case basis to Vendors who are interested in making their technology
-                        available on SDKMAN!. If you want to publish your releases
-                        on SDKMAN!, please <a href='mailto:info@@sdkman.io'>contact us</a> to help
-                        get you onboarded.</p></article>
+                        case-by-case basis to Vendors who are interested in making their SDK
+                        available on SDKMAN!. If you want to publish your releases on SDKMAN!, please follow the Vendor Onboarding
+                        <a href='https://github.com/sdkman/sdkman-cli/wiki/Vendor-onboarding-process'>wiki page</a>
+                        and then <a href='mailto:info@@sdkman.io'>contact us</a> for help with setting up your credentials.</p></article>
                 <article><a name='endpoints'></a>
-                    <h3>Endpoints</h3>The simplest way to call the API is by using cURL. Of course,
-                    any other client can be used to perform the API operations:<p><h4>Release a new
-                        Candidate Version</h4>This will perform a Minor Release on SDKMAN!. It will
-                    simply add the new Candidate Version, but will not make it the default version
-                    for the Candidate. This endpoint supports <code>POST</code>, <code>PATCH</code>
+                    <h3>Endpoints</h3>
+                    The simplest way to call the API is by using <a href='https://curl.se/'>curl</a>. Of course,
+                    any other client can be used to perform the API operations:<p>
+
+                    <h4>Release a new Candidate Version</h4>
+                    This will perform a minor release on SDKMAN!. It will
+                    simply add the new candidate version, but will not make it the default version
+                    for that candidate. This endpoint supports <code>POST</code>, <code>PATCH</code>
                     and <code>DELETE</code> HTTP methods.
                     <pre><code>
 curl -X POST \
@@ -54,10 +55,39 @@ curl -X POST \
 -H "Consumer-Token: CONSUMER_TOKEN" \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
--d '{"candidate": "groovy", "version": "2.4.2", "url": "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-2.4.6.zip", "checksums": { "MD5": "82d265186a651edb53bf187487966b92" } }' \
+-d '{"candidate": "groovy", "version": "2.4.2", "url": "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-2.4.6.zip"}' \
 https://vendors.sdkman.io/release
                     </code></pre>
-                    Supported checksum algorithms:
+
+                    <h5>Multi-platform binary distributions</h5>
+                    We support both universal and multi-platform binary distributions. Universal binaries run on all
+                    platforms, so you need to publish only a single SDK archive to our API. Multi-platform APIs are
+                    compiled specifically for the target platform and require an archive per target platform to be
+                    published. We currently support the following platforms:
+                    <ul>
+                        <li>LINUX_64</li>
+                        <li>LINUX_ARM64</li>
+                        <li>LINUX_32</li>
+                        <li>LINUX_ARM32SF</li>
+                        <li>LINUX_ARM32HF</li>
+                        <li>MAC_OSX</li>
+                        <li>MAC_ARM64</li>
+                        <li>WINDOWS_64</li>
+                    </ul>
+
+                    To indicate the target platform, a <code>platform</code> key with associated platform
+                    should be included in the payload. If no <code>platform</code> is included, we assume the
+                    value to be <code>UNIVERSAL</code>.
+
+                    <h5>Multi-vendor candidates</h5>
+                    For vendors who wish to publish to a multi-vendor candidate like Java or JMC,
+                    we require the presence of a <em>vendor string</em> in the JSON payload.
+                    This will result in a new version comprised of <code>$version-$vendor</code>,
+                    so in this case it would appear as <code>11.0.10-zulu</code> on SDKMAN!.
+
+                    <h5>Checksums</h5>
+                    An optional map of <code>checksums</code> may be provided in the payload for each published binary.
+                    Supported checksum algorithms are:
                     <ul>
                         <li>MD5</li>
                         <li>SHA-1</li>
@@ -67,11 +97,11 @@ https://vendors.sdkman.io/release
                         <li>SHA-512</li>
                     </ul>
 
-                    <h5>Multi vendor candidates and vendor strings</h5>
-                    For vendors who wish to publish to a multi-vendor candidate like Java or JMC,
-                    we require the presence of a vendor string in the JSON payload. In the
-                    above example, the payload would look something like this:
-<pre><code>
+                    <h5>Sample payload</h5>
+                    An example payload demonstrating the release of a multi-platform Java binary
+                    for <code>LINUX_64</code> published by Azul as <code>zulu</code> with two checksums
+                    will look something like this:
+                    <pre><code>
 {
     "candidate": "java",
     "version": "11.0.10",
@@ -79,16 +109,15 @@ https://vendors.sdkman.io/release
     "url": "https://cdn.azul.com/zulu/bin/zulu11.45.27-ca-jdk11.0.10-linux_x64.tar.gz",
     "platform": "LINUX_64",
     "checksums": {
+        "MD5": "93c9d427af64f2da8c00c9219360815b",
         "SHA-256": "0bd85593bae021314378f3b146cfe36a6c9b0afd964d897c34201034ace3e785"
     }
 }
-</code></pre>
-                    This will result in a new version comprised of <code>$version-$vendor</code>,
-                    so in this case it would now be referred to as <code>11.0.10-zulu</code>.
+                    </code></pre>
 
-                    <p><h4>Set existing Version as Default for Candidate</h4>When calling this
-                    endpoint for an existing Candidate Version, it will make it the Default Version
-                    for that Candidate. This makes a Minor release a Major release!
+                    <p><h4>Set existing Version as Default for Candidate</h4>
+                    When calling this endpoint for an existing candidate version, it will make it the default version
+                    for that candidate. This makes a minor release a major release!
                     <pre><code>
 curl -X PUT \
 -H "Consumer-Key: CONSUMER_KEY" \
