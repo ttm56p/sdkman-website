@@ -657,24 +657,23 @@ h4 {
 }
 
 h5 {
-    font-size: 1.125em;
+    font-size: 1.08em;
     font-weight: bold;
-    color: #fb2127
+    color: #245f78;
 }
 
 h6 {
     font-size: 1.08em;
     font-weight: normal;
-    color: #fb2127
 }
 
 h7 {
     font-weight: bold;
-    color: #245f78
+    color: #245f78;
 }
 
 h8 {
-    color: #245f78
+    color: #245f78;
 }
 
 #footer {
