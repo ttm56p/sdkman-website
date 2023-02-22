@@ -25,7 +25,6 @@
                     <li><a href='#env' class='anchor-link'>Env Command</a></li>
                     <li><a href='#upgrade' class='anchor-link'>Upgrade Versions</a></li>
                     <li><a href='#version' class='anchor-link'>Version</a></li>
-                    <li><a href='#broadcast' class='anchor-link'>Broadcast Messages</a></li>
                     <li><a href='#offline' class='anchor-link'>Offline Mode</a></li>
                     <li><a href='#selfupdate' class='anchor-link'>Self-Update</a></li>
                     <li><a href='#update' class='anchor-link'>Update</a></li>
@@ -288,26 +287,14 @@ springboot (1.2.4.RELEASE, 1.2.3.RELEASE < @springbootVersion
                     <a name='version'></a>
                     <h2>SDKMAN! Version</h2>
                     <p>
-                        Display the current version of SDKMAN!:
-                    <pre><code>$ sdk version</code></pre>
-                    </p>
-                </article>
-                <br/>
-                <article>
-                    <a name='broadcast'></a>
-                    <h2>Broadcast Messages</h2>
-                    <p>
-                        Get the latest SDK release notifications on the command line:
+                        Display the current script and native versions of SDKMAN!:
                     <pre><code>
-$ sdk broadcast
-==== BROADCAST =================================================================
-* 2021-12-11: jbang 0.84.2 available on SDKMAN! https://git.io/ABcdE
-* 2021-12-07: mvnd 0.7.1 available on SDKMAN! https://git.io/JDeTK
-================================================================================
+$ sdk version
+
+SDKMAN!
+script: 5.7.0
+native: 0.1.3
 </code></pre>
-                    It is also worth mentioning that whenever an SDK version is released on
-                    SDKMAN!, a notification will appear when next using the CLI.
-                    Every new broadcast is also pushed to Twitter.
                     </p>
                 </article>
                 <br/>
@@ -385,25 +372,14 @@ Adding new candidates(s): kotlin
                     <a name='flush'></a>
                     <h2>Flush</h2>
                     <p>
-                        From time to time it may be necessary to flush SDKMAN!&apos;s local
-                        state.The flush command helps with this and allows for the following to be
-                        performed:
-                    <h4>Flush storage</h4>
+                        It should rarely be necessary to flush SDKMAN!&apos;s local state.
+                        The flush command helps with this, so you don't need to delete any directories.
+                            <br/>
+                            <b>Manually deleting directories like
+                        the <code>.sdkman/tmp</code> directory will break SDKMAN! Always use
+                        the <code>flush</code> command instead!</b>
+
                     <pre><code>$ sdk flush</code></pre>
-                    This flushes out all archives and the temporary storage folder, but not
-                    the broadcast cache.
-                    <h4>Broadcast</h4>
-                    <pre><code>$ sdk flush broadcast</code></pre>
-                    Clears out the broadcast cache, downloading the latest available news on next
-                    command invocation.
-                    <h4>Archives</h4>
-                    <pre><code>$ sdk flush archives</code></pre>
-                    Cleans the cache containing all downloaded SDK binaries. This can take up a lot
-                    of space so is worth clearing out from time to time!
-                    <h4>Temporary Folder</h4>
-                    <pre><code>$ sdk flush tmp</code></pre>
-                    Clears out the staging work folder used when installing new versions of
-                    candidates and SDKMAN! itself.
                     </p>
                 </article>
                 <br/>
@@ -425,30 +401,8 @@ Adding new candidates(s): kotlin
                     <p>
                         You can get basic help by running the following command:
                     <pre><code>$ sdk help</code></pre>
-                    This should yield something like:
-                    <pre><code>
-Usage:  sdk &lt;command&gt; [candidate] [version]
-        sdk offline &lt;enable|disable&gt;
-
-    commands:
-        install   or i    &lt;candidate&gt; [version] [local-path]
-        uninstall or rm   &lt;candidate&gt; &lt;version&gt;
-        list      or ls   [candidate]
-        use       or u    &lt;candidate&gt; &lt;version&gt;
-        default   or d    &lt;candidate&gt; [version]
-        home      or h    &lt;candidate&gt; &lt;version&gt;
-        env       or e    [init]
-        current   or c    [candidate]
-        upgrade   or ug   [candidate]
-        version   or v
-        broadcast or b
-        help
-        offline           [enable|disable]
-        selfupdate        [force]
-        update
-        flush             [archives|tmp|broadcast|version]
-        ...
-                    </code></pre>
+                    This should render a useful top-level help page. You can add qualifier to this command to get help about a specific sub-command.
+                    <pre><code>$ sdk help install</code></pre>
                     </p>
                     <hr class='divider'/>
                 </article>
