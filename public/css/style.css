@@ -902,6 +902,15 @@ h8 {
     background-position: 0 -400px
 }
 
+#content .colset-2-its article .icon.icon-7 {
+    width: 60px;
+    height: 80px;
+    background-image: url(../img/duke-thumbsup-comic.png);
+    float: left;
+    margin-top: 25px;
+    margin-left: 15px
+}
+
 #content .colset-2-its article > h1 {
     font-size: 19px;
     font-weight: 600;
