@@ -131,4 +131,7 @@ project/plugins/project/
 *.log
 *.metals
 
+### VSCODE ###
+.vscode/
+
 # End of https://www.gitignore.io/api/sbt,scala,bloop,metals,intellij+all,playframework
