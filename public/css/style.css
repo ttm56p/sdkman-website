@@ -894,7 +894,8 @@ h8 {
 }
 
 #content .colset-2-its article .icon.icon-5 {
-    background-position: 0 -320px
+    background-position: 0 -320px;
+    margin-top: 25px;
 }
 
 #content .colset-2-its article .icon.icon-6 {
