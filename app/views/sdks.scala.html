@@ -1,4 +1,5 @@
-@import io.sdkman.repos.Candidate
+
+@import io.sdkman.model.Candidate
 @(candidates: Seq[Candidate])(implicit request: Request[AnyContent]))
 @main(title = "Available SDKs", request) {
 <div id='content' class='page-1'>
