@@ -1,4 +1,4 @@
-@(sdkVersion: String)(implicit request: Request[AnyContent])
+@(scriptCliVersion: String, nativeCliVersion: String)(implicit request: Request[AnyContent])
 @main(title = "Installation", request) {
 <div id='content' class='page-1'>
     <div class='row'>
@@ -20,8 +20,8 @@
                 <pre><code>$ sdk version</code></pre>
                 <p>You should see output containing the latest script and native versions:</p>
                 <pre><code>SDKMAN!
-script: @sdkVersion
-native: 0.4.0</code></pre>
+script: @scriptCliVersion
+native: @nativeCliVersion</code></pre>
 
                 <h3>Windows installation</h3>
                 <p>For Windows, there are two installation routes:</p>

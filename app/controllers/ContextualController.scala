@@ -25,8 +25,9 @@ class ContextualController @Inject() (
 
   val install = Action.async { implicit request: Request[AnyContent] =>
     applicationRepo.findApplication().map { app =>
-      val sdkmanVersion = app.map(_.stableCliVersion).getOrElse("6.0.0")
-      Ok(views.html.install(sdkmanVersion))
+      val scriptCliVersion = app.map(_.stableCliVersion).getOrElse("6.0.0")
+      val nativeCliVersion = app.map(_.stableNativeCliVersion).getOrElse("1.0.0")
+      Ok(views.html.install(scriptCliVersion, nativeCliVersion))
     }
   }
 
