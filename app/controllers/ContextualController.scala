@@ -12,10 +12,12 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 @Singleton
-class ContextualController @Inject()(cc: ControllerComponents,
-                                     applicationRepo: ApplicationRepo,
-                                     candidatesRepo: CandidatesRepo,
-                                     conf: Config) extends AbstractController(cc) {
+class ContextualController @Inject() (
+    cc: ControllerComponents,
+    applicationRepo: ApplicationRepo,
+    candidatesRepo: CandidatesRepo,
+    conf: Config
+) extends AbstractController(cc) {
 
   val index = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index())
@@ -30,7 +32,9 @@ class ContextualController @Inject()(cc: ControllerComponents,
 
   val usage = Action.async { implicit request: Request[AnyContent] =>
     candidatesRepo.findAllCandidates().map { candidates =>
-      val candidateVersions = candidates.map(c => Tuple2(c.candidate, c.default.getOrElse("x.y.z"))).toMap
+      val candidateVersions = candidates
+        .map(c => Tuple2(c.candidate, c.default.getOrElse("x.y.z")))
+        .toMap
       Ok(views.html.usage(candidateVersions))
     }
   }
@@ -40,18 +44,31 @@ class ContextualController @Inject()(cc: ControllerComponents,
   }
 
   def jdks = Action.async { implicit request: Request[AnyContent] =>
-    Future.successful(Ok(views.html.jdks(conf.as[Seq[Jdk]]("jdks.vendors").sortBy(_.distribution))))
+    Future.successful(
+      Ok(
+        views.html.jdks(
+          conf.as[Seq[Jdk]]("jdks.vendors").sortBy(_.distribution)
+        )
+      )
+    )
   }
 
   def sdks = Action.async { implicit request: Request[AnyContent] =>
     candidatesRepo.findAllCandidates().map { candidates =>
-      val sanitisedCandidates = candidates.filter(c => !Seq("java", "test").contains(c.candidate))
+      val sanitisedCandidates =
+        candidates.filter(c => !Seq("java", "test").contains(c.candidate))
       Ok(views.html.sdks(sanitisedCandidates))
     }
   }
 }
 
-case class Jdk(id: String, vendor: String, distribution: String, url: String, description: String)
+case class Jdk(
+    id: String,
+    vendor: String,
+    distribution: String,
+    url: String,
+    description: String
+)
 
 @Singleton
 class CandidatesRepo extends ICandidatesRepo with MongoConnection
